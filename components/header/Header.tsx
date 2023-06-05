@@ -27,6 +27,7 @@ export interface NavItem {
 
 export interface Props {
   alerts: string[];
+  
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -61,8 +62,8 @@ function Header(
     <>
       <header style={{ height: headerHeight }}>
         <div class="bg-base-100 fixed w-full z-50">
-          <Alert alerts={alerts} />
           <Navbar items={navItems} searchbar={searchbar} />
+          <Alert alerts={alerts}/>
         </div>
 
         <Modals
