@@ -50,7 +50,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     <a
       href={action?.href ?? "#"}
       aria-label={action?.label}
-      class="relative h-[600px] overflow-y-hidden w-full"
+      class="relative h-[445px] overflow-y-hidden w-full"
     >
       <Picture preload={lcp}>
         <Source
@@ -64,8 +64,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           media="(min-width: 768px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
-          width={1440}
-          height={600}
+          width={1520}
+          height={445}
         />
         <img
           class="object-cover w-full"
@@ -74,7 +74,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           alt={alt}
         />
       </Picture>
-      {action && (
+      {/* {action && (
         <div class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 p-4 rounded glass">
           <span class="text-6xl font-medium text-base-100">
             {action.title}
@@ -84,7 +84,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           </span>
           <Button class="glass">{action.label}</Button>
         </div>
-      )}
+      )} */}
     </a>
   );
 }
@@ -154,7 +154,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px]"
+      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] mt-9"
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
         {images?.map((image, index) => (
@@ -163,10 +163,6 @@ function BannerCarousel({ images, preload, interval }: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
-      <Buttons />
-
-      <Dots images={images} interval={interval} />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
