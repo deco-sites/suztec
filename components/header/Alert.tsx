@@ -1,6 +1,8 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "preact/hooks";
+import { useScroll } from "../../sdk/useScroll.ts";
+import { useUI } from "../../sdk/useUI.ts";
 
 export interface Props {
   alerts: string[];
@@ -13,14 +15,21 @@ export interface Props {
 
 function Alert({ alerts = [], interval = 5 }: Props) {
   const id = useId();
+  const scroll = useScroll();
 
   return (
-    <div id={id}>
-      <Slider class="carousel carousel-center bg-secondary gap-6 scrollbar-none">
+    <div id={id} class={`relative ${scroll.value > 0 ? "hidden" : ""}`}>
+      <Slider class="carousel carousel-center bg-black gap-6 scrollbar-none">
         {alerts.map((alert, index) => (
           <Slider.Item index={index} class="carousel-item">
-            <span class="text-sm text-secondary-content flex justify-center items-center w-screen h-[38px]">
+            <span class="text-sm text-white flex justify-center items-center leading-5 w-screen h-[36px]">
               {alert}
+              <a
+                href="/busca?O=OrderByReleaseDateDESC"
+                class="hover:underline ml-1"
+              >
+                SHOP NOW!
+              </a>
             </span>
           </Slider.Item>
         ))}
