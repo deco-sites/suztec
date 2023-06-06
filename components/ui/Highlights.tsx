@@ -16,29 +16,31 @@ export interface Props {
 
 function Highlights({ highlights = [], title }: Props) {
   return (
-    <div class="container grid grid-cols-1 grid-rows-[48px_1fr] py-10">
+    <div class="container grid grid-cols-1 grid-rows-[48px_1fr] py-4">
       <h2 class="text-center">
         <span class="font-medium text-2xl">{title}</span>
       </h2>
 
-      <Slider class="carousel carousel-center sm:carousel-end gap-6">
+      <Slider class="carousel carousel-center sm:carousel-end gap-3 mx-auto">
         {highlights.map(({ href, src, alt, label }, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
+            class="carousel-item max-w-[358px] h-[512px] group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
           >
-            <a href={href} class="card card-compact bg-base-100">
+            {/* class="card card-compact" */}
+            <a href={href} class="bg-base-100">
               <figure>
                 <Image
-                  class="rounded-[40px]"
                   src={src}
                   alt={alt}
-                  width={190}
-                  height={265}
+                  width={455}
+                  height={553}
                 />
               </figure>
               <div class="card-body items-center">
-                <h2 class="card-title text-base font-medium">{label}</h2>
+                <button class="font-medium border border-black px-20 group-hover:text-white group-hover:bg-black transition-all ease-out duration-300">
+                  {label}
+                </button>
               </div>
             </a>
           </Slider.Item>
