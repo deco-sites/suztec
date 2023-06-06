@@ -146,7 +146,7 @@ function BannerDoble(
               : TextPosition === "final"
               ? "items-end"
               : null
-          } pr-24 pl-24)`}
+          }pr-4 pt-10 pl-24)`}
         >
           {/* <span class={`w-full h-[45vh] block md:hidden`}></span> */}
           <div
@@ -201,7 +201,7 @@ function BannerDoble(
               <Button
                 class="md:w-52"
                 name={buttonCallToAction?.ctaName}
-                // variant={buttonCallToAction?.ctaVariant}
+                variant={buttonCallToAction?.ctaVariant}
               >
                 {buttonCallToAction?.ctaName}
               </Button>
