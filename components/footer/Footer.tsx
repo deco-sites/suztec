@@ -1,6 +1,7 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ComponentChildren } from "preact";
+import Button from "$store/components/ui/Button.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -21,7 +22,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <span class="text-primary-content">
+    <span class="text-black font-medium text-sm">
       {isIcon(item)
         ? (
           <div class="border-base-100 border border-solid py-1.5 px-2.5">
@@ -48,7 +49,9 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return (
+    <div class={`py-6 px-4 sm:py-[60px] sm:px-0 ${_class}`}>{children}</div>
+  );
 }
 
 export interface Props {
@@ -57,23 +60,18 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
+    <footer class="w-full bg-white flex flex-col divide-y divide-primary-content border-t-2">
       <div>
         <div class="container w-full flex flex-col divide-y divide-primary-content">
           <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
-          <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row gap-32 justify-center">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <span class="font-medium text-xl text-primary-content">
+                    <span class="text-sm font-bold text-black">
                       {section.label}
                     </span>
-
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
@@ -123,48 +121,63 @@ function Footer({ sections = [] }: Props) {
       <div>
         <div class="container w-full">
           <FooterContainer class="flex justify-between w-full">
-            <span class="flex items-center gap-1 text-primary-content">
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </span>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
+            <ul class="flex justify-center gap-10 w-full text-black items-center">
+              <li class="block text-center w-[380px]">
+                <span class="items-center text-black font-semibold text-sm">
+                  ENCONTRE UMA LOJA
+                </span>
+                <div>
+                  <button class="btn rounded-none text-white disabled:loading mt-[50px]">
+                    ENCONTRE A LOJA MAIS PRÓXIMA
+                  </button>
+                </div>
               </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
+              <li class="block text-center w-[380px]">
+                <span class="items-center text-black font-semibold text-sm">
+                  SIGA-NOS NAS REDES SOCIAIS
+                </span>
+                <ul class="flex items-center justify-center gap-2 mt-[50px]">
+                  <li>
+                    <a
+                      href="https://www.instagram.com/deco.cx"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram logo"
+                    >
+                      <Icon
+                        class="text-primary-content"
+                        width={32}
+                        height={32}
+                        id="Instagram"
+                        strokeWidth={1}
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="http://www.deco.cx/discord"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Discord logo"
+                    >
+                      <Icon
+                        class="text-primary-content"
+                        width={32}
+                        height={32}
+                        id="Discord"
+                        strokeWidth={5}
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="block text-center w-[380px]">
+                <span class="items-center font-semibold text-black text-sm">
+                  FIQUE POR DENTRO DAS NOVIDADES E PROMOÇÕES
+                </span>
+                <div class="max-w-[380px] mt-[30px] mx-auto ">
+                  <Newsletter />
+                </div>
               </li>
             </ul>
           </FooterContainer>
