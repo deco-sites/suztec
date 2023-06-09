@@ -8552,6 +8552,22 @@
             {
               "type": "string",
               "const": "UserNav"
+            },
+            {
+              "type": "string",
+              "const": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Spotify"
+            },
+            {
+              "type": "string",
+              "const": "FooterLogo"
             }
           ],
           "type": "string",
@@ -8766,6 +8782,22 @@
             {
               "type": "string",
               "const": "UserNav"
+            },
+            {
+              "type": "string",
+              "const": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Spotify"
+            },
+            {
+              "type": "string",
+              "const": "FooterLogo"
             }
           ],
           "type": "string",

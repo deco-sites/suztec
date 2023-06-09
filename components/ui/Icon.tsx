@@ -38,7 +38,11 @@ export type AvailableIcons =
   | "Gift-solid"
   | "Heart-filled"
   | "Map-marker"
-  | "UserNav";
+  | "UserNav"
+  | "Youtube"
+  | "Linkedin"
+  | "Spotify"
+  | "FooterLogo";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**
