@@ -8,7 +8,7 @@ export interface Props {
   productShelf: Section;
 }
 
-function ProductShelfAndCard (
+function ProductShelfAndCard(
   { card, productShelf }: Props,
 ) {
   const { Component, props } = productShelf;
