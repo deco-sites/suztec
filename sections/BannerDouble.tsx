@@ -9,7 +9,7 @@ export interface BannerDoubleContainerProps {
 export default function BannerDobbleSection(props: BannerDoubleContainerProps) {
   return (
     <>
-      <div class="text-white flex gap-1 justify-center text-center md:(flex-row px-12 py-[10px]) 15xl:px-0">
+      <div class="text-white flex gap-1 justify-center text-center md:(flex-row px-[30px] py-[10px]) 15xl:px-0">
         <BannerDouble {...props.bannerPrimary} />
         <BannerDouble {...props.bannerSecundary} />
       </div>

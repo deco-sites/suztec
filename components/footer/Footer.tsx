@@ -1,7 +1,7 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ComponentChildren } from "preact";
-import FooterLogo from  "./FooterLogo.tsx"
+import FooterLogo from "./FooterLogo.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -71,9 +71,7 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return (
-    <div class={`py-6 px-4 sm:px-0 ${_class}`}>{children}</div>
-  );
+  return <div class={`py-6 px-4 sm:px-0 ${_class}`}>{children}</div>;
 }
 
 export interface Props {
@@ -85,7 +83,7 @@ function Footer({ sections = [] }: Props) {
     <footer class="w-full bg-white flex flex-col  border-t-2">
       <div class="flex justify-center">
         <div class=" w-[1140px] flex flex-col">
-          <FooterContainer  class="pt-[60px] ">
+          <FooterContainer class="pt-[60px] ">
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row">
               {sections.map((section) => (
