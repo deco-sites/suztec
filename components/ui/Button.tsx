@@ -18,7 +18,7 @@ const variants = {
   primary:
     "py-[5px] px-[45px] w-[190px] text-black rounded-[5px] border-0 inline-block font-bold bg-white hover:text-white text-[16px] transition-all duration-300 hover:bg-black focus:outline-none outline-none",
   secondary:
-    " p-[10px] w-[200px] rounded-[50px] border-none inline-block font-bold bg-white text-[12px] transition-all duration-300 hover:scale-110 hover:bg-primary hover:text-white focus:outline-none outline-none",
+    " py-[5px] px-[45px] w-[190px] text-white rounded-[5px] border-0 inline-block font-bold bg-black text-[16px] transition-all duration-300 focus:outline-none outline-none",
   tertiary:
     "p-[10px] w-[160px] h-11 rounded-[50px] border-0 inline-block font-bold bg-primary text-white text-[12px] transition-all duration-300 hover:scale-110 focus:outline-none outline-none",
   blue:
