@@ -36,21 +36,32 @@ function GlobalTags() {
         dangerouslySetInnerHTML={{
           __html: `
           @font-face {
-            font-family: 'helvetica nune';
+            font-family: 'avenir next';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(${
+            asset("/fonts/AvenirNextLTPro-It.woff2")
+          }) format('woff2');
+          }
+          @font-face {
+            font-family: 'avenir next';
             font-style: normal;
             font-weight: 400;
             font-display: swap;
-            src: url(${asset("/fonts/fa-brands-400.woff2")}) format('woff2');
-
-            .icon-sacola:before {
-              content: ""
+            src: url(${
+            asset("/fonts/AvenirNextLTPro-Regular.woff2")
+          }) format('woff2');
           }
-          
-          .icon-sacola-full:before {
-              content: ""
+          @font-face {
+            font-family: 'avenir next';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(${
+            asset("/fonts/AvenirNextLTPro-Bold.woff2")
+          }) format('woff2');
           }
-        }
-         
       `,
         }}
       />

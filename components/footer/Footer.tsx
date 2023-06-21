@@ -143,7 +143,7 @@ function Footer({ sections = [] }: Props) {
           <FooterContainer class="flex justify-between w-full max-w-[1140px] mx-auto">
             <ul class="flex gap-10 w-full text-black items-center">
               <li class="block text-center w-[380px]">
-                <span class="items-center text-black font-semibold text-sm">
+                <span class="items-center text-black font-semibold text-sm ">
                   ENCONTRE UMA LOJA
                 </span>
                 <div>

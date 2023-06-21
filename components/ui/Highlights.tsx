@@ -25,7 +25,7 @@ function Highlights({ highlights = [], title }: Props) {
         {highlights.map(({ href, src, alt, label }, index) => (
           <Slider.Item
             index={index}
-            class=" w-[358px] h-[512px] group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
+            class="group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
           >
             {/* class="card card-compact" */}
             <a href={href} class="bg-base-100">
