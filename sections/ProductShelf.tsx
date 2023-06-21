@@ -4,7 +4,7 @@ import type { Props } from "deco-sites/suztec/components/product/ProductShelf.ts
 export default function ProductShelfSection(props: Props) {
   return (
     <>
-      <div class="w-full max-w-6xl flex justify-center">
+      <div class="w-full max-w-6xl mx-auto">
         <ProductShelf {...props} />
       </div>
     </>

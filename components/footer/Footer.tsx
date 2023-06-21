@@ -147,7 +147,7 @@ function Footer({ sections = [] }: Props) {
                   ENCONTRE UMA LOJA
                 </span>
                 <div>
-                  <button class="btn rounded-none w-[352px] text-white disabled:loading mt-[50px]">
+                  <button class="btn rounded-none w-[352px] text-white disabled:loading mt-7">
                     ENCONTRE A LOJA MAIS PRÓXIMA
                   </button>
                 </div>
