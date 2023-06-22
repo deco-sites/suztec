@@ -22,7 +22,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
       <Slider class="carousel carousel-center bg-black gap-6 scrollbar-none">
         {alerts.map((alert, index) => (
           <Slider.Item index={index} class="carousel-item">
-            <span class="text-sm text-white flex justify-center items-center leading-5 w-screen h-[36px]">
+            <span class="text-sm text-white flex justify-center items-center font-light leading-5 w-screen h-[36px]">
               {alert}
               <a
                 href="/busca?O=OrderByReleaseDateDESC"

@@ -14,7 +14,7 @@ function NavItem({ item }: { item: INavItem }) {
   return (
     <li class="group flex items-center">
       <a href={href} class="pb-[22px] px-[15px]">
-        <span class="text-base ">
+        <span class="text-base font-medium">
           {label}
         </span>
       </a>
@@ -47,7 +47,7 @@ function NavItem({ item }: { item: INavItem }) {
                       {node.children?.map((leaf) => (
                         <li>
                           <a href={leaf.href}>
-                            <span class="text-sm">{leaf.label}</span>
+                            <span class="text-sm font-normal">{leaf.label}</span>
                           </a>
                         </li>
                       ))}

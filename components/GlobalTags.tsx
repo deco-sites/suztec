@@ -36,31 +36,40 @@ function GlobalTags() {
         dangerouslySetInnerHTML={{
           __html: `
           @font-face {
-            font-family: 'avenir next';
+            font-family: 'helvetica_neue';
             font-style: normal;
             font-weight: 300;
             font-display: swap;
             src: url(${
-            asset("/fonts/AvenirNextLTPro-It.woff2")
-          }) format('woff2');
+            asset("/fonts/HelveticaNeue-Condensed.ttf")
+          }) format('truetype');
           }
           @font-face {
-            font-family: 'avenir next';
+            font-family: 'helvetica_neue';
             font-style: normal;
             font-weight: 400;
             font-display: swap;
             src: url(${
-            asset("/fonts/AvenirNextLTPro-Regular.woff2")
-          }) format('woff2');
+            asset("/fonts/HelveticaNeue-CondensedThin.ttf")
+          }) format('truetype');
           }
           @font-face {
-            font-family: 'avenir next';
+            font-family: 'helvetica_neue';
             font-style: normal;
-            font-weight: 700;
+            font-weight: 500;
             font-display: swap;
             src: url(${
-            asset("/fonts/AvenirNextLTPro-Bold.woff2")
-          }) format('woff2');
+            asset("/fonts/helvetica-neue-67-medium-condensed.otf")
+          }) format('truetype');
+          }
+          @font-face {
+            font-family: 'helvetica_neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(${
+            asset("/fonts/HelveticaNeueLTStd-Cn.otf")
+          }) format('truetype');
           }
       `,
         }}
