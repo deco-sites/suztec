@@ -22,7 +22,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <span class="text-black font-medium text-sm">
+    <span class="text-black font-light text-sm">
       {isIcon(item)
         ? (
           <div class="border-base-100 border border-solid py-1.5 px-2.5">
@@ -143,7 +143,7 @@ function Footer({ sections = [] }: Props) {
           <FooterContainer class="flex justify-between w-full max-w-[1140px] mx-auto">
             <ul class="flex gap-10 w-full text-black items-center">
               <li class="block text-center w-[380px]">
-                <span class="items-center text-black font-semibold text-sm ">
+                <span class="items-center text-black font-medium text-sm ">
                   ENCONTRE UMA LOJA
                 </span>
                 <div>
@@ -153,7 +153,7 @@ function Footer({ sections = [] }: Props) {
                 </div>
               </li>
               <li class="block text-center w-[380px]">
-                <span class="items-center text-black font-semibold text-sm">
+                <span class="items-center text-black font-medium text-sm">
                   SIGA-NOS NAS REDES SOCIAIS
                 </span>
                 <ul class="flex items-center justify-between gap-2 mt-[50px]">
@@ -188,7 +188,7 @@ function Footer({ sections = [] }: Props) {
                 </ul>
               </li>
               <li class="block text-center w-[380px]">
-                <span class="items-center font-semibold text-black text-sm">
+                <span class="items-center font-medium text-black text-sm">
                   FIQUE POR DENTRO DAS NOVIDADES E PROMOÇÕES
                 </span>
                 <div class="max-w-[380px] mt-[30px] mx-auto ">
@@ -201,11 +201,11 @@ function Footer({ sections = [] }: Props) {
       </div>
       <div class="flex flex-col justify-center text-center ">
         <div class="h-[93px]">
-          <p class="text-[10px] font-medium">
+          <p class="text-[10px] font-light">
             CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA
             - ES
           </p>
-          <p class="text-[10px] font-medium">
+          <p class="text-[10px] font-light">
             © Todos os direitos reservados. Eventuais promoções, descontos e
             prazos de pagamento expostos aqui são válidos apenas para compras
             via internet.

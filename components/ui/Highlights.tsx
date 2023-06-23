@@ -38,7 +38,7 @@ function Highlights({ highlights = [], title }: Props) {
                 />
               </figure>
               <div class="card-body items-center">
-                <button class="font-medium border border-black px-20 group-hover:text-white group-hover:bg-black transition-all ease-out duration-300">
+                <button class="font-light border border-black px-20 group-hover:text-white group-hover:bg-black transition-all ease-out duration-300">
                   {label}
                 </button>
               </div>

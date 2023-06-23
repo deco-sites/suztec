@@ -6,7 +6,7 @@ import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Logo from "./Logo.tsx"
+import Logo from "./Logo.tsx";
 
 const navItems = [
   {
@@ -59,13 +59,12 @@ function Navbar({ items, searchbar }: {
       {/* Desktop Version */}
       <div class="hidden md:flex h-24 flex-row items-center border-b border-base-200 w-full px-[30px]">
         <div class="flex-none">
-       
           <a href="/">
             <Logo />
           </a>
         </div>
         <div class="block w-full">
-          <div class="flex justify-end items-center mt-[14px]">
+          <div class="flex justify-end items-center mt-5">
             {navItems.map((item) => (
               <a
                 class="flex px-[5px] text-sm font-light items-center hover:underline"
@@ -83,7 +82,7 @@ function Navbar({ items, searchbar }: {
             ))}
           </div>
 
-          <div class="flex-none w-full flex justify-between gap-2 mt-5">
+          <div class="flex-none w-full flex justify-between gap-2 mt-3">
             <div class="flex">
               {items.map((item) => <NavItem item={item} />)}
             </div>

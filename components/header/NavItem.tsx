@@ -39,7 +39,7 @@ function NavItem({ item }: { item: INavItem }) {
               <ul class="flex items-start justify-center gap-1">
                 {children.map((node) => (
                   <li class="p-[15px]">
-                    <a class="font-semibold" href={node.href}>
+                    <a class="font-medium" href={node.href}>
                       <span>{node.label}</span>
                     </a>
 
@@ -47,7 +47,9 @@ function NavItem({ item }: { item: INavItem }) {
                       {node.children?.map((leaf) => (
                         <li>
                           <a href={leaf.href}>
-                            <span class="text-sm font-normal">{leaf.label}</span>
+                            <span class="text-sm font-light">
+                              {leaf.label}
+                            </span>
                           </a>
                         </li>
                       ))}

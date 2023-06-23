@@ -47,7 +47,7 @@ function GlobalTags() {
           @font-face {
             font-family: 'helvetica_neue';
             font-style: normal;
-            font-weight: 400;
+            font-weight: 200;
             font-display: swap;
             src: url(${
             asset("/fonts/HelveticaNeue-CondensedThin.ttf")

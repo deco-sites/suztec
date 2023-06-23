@@ -199,7 +199,7 @@ function BannerDoble(
             </div>
             <a href={buttonCallToAction?.ctaUrl}>
               <Button
-                class="md:w-52"
+                class="md:w-52 font-medium rounded-none"
                 name={buttonCallToAction?.ctaName}
                 variant={buttonCallToAction?.ctaVariant}
               >

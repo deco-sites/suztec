@@ -94,15 +94,15 @@ function ProductCard({ product, preload, itemListName }: Props) {
           COMPRAR
         </Button>
       </figcaption>
-      <div class="px-2">
-        <h3 class="text-center">
-          {product.isVariantOf?.name}
+      <div class="px-[2px]">
+        <h3 class="text-center text-lg font-medium">
+          {product.isVariantOf?.name?.toUpperCase()}
         </h3>
         <div class="flex flex-col justify-center">
-          <span class="text-black text-center font-medium text-lg ">
+          <span class="text-black text-center font-extralight text-lg">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
-          <span class="text-black text-center font-bold text-xs ">
+          <span class="text-black text-center font-extralight text-xs ">
             10x de R$ 219,00 sem juros
           </span>
         </div>
