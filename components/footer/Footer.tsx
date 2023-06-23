@@ -95,10 +95,10 @@ function Footer({ sections = [] }: Props) {
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
+                      } gap-2 pt-5 flex-wrap`}
                     >
                       {section.children.map((item) => (
-                        <li>
+                        <li class="py-[2px]">
                           <SectionItem item={item} />
                         </li>
                       ))}
@@ -147,7 +147,7 @@ function Footer({ sections = [] }: Props) {
                   ENCONTRE UMA LOJA
                 </span>
                 <div>
-                  <button class="btn rounded-none w-[352px] text-white disabled:loading mt-7">
+                  <button class="btn rounded-none   w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
                     ENCONTRE A LOJA MAIS PRÓXIMA
                   </button>
                 </div>
@@ -156,7 +156,7 @@ function Footer({ sections = [] }: Props) {
                 <span class="items-center text-black font-medium text-sm">
                   SIGA-NOS NAS REDES SOCIAIS
                 </span>
-                <ul class="flex items-center justify-between gap-2 mt-[50px]">
+                <ul class="flex items-center justify-between gap-2 mt-[38px] mb-3">
                   {footerIcons.map((icon) => (
                     <li>
                       <a
@@ -199,8 +199,8 @@ function Footer({ sections = [] }: Props) {
           </FooterContainer>
         </div>
       </div>
-      <div class="flex flex-col justify-center text-center ">
-        <div class="h-[93px]">
+      <div class="flex flex-col justify-center text-center">
+        <div class="p-[10px] mt-5 mb-6">
           <p class="text-[10px] font-light">
             CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA
             - ES

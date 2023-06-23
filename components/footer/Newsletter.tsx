@@ -33,11 +33,11 @@ function Newsletter() {
         <div class="rounded-none flex">
           <input
             name="email"
-            class="flex-grow pl-[15px] py-[11px] w-full outline-none border-b border-t border-l transition-all ease-out duration-300 hover:border-b-gray-600 hover:border-t-gray-600 hover:border-l-gray-600 hover:placeholder:text-gray-700"
+            class="flex-grow pl-[15px] py-[11px] w-full text-sm font-normal outline-none border-b border-t border-l transition-all ease-out duration-300 hover:border-b-gray-500 hover:border-t-gray-500 hover:border-l-gray-500 hover:placeholder:text-gray-600"
             placeholder="Digite seu E-mail..."
           />
           <button
-            class="btn rounded-r-[1px] rounded-l-none text-white disabled:loading"
+            class="btn rounded-r-[1px] text-base font-normal traking-[0.5px] rounded-l-none text-white disabled:loading"
             disabled={loading}
           >
             ENVIAR

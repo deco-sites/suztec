@@ -65,6 +65,7 @@ function Navbar({ items, searchbar }: {
         </div>
         <div class="block w-full">
           <div class="flex justify-end items-center mt-5">
+            {/* TODO: Trocar isso para <buttons /> */}
             {navItems.map((item) => (
               <a
                 class="flex px-[5px] text-sm font-light items-center hover:underline"
@@ -83,7 +84,7 @@ function Navbar({ items, searchbar }: {
           </div>
 
           <div class="flex-none w-full flex justify-between gap-2 mt-3">
-            <div class="flex">
+            <div class="flex ml-3">
               {items.map((item) => <NavItem item={item} />)}
             </div>
             <div class="mb-5 mt-[4px]">

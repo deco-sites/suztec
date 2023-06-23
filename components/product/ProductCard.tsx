@@ -95,7 +95,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </Button>
       </figcaption>
       <div class="px-[2px]">
-        <h3 class="text-center text-lg font-medium">
+        <h3 class="text-center min-h-[46px] leading-4 text-lg font-medium">
           {product.isVariantOf?.name?.toUpperCase()}
         </h3>
         <div class="flex flex-col justify-center">

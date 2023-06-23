@@ -13,7 +13,7 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <li class="group flex items-center">
-      <a href={href} class="pb-[22px] px-[15px]">
+      <a href={href} class="pb-[22px] pr-[30px]">
         <span class="text-base font-medium">
           {label}
         </span>
