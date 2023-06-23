@@ -37,7 +37,7 @@ function Navbar({ items, searchbar }: {
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full px-[30px] gap-2"
+        class="lg:hidden flex flex-row justify-between items-center border-b border-base-200 w-full px-[30px] gap-2"
       >
         <Buttons variant="menu" />
 
@@ -57,7 +57,7 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex h-24 flex-row items-center border-b border-base-200 w-full px-[30px]">
+      <div class="hidden lg:flex h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]">
         <div class="flex-none">
           <a href="/">
             <Logo />
