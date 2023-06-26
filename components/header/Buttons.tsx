@@ -49,7 +49,7 @@ function MenuButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
-  const totalItems = cart.value?.items.length || null;
+  const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   const discounts = cart.value?.totalizers.find((item) =>
@@ -81,11 +81,9 @@ function CartButton() {
       onClick={onClick}
     >
       <div class="indicator">
-        {totalItems && (
-          <span class="indicator-item badge badge-secondary badge-sm">
-            {totalItems > 9 ? "9+" : totalItems}
-          </span>
-        )}
+        <span class="indicator-item badge rounded-full badge-primary badge-sm">
+          {totalItems > 9 ? "9+" : totalItems}
+        </span>
         <Icon
           class="mr-[5px]"
           id="Cart-shopping"
@@ -93,7 +91,6 @@ function CartButton() {
           height={26}
           strokeWidth={2}
         />
-       
       </div>
     </Button>
   );

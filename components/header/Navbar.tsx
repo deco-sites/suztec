@@ -45,7 +45,6 @@ function Navbar({ items, searchbar }: {
           <a
             href="/"
             aria-label="Store logo"
-            
           >
             <Logo width={95} height={46} />
           </a>
