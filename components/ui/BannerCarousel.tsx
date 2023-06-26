@@ -54,14 +54,14 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
     >
       <Picture preload={lcp}>
         <Source
-          media="(max-width: 767px)"
+          media="(max-width: 1024px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
-          width={360}
-          height={600}
+          width={975}
+          height={812}
         />
         <Source
-          media="(min-width: 768px)"
+          media="(min-width: 1025px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
           width={1520}

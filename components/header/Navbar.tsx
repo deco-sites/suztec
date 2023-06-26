@@ -36,23 +36,24 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
+        class="lg:hidden block items-center border-b border-base-200 w-full p-4 gap-2"
         style={{ height: navbarHeight }}
-        class="lg:hidden flex flex-row justify-between items-center border-b border-base-200 w-full px-[30px] gap-2"
       >
-        <Buttons variant="menu" />
+        <div class="items-center flex justify-between w-full">
+          <Buttons variant="menu" />
 
-        <a
-          href="/"
-          class="flex-grow inline-flex items-center"
-          style={{ minHeight: navbarHeight }}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={126} height={16} />
-        </a>
+          <a
+            href="/"
+            aria-label="Store logo"
+            
+          >
+            <Logo width={95} height={46} />
+          </a>
 
-        <div class="flex gap-1">
-          <Buttons variant="search" />
           <Buttons variant="cart" />
+        </div>
+        <div class="mt-4">
+          <Searchbar searchbar={searchbar} />
         </div>
       </div>
 
@@ -83,11 +84,11 @@ function Navbar({ items, searchbar }: {
             ))}
           </div>
 
-          <div class="flex-none w-full flex justify-between gap-2 mt-3">
+          <div class="w-full flex justify-between mt-3">
             <div class="flex ml-3">
               {items.map((item) => <NavItem item={item} />)}
             </div>
-            <div class="mb-5 mt-[4px]">
+            <div class="mb-5 max-w-[243px] flex-1">
               <Searchbar searchbar={searchbar} />
             </div>
           </div>

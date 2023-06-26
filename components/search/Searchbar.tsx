@@ -93,11 +93,11 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex items-center">
+    <div class="flex items-center w-full">
       <form
         id="searchbar"
         action={action}
-        class="flex-grow flex border rounded-[4px] w-[243px] border-base-200"
+        class="flex-grow flex border rounded-[4px] border-base-200"
       >
         <input
           ref={searchInputRef}

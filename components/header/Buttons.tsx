@@ -34,13 +34,14 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class=""
+      variant="icon"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={26} height={26} strokeWidth={0.03} />
     </Button>
   );
 }
@@ -73,6 +74,7 @@ function CartButton() {
   return (
     <Button
       class=""
+      variant="icon"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
@@ -87,11 +89,11 @@ function CartButton() {
         <Icon
           class="mr-[5px]"
           id="Cart-shopping"
-          width={15}
-          height={14}
+          width={29}
+          height={26}
           strokeWidth={2}
         />
-        <span>Carrinho</span>
+       
       </div>
     </Button>
   );

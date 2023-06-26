@@ -1,10 +1,15 @@
-const Logo = () => {
+interface Props {
+  height?: number;
+  width?: number;
+}
+
+const Logo = ({ height, width }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 434.58667 204.25333"
-      height="64"
-      width="126"
+      height={height ? height : 64}
+      width={width ? width : 126}
       id="svg2"
       version="1.1"
     >
