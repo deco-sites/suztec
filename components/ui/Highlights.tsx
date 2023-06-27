@@ -16,14 +16,14 @@ export interface Props {
 
 function Highlights({ highlights = [], title }: Props) {
   const screenWidth = window.innerWidth;
-  
+
   return (
     <div class="lg:px-[30px] px-[10px] grid grid-cols-1 grid-rows-[48px_1fr] py-4">
       <h2 class="text-center">
         <span class="font-medium text-2xl">{title}</span>
       </h2>
 
-      <Slider  class="h-full w-full grid lg:grid-cols-4 grid-cols-2 grid-rows-1 gap-3 justify-center">
+      <Slider class="h-full xl:max-w-[1860px] mx-auto w-full grid lg:grid-cols-4 grid-cols-2 grid-rows-1 gap-3 justify-center">
         {highlights.map(({ href, src, alt, label }, index) => (
           <Slider.Item
             index={index}
