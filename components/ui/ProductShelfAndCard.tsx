@@ -17,7 +17,7 @@ function ProductShelfAndCard(
       <div class="w-[885px] h-[509px]">
         <Component {...props} />
       </div>
-      <div class="w-[272px] h-[385px]">
+      <div class="lg:block hidden w-[272px] h-[385px]">
         <Card {...card} />
       </div>
     </div>

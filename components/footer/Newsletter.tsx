@@ -27,7 +27,7 @@ function Newsletter() {
   return (
     <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-20 w-full">
       <form
-        class="font-body text-body w-full sm:w-[408px] form-control"
+        class="font-body text-body w-full lg:w-[408px] form-control"
         onSubmit={handleSubmit}
       >
         <div class="rounded-none flex">

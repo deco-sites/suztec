@@ -82,10 +82,10 @@ function Footer({ sections = [] }: Props) {
   return (
     <footer class="w-full bg-white flex flex-col  border-t-2">
       <div class="flex justify-center">
-        <div class=" w-[1140px] flex flex-col">
+        <div class="max-w-[720px] lg:w-[1140px] flex flex-col mx-auto">
           <FooterContainer class="pt-[60px] ">
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row">
+            <ul class="hidden lg:flex flex-row">
               {sections.map((section) => (
                 <li class="w-[216px]">
                   <div>
@@ -109,7 +109,7 @@ function Footer({ sections = [] }: Props) {
             </ul>
 
             {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+            <ul class="flex flex-col lg:hidden lg:flex-row gap-4">
               {sections.map((section) => (
                 <li>
                   <span class="text-primary-content">
@@ -139,20 +139,20 @@ function Footer({ sections = [] }: Props) {
       </div>
 
       <div>
-        <div class="container w-full">
-          <FooterContainer class="flex justify-between w-full max-w-[1140px] mx-auto">
-            <ul class="flex gap-10 w-full text-black items-center">
-              <li class="block text-center w-[380px]">
+        <div class="container w-full mx-auto">
+          <FooterContainer class="lg:flex justify-between w-full max-w-[1140px] mx-auto">
+            <ul class="lg:flex  gap-10 w-full text-black items-center">
+              <li class="block text-center mx-auto  w-full lg:w-[380px]">
                 <span class="items-center text-black font-medium text-sm ">
                   ENCONTRE UMA LOJA
                 </span>
                 <div>
-                  <button class="btn rounded-none   w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
+                  <button class="btn rounded-none w-full lg:w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
                     ENCONTRE A LOJA MAIS PRÓXIMA
                   </button>
                 </div>
               </li>
-              <li class="block text-center w-[380px]">
+              <li class="block text-center mx-auto  w-full lg:w-[380px]">
                 <span class="items-center text-black font-medium text-sm">
                   SIGA-NOS NAS REDES SOCIAIS
                 </span>
@@ -187,11 +187,11 @@ function Footer({ sections = [] }: Props) {
                   ))}
                 </ul>
               </li>
-              <li class="block text-center w-[380px]">
+              <li class="block text-center mx-auto w-full lg:w-[380px]">
                 <span class="items-center font-medium text-black text-sm">
                   FIQUE POR DENTRO DAS NOVIDADES E PROMOÇÕES
                 </span>
-                <div class="max-w-[380px] mt-[30px] mx-auto ">
+                <div class="w-full lg:max-w-[380px] mt-[30px] mx-auto ">
                   <Newsletter />
                 </div>
               </li>
