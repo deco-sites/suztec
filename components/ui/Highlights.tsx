@@ -15,8 +15,6 @@ export interface Props {
 }
 
 function Highlights({ highlights = [], title }: Props) {
-  const screenWidth = window.innerWidth;
-
   return (
     <div class="lg:px-[30px] px-[10px] grid grid-cols-1 grid-rows-[48px_1fr] py-4">
       <h2 class="text-center">
@@ -27,7 +25,11 @@ function Highlights({ highlights = [], title }: Props) {
         {highlights.map(({ href, src, alt, label }, index) => (
           <Slider.Item
             index={index}
-            class="group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
+            class={`${
+              (index == 2 || index == 3)
+                ? " group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px] hidden lg:block"
+                : "group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
+            }`}
           >
             <a href={href} class="bg-base-100 rounded-none card card-compact">
               <figure>

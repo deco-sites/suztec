@@ -7,6 +7,7 @@ import type { INavItem } from "./NavItem.tsx";
 import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Logo from "./Logo.tsx";
+import { useScroll } from "$store/sdk/useScroll.ts";
 
 const navItems = [
   {
@@ -32,6 +33,7 @@ function Navbar({ items, searchbar }: {
   items: INavItem[];
   searchbar: SearchbarProps;
 }) {
+  const scroll = useScroll();
   return (
     <>
       {/* Mobile Version */}

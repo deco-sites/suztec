@@ -81,61 +81,59 @@ export interface Props {
 function Footer({ sections = [] }: Props) {
   return (
     <footer class="w-full bg-white flex flex-col  border-t-2">
-      <div class="flex justify-center">
-        <div class="max-w-[720px] lg:w-[1140px] flex flex-col mx-auto">
-          <FooterContainer class="pt-[60px] ">
-            {/* Desktop view */}
-            <ul class="hidden lg:flex flex-row">
-              {sections.map((section) => (
-                <li class="w-[216px]">
-                  <div>
-                    <span class="text-sm font-bold text-black">
+      <div class="w-full container">
+        <FooterContainer class="pt-[60px] max-w-[720px] lg:max-w-[1140px] flex flex-col mx-auto">
+          {/* Desktop view */}
+          <ul class="hidden lg:flex flex-row w-full">
+            {sections.map((section) => (
+              <li class="w-[216px]">
+                <div>
+                  <span class="text-sm font-bold text-black">
+                    {section.label}
+                  </span>
+                  <ul
+                    class={`flex ${
+                      isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                    } gap-2 pt-5 flex-wrap`}
+                  >
+                    {section.children.map((item) => (
+                      <li class="py-[2px]">
+                        <SectionItem item={item} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile view */}
+          <ul class="flex flex-col lg:hidden lg:flex-row gap-4 w-full">
+            {sections.map((section) => (
+              <li class="border-b border-black w-full">
+                <span class="text-black">
+                  <details>
+                    <summary class="w-full mb-5 text-sm font-medium">
                       {section.label}
-                    </span>
+                    </summary>
+
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-5 flex-wrap`}
+                      } gap-2 px-2 pt-2`}
                     >
                       {section.children.map((item) => (
-                        <li class="py-[2px]">
+                        <li>
                           <SectionItem item={item} />
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mobile view */}
-            <ul class="flex flex-col lg:hidden lg:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <span class="text-primary-content">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
-
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </FooterContainer>
-        </div>
+                  </details>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </FooterContainer>
       </div>
 
       <div>
@@ -152,7 +150,7 @@ function Footer({ sections = [] }: Props) {
                   </button>
                 </div>
               </li>
-              <li class="block text-center mx-auto  w-full lg:w-[380px]">
+              <li class="block text-center mx-auto  w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center text-black font-medium text-sm">
                   SIGA-NOS NAS REDES SOCIAIS
                 </span>
@@ -187,7 +185,7 @@ function Footer({ sections = [] }: Props) {
                   ))}
                 </ul>
               </li>
-              <li class="block text-center mx-auto w-full lg:w-[380px]">
+              <li class="block text-center mx-auto w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center font-medium text-black text-sm">
                   FIQUE POR DENTRO DAS NOVIDADES E PROMOÇÕES
                 </span>
