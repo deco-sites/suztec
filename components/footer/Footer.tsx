@@ -82,7 +82,7 @@ function Footer({ sections = [] }: Props) {
   return (
     <footer class="w-full bg-white flex flex-col  border-t-2">
       <div class="w-full container">
-        <FooterContainer class="pt-[60px] max-w-[720px] lg:max-w-[1140px] flex flex-col mx-auto">
+        <FooterContainer class="pt-[60px] max-w-[1140px] flex flex-col lg:mx-auto">
           {/* Desktop view */}
           <ul class="hidden lg:flex flex-row w-full">
             {sections.map((section) => (
