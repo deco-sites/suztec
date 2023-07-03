@@ -5,6 +5,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 
 import Alert from "./Alert.tsx";
+import { useScroll } from "../../sdk/useScroll.ts";
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
 
@@ -58,12 +59,20 @@ function Header(
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
+
+  const scroll = useScroll()
+
   return (
     <>
       <header style={{ height: headerHeight }}>
-        <div class="bg-base-100 fixed w-full z-50">
-          <Navbar items={navItems} searchbar={searchbar} />
-          <Alert alerts={alerts} />
+        <div class="bg-base-100 relative w-full z-50">
+          <div class="w-full bg-white top-0">
+            <Navbar items={navItems} searchbar={searchbar} />
+          </div>
+         
+          <div class="relative w-full ">
+            <Alert alerts={alerts} />
+          </div>
         </div>
 
         <Modals

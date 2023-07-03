@@ -71,7 +71,7 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`py-6 px-4 ${_class}`}>{children}</div>;
 }
 
 export interface Props {

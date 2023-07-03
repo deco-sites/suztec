@@ -135,7 +135,7 @@ function BannerDoble(
 ) {
   return (
     <>
-      <div class="w-full h-[518px] flex flex-col justify-center items-center">
+      <div class="w-full flex flex-col justify-center items-center">
         <div
           id="alinhamento-do-texto"
           class={`w-auto h-auto flex flex-col justify-evenly items-end absolute md:(h-auto ${
@@ -215,14 +215,14 @@ function BannerDoble(
             fetchPriority={MainBanner.preload ? "high" : "low"}
             src={MainBanner.mobile || "/"}
             width={728}
-            height={MainBanner.heightMobile || 1290}
+            height={MainBanner.heightMobile || 538}
           />
           <Source
             media="(min-width: 768px)"
             fetchPriority={MainBanner.preload ? "high" : "low"}
             src={MainBanner.desktop || "/"}
             width={728}
-            height={MainBanner.height || 700}
+            height={MainBanner.height || 680}
           />
           <img
             class="object-cover w-full sm:h-full"

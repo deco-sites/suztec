@@ -46,7 +46,7 @@ function ProductShelf({
       </Slider>
 
       <>
-        <div class="hidden relative sm:block z-10 col-start-1 row-start-3 mr-10">
+        <div class=" relative block z-10 col-start-1 row-start-3 mr-10">
           <Slider.PrevButton class="absolute right-1/2 ">
             <Icon size={20} id="ChevronLeft" strokeWidth={3} />
           </Slider.PrevButton>

@@ -86,7 +86,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
         </a>
       </figure>
       {/* Prices & Name */}
-      <figcaption class="flex justify-center py-2 w-full transition-opacity opacity-0 group-hover:opacity-100">
+      <figcaption class="flex justify-center py-2 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
         <Button
           class="mx-auto rounded-none text-base font-normal"
           variant={"secondary"}

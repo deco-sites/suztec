@@ -17,7 +17,7 @@ export interface Props {
 function Highlights({ highlights = [], title }: Props) {
   return (
     <div class="lg:px-[30px] px-[10px] grid grid-cols-1 grid-rows-[48px_1fr] py-4">
-      <h2 class="text-center">
+      <h2 class="text-center"> 
         <span class="font-medium text-2xl">{title}</span>
       </h2>
 
@@ -27,12 +27,12 @@ function Highlights({ highlights = [], title }: Props) {
             index={index}
             class={`${
               (index == 2 || index == 3)
-                ? " group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px] hidden lg:block"
-                : "group first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
+                ? " group  min-w-[190px] hidden lg:block"
+                : "group  min-w-[190px]"
             }`}
           >
             <a href={href} class="bg-base-100 rounded-none card card-compact">
-              <figure>
+              <figure class="w-full">
                 <Image
                   src={src}
                   alt={alt}
