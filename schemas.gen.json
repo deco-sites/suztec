@@ -7633,14 +7633,23 @@
       ],
       "title": "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx@LoaderProps"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
+      "type": "string",
+      "format": "html",
+      "title": "HTML"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML"
+      },
+      "title": "HTML[]"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9oZWFkZXIvQWxlcnQudHN4@Props": {
       "type": "object",
       "properties": {
         "alerts": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]",
           "title": "Alerts"
         },
         "interval": {
@@ -7657,6 +7666,17 @@
             "null"
           ],
           "title": "Bg Color"
+        },
+        "linkText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Link Text"
+        },
+        "linkHref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Link Href"
         }
       },
       "required": [
@@ -7720,11 +7740,6 @@
       },
       "required": [],
       "title": "imageProps"
-    },
-    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
-      "type": "string",
-      "format": "html",
-      "title": "HTML"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJEb3VibGUudHN4@CTAProps": {
       "type": "object",

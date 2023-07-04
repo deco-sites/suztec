@@ -77,10 +77,7 @@ function Header(
           >
             <NavBarScroll items={navItems} searchbar={searchbar} />
           </div>
-
-          <div class="relative w-full ">
-            <Alert alerts={alerts} />
-          </div>
+          
         </div>
 
         <MobileMenu />
