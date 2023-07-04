@@ -16,7 +16,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
   const id = useId();
 
   return (
-    <div id={id} class="relative" >
+    <div id={id} class="relative">
       <Slider class="carousel carousel-center bg-black gap-6 scrollbar-none">
         {alerts.map((alert, index) => (
           <Slider.Item index={index} class="carousel-item">

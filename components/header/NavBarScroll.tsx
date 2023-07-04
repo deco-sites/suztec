@@ -27,7 +27,7 @@ const navItems = [
   { href: "/", icon: "Cart-shopping", text: "Carrinho", width: 15, height: 14 },
 ];
 
-function ScrollNavbar({ items, searchbar }: {
+function NavBarScroll({ items, searchbar }: {
   items: INavItem[];
   searchbar: SearchbarProps;
 }) {
@@ -37,7 +37,7 @@ function ScrollNavbar({ items, searchbar }: {
       {/* Mobile Version */}
       <div
         class="lg:hidden block items-center border-b border-base-200 w-full p-4 gap-2"
-        style={{ height:navbarHeight }}
+        style={{ height: navbarHeight }}
       >
         <div class="items-center flex justify-between w-full">
           <Buttons variant="menu" />
@@ -100,4 +100,4 @@ function ScrollNavbar({ items, searchbar }: {
   );
 }
 
-export default ScrollNavbar;
+export default NavBarScroll;

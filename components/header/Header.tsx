@@ -7,7 +7,7 @@ import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import Alert from "./Alert.tsx";
 import { useScroll } from "../../sdk/useScroll.ts";
 import Navbar from "./Navbar.tsx";
-import ScrollNavbar from "deco-sites/suztec/components/header/ScrollNavbar.tsx";
+import NavBarScroll from "./NavBarScroll.tsx";
 import { headerHeight } from "./constants.ts";
 
 export interface NavItem {
@@ -70,8 +70,12 @@ function Header(
           <div class="w-full bg-white top-0">
             <Navbar items={navItems} searchbar={searchbar} />
           </div>
-          <div class={scroll.value > 100 ? "fixed w-full top-0 bg-white transition-all duration-300" : "hidden"}>
-            <ScrollNavbar items={navItems} searchbar={searchbar} />
+          <div
+            class={scroll.value > 100
+              ? "fixed w-full top-0 bg-white transition-all duration-300"
+              : "hidden"}
+          >
+            <NavBarScroll items={navItems} searchbar={searchbar} />
           </div>
 
           <div class="relative w-full ">

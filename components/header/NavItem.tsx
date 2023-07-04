@@ -49,7 +49,12 @@ function NavItem({ item }: { item: INavItem }) {
               <ul class="flex items-start justify-center gap-1">
                 {children.map((node) => (
                   <li class="p-[15px]">
-                    <a class={scroll.value > 100 ? "h-12 font-medium" :"font-medium"} href={node.href}>
+                    <a
+                      class={scroll.value > 100
+                        ? "h-12 font-medium"
+                        : "font-medium"}
+                      href={node.href}
+                    >
                       <span>{node.label}</span>
                     </a>
 
