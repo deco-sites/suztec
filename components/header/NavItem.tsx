@@ -1,5 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import { headerHeight } from "./constants.ts";
+import { useScroll } from "$store/sdk/useScroll.ts";
 
 export interface INavItem {
   label: string;
@@ -10,10 +11,19 @@ export interface INavItem {
 
 function NavItem({ item }: { item: INavItem }) {
   const { href, label, children, image } = item;
+  const scroll = useScroll();
+  const top = scroll.value > 100 ? -28 : 0;
 
   return (
-    <li class="group flex items-center">
-      <a href={href} class="pb-[22px] pr-[30px]">
+    <li
+      class={scroll.value > 100
+        ? "group flex items-center  mb-3"
+        : "group flex items-center"}
+    >
+      <a
+        href={href}
+        class={scroll.value > 100 ? "py-[5px] px-[5px]" : "pb-[22px] pr-[30px]"}
+      >
         <span class="text-base font-medium">
           {label}
         </span>
@@ -23,7 +33,7 @@ function NavItem({ item }: { item: INavItem }) {
         (
           <div
             class="fixed hidden hover:flex group-hover:flex bg-[#eee] transition-all z-50 items-start  gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
+            style={{ top: top, left: "0px", marginTop: headerHeight }}
           >
             <div class="mx-[189px] py-[30px]">
               {image?.src && (
@@ -39,7 +49,7 @@ function NavItem({ item }: { item: INavItem }) {
               <ul class="flex items-start justify-center gap-1">
                 {children.map((node) => (
                   <li class="p-[15px]">
-                    <a class="font-medium" href={node.href}>
+                    <a class={scroll.value > 100 ? "h-12 font-medium" :"font-medium"} href={node.href}>
                       <span>{node.label}</span>
                     </a>
 

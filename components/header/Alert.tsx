@@ -1,7 +1,6 @@
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "preact/hooks";
-import { useScroll } from "../../sdk/useScroll.ts";
 import { useUI } from "../../sdk/useUI.ts";
 
 export interface Props {
@@ -15,10 +14,9 @@ export interface Props {
 
 function Alert({ alerts = [], interval = 5 }: Props) {
   const id = useId();
-  const scroll = useScroll();
 
   return (
-    <div id={id} class={`relative ${scroll.value > 0 ? "hidden" : ""}`}>
+    <div id={id} class="relative" >
       <Slider class="carousel carousel-center bg-black gap-6 scrollbar-none">
         {alerts.map((alert, index) => (
           <Slider.Item index={index} class="carousel-item">
