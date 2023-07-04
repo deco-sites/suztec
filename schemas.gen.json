@@ -94,6 +94,7 @@
               "deco-sites/std/sections/SEOPDP.tsx",
               "deco-sites/std/sections/SEOPLP.tsx",
               "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx",
+              "deco-sites/suztec/sections/Alert.tsx",
               "deco-sites/suztec/sections/BannerDouble.tsx",
               "deco-sites/suztec/sections/BannerGrid.tsx",
               "deco-sites/suztec/sections/BannerPLP.tsx",
@@ -7632,6 +7633,37 @@
       ],
       "title": "deco-sites/std/sections/VTEXPortalDataLayerCompatibility.tsx@LoaderProps"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9oZWFkZXIvQWxlcnQudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "alerts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Alerts"
+        },
+        "interval": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Autoplay interval",
+          "description": "time (in seconds) to start the carousel autoplay"
+        },
+        "bgColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Bg Color"
+        }
+      },
+      "required": [
+        "alerts"
+      ],
+      "title": "deco-sites/suztec/components/header/Alert.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJEb3VibGUudHN4@imageProps": {
       "type": "object",
       "properties": {
@@ -11824,6 +11856,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQWxlcnQudHN4": {
+      "title": "deco-sites/suztec/sections/Alert.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9oZWFkZXIvQWxlcnQudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/Alert.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/Alert.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQmFubmVyRG91YmxlLnRzeA==": {
       "title": "deco-sites/suztec/sections/BannerDouble.tsx",
       "type": "object",
@@ -13135,6 +13188,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvc2VjdGlvbnMvVlRFWFBvcnRhbERhdGFMYXllckNvbXBhdGliaWxpdHkudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQWxlcnQudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQmFubmVyRG91YmxlLnRzeA=="
