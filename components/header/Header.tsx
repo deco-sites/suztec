@@ -3,7 +3,7 @@ import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
-
+import MobileMenu from "$store/components/ui/MobileMenu.tsx"
 import Alert from "./Alert.tsx";
 import { useScroll } from "../../sdk/useScroll.ts";
 import Navbar from "./Navbar.tsx";
@@ -82,6 +82,8 @@ function Header(
             <Alert alerts={alerts} />
           </div>
         </div>
+
+        <MobileMenu />
 
         <Modals
           menu={{ items: navItems }}
