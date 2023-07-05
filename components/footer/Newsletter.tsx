@@ -10,8 +10,12 @@ export interface Props {
    * @title Texto do botão
    */
   placeHolder?: string;
-   /**
+  /**
    * @title placeholder
+   */
+  buttonColor?: string;
+  /**
+   * @title Cor do botão
    */
 }
 
@@ -19,7 +23,13 @@ const subscribe = Runtime.create(
   "deco-sites/std/actions/vtex/newsletter/subscribe.ts",
 );
 
-function Newsletter({buttonText = "ENVIAR", placeHolder="Digite seu e-mail..."} : Props) {
+function Newsletter(
+  {
+    buttonText = "ENVIAR",
+    placeHolder = "Digite seu e-mail...",
+    buttonColor = "black",
+  }: Props,
+) {
   const loading = useSignal(false);
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
@@ -50,10 +60,11 @@ function Newsletter({buttonText = "ENVIAR", placeHolder="Digite seu e-mail..."} 
             placeholder={placeHolder}
           />
           <button
-            class="btn rounded-r-[1px] text-base font-normal traking-[0.5px] rounded-l-none text-white disabled:loading"
+            style={`background-color: ${buttonColor} `}
+            class="btn rounded-r-[1px] text-base font-normal traking-[0.5px] min-w-[114px] rounded-l-none text-white disabled:loading"
             disabled={loading}
           >
-             <Markdown text={buttonText} /> 
+            <Markdown text={buttonText} />
           </button>
         </div>
       </form>

@@ -4,26 +4,26 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 
 const footerIcons = [
-    { href: "#", icon: "Instagram", width: 22, height: 26 },
-    { href: "#", icon: "Facebook", width: 22, height: 26 },
-    {
-      href: "#",
-      src:
-        "https://thenorthface.vteximg.com.br/arquivos/Blog.png?v=637262729475600000",
-      width: 25,
-      height: 18,
-    },
-    { href: "#", icon: "Youtube", width: 29, height: 26 },
-    { href: "#", icon: "Linkedin", width: 22, height: 26 },
-    { href: "#", icon: "Spotify", width: 25, height: 26 },
-    {
-      href: "#",
-      src:
-        "https://www.thenorthface.com.br/arquivos/gplus.png?v=637359724387400000",
-      width: 22,
-      height: 24,
-    },
-  ];
+  { href: "#", icon: "Instagram", width: 22, height: 26 },
+  { href: "#", icon: "Facebook", width: 22, height: 26 },
+  {
+    href: "#",
+    src:
+      "https://thenorthface.vteximg.com.br/arquivos/Blog.png?v=637262729475600000",
+    width: 25,
+    height: 18,
+  },
+  { href: "#", icon: "Youtube", width: 29, height: 26 },
+  { href: "#", icon: "Linkedin", width: 22, height: 26 },
+  { href: "#", icon: "Spotify", width: 25, height: 26 },
+  {
+    href: "#",
+    src:
+      "https://www.thenorthface.com.br/arquivos/gplus.png?v=637359724387400000",
+    width: 22,
+    height: 24,
+  },
+];
 
 export interface Props {
   text1: HTML;

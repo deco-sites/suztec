@@ -4,8 +4,6 @@ import type { HTML } from "deco-sites/std/components/types.ts";
 import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 import type { ComponentChildren } from "preact";
 import FooterLogo from "./FooterLogo.tsx";
-import FooterAtt from "./FooterAtt.tsx";
-import FooterDescription from "./FooterDescription.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -14,6 +12,11 @@ export type StringItem = {
 };
 
 export type Item = StringItem | IconItem;
+
+interface itemProps {
+  item: Item;
+  openInNewTab: boolean;
+}
 
 export type Section = {
   label: string;
@@ -24,7 +27,7 @@ const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
 
-function SectionItem({ item }: { item: Item }) {
+function SectionItem({ item, openInNewTab }: itemProps) {
   return (
     <span class="text-black font-light text-sm">
       {isIcon(item)
@@ -39,7 +42,11 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a class="hover:text-gray-500" href={item.href}>
+          <a
+            target={openInNewTab ? "_blank" : ""}
+            class="hover:text-gray-500 "
+            href={item.href}
+          >
             {item.label}
           </a>
         )}
@@ -80,6 +87,9 @@ function FooterContainer(
 
 export interface Props {
   sections?: Section[];
+
+  openInNewTab?: boolean;
+
   attText1?: HTML;
 
   attText2?: HTML;
@@ -106,6 +116,7 @@ export interface Props {
 function Footer(
   {
     sections = [],
+    openInNewTab = false,
     attText1 = "ENCONTRE UMA LOJA",
     attText2 = "SIGA-NOS NAS REDES SOCIAIS",
     attText3 = "FIQUE POR DENTRO DAS NOVIDADES E PROMOÇOES",
@@ -139,7 +150,7 @@ function Footer(
                   >
                     {section.children.map((item) => (
                       <li class="py-[2px]">
-                        <SectionItem item={item} />
+                        <SectionItem item={item} openInNewTab={openInNewTab} />
                       </li>
                     ))}
                   </ul>
@@ -165,7 +176,10 @@ function Footer(
                     >
                       {section.children.map((item) => (
                         <li>
-                          <SectionItem item={item} />
+                          <SectionItem
+                            item={item}
+                            openInNewTab={openInNewTab}
+                          />
                         </li>
                       ))}
                     </ul>

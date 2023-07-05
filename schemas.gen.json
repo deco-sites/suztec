@@ -7795,27 +7795,9 @@
           "title": " Main Banner"
         },
         "BannerTitle": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "description": "Titulo principal do banner em texto",
           "title": " Banner Title"
-        },
-        "TitleFont": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "Nunito"
-            },
-            {
-              "type": "string",
-              "const": "Lusitana"
-            }
-          ],
-          "type": "string",
-          "description": "Selecione uma fonte para o Title",
-          "title": " Title Font"
         },
         "BannerSubTitle": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
@@ -7854,40 +7836,16 @@
           "description": "Cor do texto em hexadecimal (ex: #ffffff)",
           "title": " Text Color"
         },
-        "TitleSizeDesktop": {
-          "type": "string",
-          "description": "Tamanho da fonte do título em resoluções desktop (ex: 24px)",
-          "title": " Title Size Desktop"
-        },
-        "TitleSizeMobile": {
-          "type": "string",
-          "description": "Tamanho da fonte do título em resoluções mobile (ex: 12px)",
-          "title": " Title Size Mobile"
-        },
-        "SubTitleSizeDesktop": {
-          "type": "string",
-          "description": "Tamanho da fonte do subtitulo em resoluções desktop (ex: 24px)",
-          "title": " Sub Title Size Desktop"
-        },
-        "SubTitleSizeMobile": {
-          "type": "string",
-          "description": "Tamanho da fonte do subtitulo em resoluções mobile (ex: 12px)",
-          "title": " Sub Title Size Mobile"
-        },
         "buttonCallToAction": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJEb3VibGUudHN4@CTAProps",
+          "description": "Tamanho da fonte do título em resoluções desktop (ex: 24px)",
           "title": "Button Call To Action"
         }
       },
       "required": [
         "MainBanner",
-        "TitleFont",
         "TextPosition",
-        "TextColor",
-        "TitleSizeDesktop",
-        "TitleSizeMobile",
-        "SubTitleSizeDesktop",
-        "SubTitleSizeMobile"
+        "TextColor"
       ],
       "title": "BannerDoubleProps"
     },
@@ -7901,11 +7859,57 @@
         "bannerSecundary": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJEb3VibGUudHN4@BannerDoubleProps",
           "title": "Banner Secundary"
+        },
+        "percentualBanner1": {
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 25
+            },
+            {
+              "type": "number",
+              "const": 33
+            },
+            {
+              "type": "number",
+              "const": 50
+            },
+            {
+              "type": "number",
+              "const": 75
+            }
+          ],
+          "type": "number",
+          "title": "Percentual Banner1"
+        },
+        "percentualBanner2": {
+          "anyOf": [
+            {
+              "type": "number",
+              "const": 25
+            },
+            {
+              "type": "number",
+              "const": 33
+            },
+            {
+              "type": "number",
+              "const": 50
+            },
+            {
+              "type": "number",
+              "const": 75
+            }
+          ],
+          "type": "number",
+          "title": "Percentual Banner2"
         }
       },
       "required": [
         "bannerPrimary",
-        "bannerSecundary"
+        "bannerSecundary",
+        "percentualBanner1",
+        "percentualBanner2"
       ],
       "title": "deco-sites/suztec/sections/BannerDouble.tsx@BannerDoubleContainerProps"
     },
@@ -9071,6 +9075,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Section[]",
           "title": "Sections"
         },
+        "openInNewTab": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Open In New Tab"
+        },
         "attText1": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Att Text1"
@@ -9273,6 +9284,33 @@
       },
       "required": [],
       "title": "deco-sites/suztec/components/ui/LinkTree.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvTmV3c2xldHRlci50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "buttonText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Button Text"
+        },
+        "placeHolder": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Texto do botão"
+        },
+        "buttonColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "placeholder"
+        }
+      },
+      "required": [
+        "buttonText"
+      ],
+      "title": "deco-sites/suztec/components/footer/Newsletter.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
       "type": "object",
@@ -12172,6 +12210,11 @@
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTmV3c0xldHRlci50c3g=": {
       "title": "deco-sites/suztec/sections/NewsLetter.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvTmV3c2xldHRlci50c3g=@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],

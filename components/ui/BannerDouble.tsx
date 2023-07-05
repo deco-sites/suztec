@@ -12,12 +12,7 @@ export interface BannerDoubleProps {
   /**
    * @description Titulo principal do banner em texto
    */
-  BannerTitle?: string;
-
-  /**
-   * @description Selecione uma fonte para o Title
-   */
-  TitleFont: "Nunito" | "Lusitana";
+  BannerTitle?: HTML;
 
   /**
    * @description Descrição curta para o banner
@@ -44,26 +39,6 @@ export interface BannerDoubleProps {
   /**
    * @description Tamanho da fonte do título em resoluções desktop (ex: 24px)
    */
-
-  TitleSizeDesktop: string;
-
-  /**
-   * @description Tamanho da fonte do título em resoluções mobile (ex: 12px)
-   */
-
-  TitleSizeMobile: string;
-
-  /**
-   * @description Tamanho da fonte do subtitulo em resoluções desktop (ex: 24px)
-   */
-
-  SubTitleSizeDesktop: string;
-
-  /**
-   * @description Tamanho da fonte do subtitulo em resoluções mobile (ex: 12px)
-   */
-
-  SubTitleSizeMobile: string;
 
   buttonCallToAction?: CTAProps;
 }
@@ -121,15 +96,10 @@ function BannerDoble(
   {
     MainBanner,
     BannerTitle,
-    TitleFont,
     BannerSubTitle,
     BannerSubTitleActive,
     TextPosition,
     TextColor,
-    TitleSizeDesktop,
-    TitleSizeMobile,
-    SubTitleSizeDesktop,
-    SubTitleSizeMobile,
     buttonCallToAction,
   }: BannerDoubleProps,
 ) {
@@ -173,24 +143,20 @@ function BannerDoble(
                 ? (
                   <h2
                     style={{
-                      fontFamily: "'avenir next', 'Nunito Sans', sans-serif",
+                      fontFamily: "'helvetica_neue', sans-serif",
                     }}
-                    class={`text-[${TitleSizeMobile}] text-[2rem] text-[${TextColor}] leading-none lg:(text-[${TitleSizeDesktop}]) ${
-                      TitleFont == "Lusitana"
-                        ? "font-['Lusitana',sans-serif]"
-                        : "font-['Nunito&ensp;Sans',sans-serif] font-bold"
-                    }`}
+                    class={` text-[2rem] text-[${TextColor}] font-medium leading-none lg:text-[45px]  text-[32px]`}
                   >
-                    {BannerTitle}
+                    <Markdown text={BannerTitle} />
                   </h2>
                 )
                 : null}
               {BannerSubTitle
                 ? (
                   <h3
-                    class={`text-[${SubTitleSizeMobile}] leading-[28px] text-[${TextColor}] textshadow font-light tracking-[0.45px] ${
+                    class={`text-[31px] leading-[28px] text-[${TextColor}] textshadow tracking-[2px] ${
                       BannerSubTitleActive ? "block" : "hidden"
-                    } md:(block text-[${SubTitleSizeDesktop}])`}
+                    } md:(block text-[42px])`}
                   >
                     <Markdown text={BannerSubTitle} />
                   </h3>
