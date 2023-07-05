@@ -1,7 +1,11 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 import type { ComponentChildren } from "preact";
 import FooterLogo from "./FooterLogo.tsx";
+import FooterAtt from "./FooterAtt.tsx";
+import FooterDescription from "./FooterDescription.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -35,7 +39,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href}>
+          <a class="hover:text-gray-500" href={item.href}>
             {item.label}
           </a>
         )}
@@ -76,9 +80,46 @@ function FooterContainer(
 
 export interface Props {
   sections?: Section[];
+  attText1?: HTML;
+
+  attText2?: HTML;
+
+  attText3?: HTML;
+
+  buttonAttText?: HTML;
+
+  buttonNewletterText?: HTML;
+
+  placeHolder?: string;
+
+  bgButton?: string;
+
+  footerDescription1?: HTML;
+
+  footerDescription2?: HTML;
+
+  textPrivacy1?: HTML;
+
+  textPrivacy2?: HTML;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer(
+  {
+    sections = [],
+    attText1 = "ENCONTRE UMA LOJA",
+    attText2 = "SIGA-NOS NAS REDES SOCIAIS",
+    attText3 = "FIQUE POR DENTRO DAS NOVIDADES E PROMOÇOES",
+    placeHolder = "Digite seu e-mail...",
+    buttonAttText = "ENCONTRE A LOJA MAIS PRÓXIMA",
+    buttonNewletterText = "ENVIAR",
+    footerDescription1 =
+      "CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA - ES",
+    footerDescription2 =
+      "© Todos os direitos reservados. Eventuais promoções, descontos e prazos de pagamento expostos aqui são válidos apenas para compras via internet.",
+    textPrivacy1 = "POLÍTICAS DE PRIVACIDADE",
+    textPrivacy2 = "SITEMAP",
+  }: Props,
+) {
   return (
     <footer class="w-full bg-white flex flex-col  border-t-2">
       <div class="w-full container">
@@ -139,20 +180,21 @@ function Footer({ sections = [] }: Props) {
       <div>
         <div class="container w-full mx-auto">
           <FooterContainer class="lg:flex justify-between w-full max-w-[1140px] mx-auto">
+            {/* <FooterAtt text1={text1} text2={text2} text3={text3} placeHolder={placeHolder} buttonText={buttonText}  /> */}
             <ul class="lg:flex  gap-10 w-full text-black items-center">
               <li class="block text-center mx-auto  w-full lg:w-[380px]">
                 <span class="items-center text-black font-medium text-sm ">
-                  ENCONTRE UMA LOJA
+                  <Markdown text={attText1} />
                 </span>
                 <div>
                   <button class="btn rounded-none w-full lg:w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
-                    ENCONTRE A LOJA MAIS PRÓXIMA
+                    <Markdown text={buttonAttText} />
                   </button>
                 </div>
               </li>
               <li class="block text-center mx-auto  w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center text-black font-medium text-sm">
-                  SIGA-NOS NAS REDES SOCIAIS
+                  <Markdown text={attText2} />
                 </span>
                 <ul class="flex items-center justify-between gap-2 mt-[38px] mb-3">
                   {footerIcons.map((icon) => (
@@ -187,26 +229,26 @@ function Footer({ sections = [] }: Props) {
               </li>
               <li class="block text-center mx-auto w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center font-medium text-black text-sm">
-                  FIQUE POR DENTRO DAS NOVIDADES E PROMOÇÕES
+                  <Markdown text={attText3} />
                 </span>
                 <div class="w-full lg:max-w-[380px] mt-[30px] mx-auto ">
-                  <Newsletter />
+                  <Newsletter
+                    buttonText={buttonNewletterText}
+                    placeHolder={placeHolder}
+                  />
                 </div>
               </li>
             </ul>
           </FooterContainer>
         </div>
       </div>
-      <div class="flex flex-col justify-center text-center">
+      <div class="flex flex-col justify-center text-center mb-16 lg:mb-0">
         <div class="p-[10px] mt-5 mb-6">
           <p class="text-[10px] font-light">
-            CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA
-            - ES
+            {footerDescription1}
           </p>
           <p class="text-[10px] font-light">
-            © Todos os direitos reservados. Eventuais promoções, descontos e
-            prazos de pagamento expostos aqui são válidos apenas para compras
-            via internet.
+            {footerDescription2}
           </p>
         </div>
         <div class="flex items-center justify-center pb-1">
@@ -214,8 +256,8 @@ function Footer({ sections = [] }: Props) {
             <FooterLogo />
           </a>
           <div class="flex justify-between items-baseline text-[10px] font-bold mt-5">
-            <a href="/" class="p-1">POLÍTICAS DE PRIVACIDADE</a>
-            <a href="/" class="p-1">SITEMAP</a>
+            <a href="/" class="p-1">{textPrivacy1}</a>
+            <a href="/" class="p-1">{textPrivacy2}</a>
           </div>
         </div>
       </div>

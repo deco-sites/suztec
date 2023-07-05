@@ -77,7 +77,6 @@ function Header(
           >
             <NavBarScroll items={navItems} searchbar={searchbar} />
           </div>
-          
         </div>
 
         <MobileMenu />

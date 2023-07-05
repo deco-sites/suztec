@@ -1,12 +1,25 @@
 import { useSignal } from "@preact/signals";
 import { Runtime } from "$store/runtime.ts";
 import type { JSX } from "preact";
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
+
+export interface Props {
+  buttonText: HTML;
+  /**
+   * @title Texto do botão
+   */
+  placeHolder?: string;
+   /**
+   * @title placeholder
+   */
+}
 
 const subscribe = Runtime.create(
   "deco-sites/std/actions/vtex/newsletter/subscribe.ts",
 );
 
-function Newsletter() {
+function Newsletter({buttonText = "ENVIAR", placeHolder="Digite seu e-mail..."} : Props) {
   const loading = useSignal(false);
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
@@ -33,14 +46,14 @@ function Newsletter() {
         <div class="rounded-none flex">
           <input
             name="email"
-            class="flex-grow pl-[15px] py-[11px] w-full text-sm font-normal outline-none border-b border-t border-l transition-all ease-out duration-300 hover:border-b-gray-500 hover:border-t-gray-500 hover:border-l-gray-500 hover:placeholder:text-gray-600"
-            placeholder="Digite seu E-mail..."
+            class="flex-grow pl-[15px] placeholder:font-light py-[11px] w-full text-sm font-normal outline-none border-b border-t border-l transition-all ease-out duration-300 hover:border-b-gray-500 hover:border-t-gray-500 hover:border-l-gray-500 hover:placeholder:text-gray-600"
+            placeholder={placeHolder}
           />
           <button
             class="btn rounded-r-[1px] text-base font-normal traking-[0.5px] rounded-l-none text-white disabled:loading"
             disabled={loading}
           >
-            ENVIAR
+             <Markdown text={buttonText} /> 
           </button>
         </div>
       </form>

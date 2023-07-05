@@ -16,11 +16,11 @@ export interface Props {
    * @title Cor da tarja
    */
   linkText?: HTML;
-   /**
+  /**
    * @title Texto do Link
    */
   linkHref?: string;
-   /**
+  /**
    * @title Href do link
    */
 }
