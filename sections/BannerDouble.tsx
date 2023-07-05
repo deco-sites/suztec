@@ -4,12 +4,11 @@ import type { BannerDoubleProps } from "deco-sites/suztec/components/ui/BannerDo
 export interface BannerDoubleContainerProps {
   bannerPrimary: BannerDoubleProps;
   bannerSecundary: BannerDoubleProps;
-  percentualBanner1: 25 | 33 | 50 | 75
-  percentualBanner2: 25 | 33| 50| 75
+  percentualBanner1: 25 | 33 | 50 | 75;
+  percentualBanner2: 25 | 33 | 50 | 75;
 }
 
 export default function BannerDobbleSection(props: BannerDoubleContainerProps) {
-
   return (
     <>
       <div class="text-white lg:flex gap-1 justify-center text-center lg:flex-row lg:px-[30px] py-[10px] px-[10px] 15xl:px-0">
