@@ -1,6 +1,8 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Button from "$store/components/ui/Button.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 
 export interface Props {
   image: LiveImage;
@@ -9,11 +11,19 @@ export interface Props {
   callToAction: string;
   href: string;
   hasPaddingDesktop?: true | false;
+  buttonText?: HTML;
 }
 
 function FeatureHighlights(
-  { image, title, description, callToAction, href, hasPaddingDesktop = true }:
-    Props,
+  {
+    image,
+    title,
+    description,
+    callToAction,
+    href,
+    hasPaddingDesktop = true,
+    buttonText = "SHOP ALL",
+  }: Props,
 ) {
   const paddingY = hasPaddingDesktop ? "lg:px-2.5" : "lg:px-0";
   return (
@@ -27,7 +37,7 @@ function FeatureHighlights(
         />
         <div class="absolute bottom-7 left-8">
           <Button class="rounded-none" variant={"primary"}>
-            SHOP ALL
+            <Markdown text={buttonText} />
           </Button>
         </div>
       </a>

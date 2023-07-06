@@ -36,7 +36,7 @@ const variants = {
   checkout:
     "p-[10px] w-full h-11 rounded-[50px] inline-block font-bold bg-primary text-white text-[12px] transition-all duration-300 focus:outline-none outline-none disabled:bg-gray",
   icon:
-    "h-[36px] rounded-full bg-transparent text-default border-transparent duration-300 focus:outline-none outline-none",
+    "h-[36px] rounded-full bg-transparent text-default border-transparent",
   buy:
     "p-[10px] w-[150px] rounded-[50px] border-0 inline-block font-bold bg-primary text-white text-[16px] transition-all duration-300 hover:bg-primary focus:outline-none outline-none",
   assista:

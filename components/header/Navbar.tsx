@@ -4,7 +4,6 @@ import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
-import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Logo from "./Logo.tsx";
 import { useScroll } from "$store/sdk/useScroll.ts";
@@ -26,6 +25,7 @@ const navItems = [
     height: 14,
   },
   { href: "/", icon: "UserNav", text: "Minha Conta", width: 12, height: 14 },
+  // { variant:"cart" href: "/", icon: "Cart-shopping", text: "Carrinho", width: 15, height: 14 },
 ];
 
 function Navbar({ items, searchbar }: {

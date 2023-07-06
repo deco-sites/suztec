@@ -8,6 +8,8 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import { sendEventOnClick } from "$store/sdk/analytics.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import Button from "$store/components/ui/Button.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 
 interface Props {
   product: Product;
@@ -16,6 +18,7 @@ interface Props {
 
   /** @description used for analytics event */
   itemListName?: string;
+  buttonText?: HTML;
 }
 
 const relative = (url: string) => {
@@ -26,7 +29,9 @@ const relative = (url: string) => {
 const WIDTH = 277;
 const HEIGHT = 322;
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard(
+  { product, preload, itemListName, buttonText = "COMPRAR" }: Props,
+) {
   const {
     url,
     productID,
@@ -54,6 +59,25 @@ function ProductCard({ product, preload, itemListName }: Props) {
     },
   };
 
+  const getInstalment = (product: Product): number[] => {
+    let min = 0;
+    let increment = 0;
+    const instalments = [];
+    const offers = product.offers?.offers || [];
+    offers.map((offer) => {
+      offer.priceSpecification.map((item) => {
+        if (item.billingDuration! > min) {
+          min = item.billingDuration!;
+          increment = item.billingIncrement!;
+        }
+      });
+    });
+
+    instalments[0] = min;
+    instalments[1] = increment;
+    return instalments;
+  };
+
   return (
     <div
       class="card card-compact cursor-pointer hover:border-black h-full rounded-none card-bordered border-transparent hover:border-base-200 group w-full"
@@ -63,8 +87,8 @@ function ProductCard({ product, preload, itemListName }: Props) {
     >
       <figure class="relative " style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}>
         {/* Wishlist button */}
-        <div class="absolute top-0 right-0 z-10">
-          {/* <WishlistIcon productGroupID={productGroupID} productID={productID} /> */}
+        <div class="absolute top-2 right-3 z-10">
+          <WishlistIcon productGroupID={productGroupID} productID={productID} />
         </div>
         {/* Product Images */}
         <a
@@ -91,19 +115,24 @@ function ProductCard({ product, preload, itemListName }: Props) {
           class="mx-auto rounded-none text-base font-normal"
           variant={"secondary"}
         >
-          COMPRAR
+          <Markdown text={buttonText} />
         </Button>
       </figcaption>
-      <div class="px-[2px]">
-        <h3 class="text-center min-h-[46px] leading-4 text-lg font-medium">
+      <div class="px-[2px] mt-5">
+        <h3 class="text-center min-h-[32px]  leading-4 text-lg font-medium">
           {product.isVariantOf?.name?.toUpperCase()}
         </h3>
         <div class="flex flex-col justify-center">
           <span class="text-black text-center font-extralight text-lg">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
-          <span class="text-black text-center font-extralight text-xs ">
-            10x de R$ 219,00 sem juros
+          
+          <span class="text-[#757575] text-center font-light text-xs ">
+            {getInstalment(product)[0] != 0
+              ? `${getInstalment(product)[0]}x de R$ ${
+                formatPrice(getInstalment(product)[1])
+              } sem juros`
+              : ""}
           </span>
         </div>
       </div>

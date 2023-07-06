@@ -115,6 +115,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     );
   };
 
+
   const onClickNext = () => {
     const indices = getElementsInsideContainer();
     // Wow! items per page is how many elements are being displayed inside the container!!
@@ -122,7 +123,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
-
     goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
   };
 
@@ -188,7 +188,7 @@ function Slider({
   rootId,
   scroll = "smooth",
   interval,
-  infinite = false,
+  infinite = true,
 }: Props) {
   useEffect(() => setup({ rootId, scroll, interval, infinite }), [
     rootId,

@@ -1,6 +1,5 @@
 import type { Props as ICard } from "$store/components/ui/Card.tsx";
 import Card from "$store/components/ui/Card.tsx";
-
 import { Section } from "$live/blocks/section.ts";
 
 export interface Props {

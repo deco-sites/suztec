@@ -9405,6 +9405,10 @@
           ],
           "type": "boolean",
           "title": "Has Padding Desktop"
+        },
+        "buttonText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Button Text"
         }
       },
       "required": [
