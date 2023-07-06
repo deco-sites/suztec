@@ -60,7 +60,7 @@ function Navbar({ items, searchbar }: {
 
       {/* Desktop Version */}
       <div class="hidden lg:flex h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]">
-        <div class="flex-none">
+        <div class="w-1/12 xl:mr-2">
           <a href="/">
             <Logo />
           </a>
@@ -85,11 +85,11 @@ function Navbar({ items, searchbar }: {
             ))}
           </div>
 
-          <div class="w-full flex justify-between mt-3">
-            <div class="flex ml-3">
+          <div class="w-full flex justify-between  mt-3">
+            <div class="flex lg:ml-14 xl:ml-3 w-3/4">
               {items.map((item) => <NavItem item={item} />)}
             </div>
-            <div class="mb-5 max-w-[243px] flex-1">
+            <div class="mb-5 w-1/6 md:mr-4 lg:mr-0">
               <Searchbar searchbar={searchbar} />
             </div>
           </div>

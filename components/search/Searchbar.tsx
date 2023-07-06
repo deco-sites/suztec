@@ -102,7 +102,7 @@ function Searchbar({
         <input
           ref={searchInputRef}
           id="search-input"
-          class="flex-grow placeholder:text-gray-600 pl-3 py-[5px] outline-none placeholder-shown:sibling:hidden"
+          class="flex-grow placeholder:text-gray-600  pl-3 py-[5px] outline-none placeholder-shown:sibling:hidden"
           name={name}
           defaultValue={query}
           onInput={(e) => {

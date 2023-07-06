@@ -17,7 +17,7 @@ function NavItem({ item }: { item: INavItem }) {
   return (
     <li
       class={scroll.value > 100
-        ? "group flex items-center  mb-3"
+        ? "group flex items-center mb-3"
         : "group flex items-center"}
     >
       <a
@@ -32,7 +32,7 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class="fixed hidden hover:flex group-hover:flex bg-[#eee] transition-all z-50 items-start  gap-6 border-t border-b-2 border-base-200 w-screen"
+            class="fixed hidden hover:flex group-hover:flex bg-[#eee] z-50 items-start  gap-6 border-t border-b-2 border-base-200 w-screen"
             style={{ top: top, left: "0px", marginTop: headerHeight }}
           >
             <div class="mx-[189px] py-[30px]">
