@@ -26,7 +26,6 @@ const navItems = [
     height: 14,
   },
   { href: "/", icon: "UserNav", text: "Minha Conta", width: 12, height: 14 },
-  { href: "/", icon: "Cart-shopping", text: "Carrinho", width: 15, height: 14 },
 ];
 
 function Navbar({ items, searchbar }: {
@@ -83,6 +82,7 @@ function Navbar({ items, searchbar }: {
                 {item.text}
               </a>
             ))}
+            <Buttons variant="cart" />
           </div>
 
           <div class="w-full flex justify-between  mt-3">

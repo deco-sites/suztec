@@ -72,27 +72,30 @@ function CartButton() {
   };
 
   return (
-    <Button
-      class=""
-      variant="icon"
-      aria-label="open cart"
-      data-deco={displayCart.value && "open-cart"}
-      loading={loading.value}
-      onClick={onClick}
-    >
-      <div class="indicator">
-        <span class="indicator-item badge rounded-full badge-primary badge-sm">
-          {totalItems > 9 ? "9+" : totalItems}
-        </span>
-        <Icon
-          class="mr-[5px]"
-          id="Cart-shopping"
-          width={29}
-          height={26}
-          strokeWidth={2}
-        />
-      </div>
-    </Button>
+    <a>
+      <Button
+        class=""
+        variant="icon"
+        aria-label="open cart"
+        data-deco={displayCart.value && "open-cart"}
+        loading={loading.value}
+        onClick={onClick}
+      >
+        <div class="indicator px-[5px] hover:underline text-sm font-light items-center">
+          <Icon
+            class="mr-[5px]"
+            id="Cart-shopping"
+            width={15}
+            height={14}
+            strokeWidth={2}
+          />
+          <span class="indicator-item mr-14 badge rounded-full badge-primary badge-sm">
+            {totalItems > 9 ? "9+" : totalItems}
+          </span>
+          <span>Carrinho</span>
+        </div>
+      </Button>
+    </a>
   );
 }
 
