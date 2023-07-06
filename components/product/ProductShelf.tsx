@@ -9,7 +9,6 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 
-
 export interface Props {
   title: string;
   products: LoaderReturnType<Product[] | null>;
@@ -37,7 +36,6 @@ function ProductShelf({
 
       <Slider class="carousel carousel-center sm:carousel-end gap-[5px] col-span-full row-start-2 row-end-5">
         {products?.map((product, index) => (
-          
           <Slider.Item
             index={index}
             class="carousel-item w-[277px] h-full first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"

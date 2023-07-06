@@ -35,8 +35,7 @@ const variants = {
     "p-[10px] w-[200px] h-[40px] rounded-[50px] border-1 border-[#fff] inline-block font-bold bg-none text-white text-[12px] lg:text-[14px] !transition-all hover:scale-110 hover:bg-[#0030A0] hover:border-[#0030A0] focus:outline-none outline-none lg:w-[250px] duration-300 tracking-[0.7px]",
   checkout:
     "p-[10px] w-full h-11 rounded-[50px] inline-block font-bold bg-primary text-white text-[12px] transition-all duration-300 focus:outline-none outline-none disabled:bg-gray",
-  icon:
-    "h-[36px] rounded-full bg-transparent text-default border-transparent",
+  icon: "h-[36px] rounded-full bg-transparent text-default border-transparent",
   buy:
     "p-[10px] w-[150px] rounded-[50px] border-0 inline-block font-bold bg-primary text-white text-[16px] transition-all duration-300 hover:bg-primary focus:outline-none outline-none",
   assista:

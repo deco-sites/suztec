@@ -126,7 +126,7 @@ function ProductCard(
           <span class="text-black text-center font-extralight text-lg">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
-          
+
           <span class="text-[#757575] text-center font-light text-xs ">
             {getInstalment(product)[0] != 0
               ? `${getInstalment(product)[0]}x de R$ ${

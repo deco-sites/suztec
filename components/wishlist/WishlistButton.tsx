@@ -27,7 +27,6 @@ function WishlistButton({
   return (
     <Button
       class="text-gray-400 gap-2 "
-         
       loading={fetching.value}
       variant="icon"
       aria-label="Add to wishlist"
