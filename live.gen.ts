@@ -32,11 +32,12 @@ import * as $$$$$$$$10 from "./sections/Highlights.tsx";
 import * as $$$$$$$$11 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$12 from "./sections/NewsLetter.tsx";
 import * as $$$$$$$$13 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$14 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$15 from "./sections/ProductShelfAndCard.tsx";
-import * as $$$$$$$$16 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$17 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$18 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$14 from "./sections/ProductGallery.tsx";
+import * as $$$$$$$$15 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$16 from "./sections/ProductShelfAndCard.tsx";
+import * as $$$$$$$$17 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$18 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$19 from "./sections/WishlistGallery.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -210,11 +211,12 @@ const manifest = {
     "deco-sites/suztec/sections/LinkTree.tsx": $$$$$$$$11,
     "deco-sites/suztec/sections/NewsLetter.tsx": $$$$$$$$12,
     "deco-sites/suztec/sections/ProductDetails.tsx": $$$$$$$$13,
-    "deco-sites/suztec/sections/ProductShelf.tsx": $$$$$$$$14,
-    "deco-sites/suztec/sections/ProductShelfAndCard.tsx": $$$$$$$$15,
-    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$16,
-    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$17,
-    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$18,
+    "deco-sites/suztec/sections/ProductGallery.tsx": $$$$$$$$14,
+    "deco-sites/suztec/sections/ProductShelf.tsx": $$$$$$$$15,
+    "deco-sites/suztec/sections/ProductShelfAndCard.tsx": $$$$$$$$16,
+    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$17,
+    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$18,
+    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$19,
   },
   "loaders": {
     "$live/loaders/state.ts": i2$$$0,

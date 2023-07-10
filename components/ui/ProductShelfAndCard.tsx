@@ -13,7 +13,7 @@ function ProductShelfAndCard(
   const { Component, props } = productShelf;
   return (
     <div class="sm:home-container justify-center mb-10 md:my-15 flex flex-col md:flex-row items-center">
-      <div class="w-[885px] h-[509px]">
+      <div class="lg:w-[885px] h-[509px]">
         <Component {...props} />
       </div>
       <div class="lg:block hidden w-[272px] h-[385px]">

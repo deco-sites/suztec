@@ -108,6 +108,7 @@
               "deco-sites/suztec/sections/LinkTree.tsx",
               "deco-sites/suztec/sections/NewsLetter.tsx",
               "deco-sites/suztec/sections/ProductDetails.tsx",
+              "deco-sites/suztec/sections/ProductGallery.tsx",
               "deco-sites/suztec/sections/ProductShelf.tsx",
               "deco-sites/suztec/sections/ProductShelfAndCard.tsx",
               "deco-sites/suztec/sections/SearchResult.tsx",
@@ -9344,6 +9345,19 @@
       ],
       "title": "deco-sites/suztec/components/product/ProductDetails.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        }
+      },
+      "required": [
+        "products"
+      ],
+      "title": "deco-sites/suztec/components/product/ProductGallery.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RTaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -12253,6 +12267,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdEdhbGxlcnkudHN4": {
+      "title": "deco-sites/suztec/sections/ProductGallery.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/ProductGallery.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/ProductGallery.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdFNoZWxmLnRzeA==": {
       "title": "deco-sites/suztec/sections/ProductShelf.tsx",
       "type": "object",
@@ -13359,6 +13394,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdERldGFpbHMudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdEdhbGxlcnkudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdFNoZWxmLnRzeA=="

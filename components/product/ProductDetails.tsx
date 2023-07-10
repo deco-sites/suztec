@@ -272,7 +272,7 @@ function Details({
                     loading={index === 0 ? "eager" : "lazy"}
                   />
                 </Slider.Item>
-              ))}
+              ))}p
             </Slider>
 
             <Slider.PrevButton
