@@ -29,9 +29,7 @@ export default {
     container: {
       center: true,
     },
-    screens: {
-      'xs': '470px',
-    },
+   
     extend: {
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

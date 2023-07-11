@@ -34,8 +34,7 @@ function ProductShelf({
         <span class="font-medium text-2xl">{title}</span>
       </h2>
 
-      <Slider class="
-      ">
+      <Slider class="carousel carousel-center sm:carousel-end gap-[5px] col-span-full row-start-2 row-end-5">
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
