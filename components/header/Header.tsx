@@ -66,13 +66,13 @@ function Header(
   return (
     <>
       <header style={{ height: headerHeight }}>
-        <div class="bg-base-100 relative w-full z-50">
+        <div class="bg-base-100 relative w-full z-50 transition-all duration-200 ease-in-out">
           <div class="w-full bg-white top-0">
             <Navbar items={navItems} searchbar={searchbar} />
           </div>
           <div
             class={scroll.value > 100
-              ? "fixed w-full top-0 bg-white transition-all duration-300"
+              ? "fixed w-full top-0 bg-white "
               : "hidden"}
           >
             <NavBarScroll items={navItems} searchbar={searchbar} />

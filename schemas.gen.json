@@ -111,6 +111,7 @@
               "deco-sites/suztec/sections/ProductGallery.tsx",
               "deco-sites/suztec/sections/ProductShelf.tsx",
               "deco-sites/suztec/sections/ProductShelfAndCard.tsx",
+              "deco-sites/suztec/sections/ProductShelfWithCard.tsx",
               "deco-sites/suztec/sections/SearchResult.tsx",
               "deco-sites/suztec/sections/WhatsApp.tsx",
               "deco-sites/suztec/sections/WishlistGallery.tsx",
@@ -7667,18 +7668,7 @@
             "string",
             "null"
           ],
-          "title": "Bg Color"
-        },
-        "linkText": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Cor da tarja"
-        },
-        "linkHref": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Texto do Link"
         }
       },
       "required": [
@@ -9444,6 +9434,10 @@
         "productShelf": {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section",
           "title": "Product Shelf"
+        },
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
         }
       },
       "required": [
@@ -9451,6 +9445,31 @@
         "productShelf"
       ],
       "title": "deco-sites/suztec/components/ui/ProductShelfAndCard.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9Qcm9kdWN0U2hlbGZXaXRoQ2FyZC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        },
+        "itemsPerPage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Items Per Page"
+        }
+      },
+      "required": [
+        "title",
+        "products"
+      ],
+      "title": "deco-sites/suztec/components/ui/ProductShelfWithCard.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns": {
       "type": "object",
@@ -12330,6 +12349,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdFNoZWxmV2l0aENhcmQudHN4": {
+      "title": "deco-sites/suztec/sections/ProductShelfWithCard.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9Qcm9kdWN0U2hlbGZXaXRoQ2FyZC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/ProductShelfWithCard.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/ProductShelfWithCard.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA==": {
       "title": "deco-sites/suztec/sections/SearchResult.tsx",
       "type": "object",
@@ -13403,6 +13443,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdFNoZWxmQW5kQ2FyZC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvUHJvZHVjdFNoZWxmV2l0aENhcmQudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA=="

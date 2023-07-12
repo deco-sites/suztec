@@ -74,7 +74,6 @@ function CartButton() {
   return (
     <a>
       <Button
-        class=""
         variant="icon"
         aria-label="open cart"
         data-deco={displayCart.value && "open-cart"}

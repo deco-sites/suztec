@@ -35,9 +35,10 @@ import * as $$$$$$$$13 from "./sections/ProductDetails.tsx";
 import * as $$$$$$$$14 from "./sections/ProductGallery.tsx";
 import * as $$$$$$$$15 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$16 from "./sections/ProductShelfAndCard.tsx";
-import * as $$$$$$$$17 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$18 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$19 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$17 from "./sections/ProductShelfWithCard.tsx";
+import * as $$$$$$$$18 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$19 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$20 from "./sections/WishlistGallery.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -214,9 +215,10 @@ const manifest = {
     "deco-sites/suztec/sections/ProductGallery.tsx": $$$$$$$$14,
     "deco-sites/suztec/sections/ProductShelf.tsx": $$$$$$$$15,
     "deco-sites/suztec/sections/ProductShelfAndCard.tsx": $$$$$$$$16,
-    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$17,
-    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$18,
-    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$19,
+    "deco-sites/suztec/sections/ProductShelfWithCard.tsx": $$$$$$$$17,
+    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$18,
+    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$19,
+    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$20,
   },
   "loaders": {
     "$live/loaders/state.ts": i2$$$0,

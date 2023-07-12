@@ -11,22 +11,14 @@ export interface Props {
    * @description time (in seconds) to start the carousel autoplay
    */
   interval?: number;
-  bgColor?: string;
   /**
    * @title Cor da tarja
    */
-  linkText?: HTML;
-  /**
-   * @title Texto do Link
-   */
-  linkHref?: string;
-  /**
-   * @title Href do link
-   */
+  bgColor?: string;
 }
 
 function Alert(
-  { alerts = [], interval = 5, bgColor = "black", linkText, linkHref }: Props,
+  { alerts = [], interval = 5, bgColor = "black" }: Props,
 ) {
   const id = useId();
 
@@ -40,14 +32,6 @@ function Alert(
           <Slider.Item index={index} class="carousel-item">
             <span class="text-sm text-white flex justify-center items-center font-light leading-5 w-screen h-[36px]">
               <Markdown text={alert} />
-              {linkText && (
-                <a
-                  href={linkHref}
-                  class="hover:underline ml-1 cursor-pointer"
-                >
-                  <Markdown text={linkText} />
-                </a>
-              )}
             </span>
           </Slider.Item>
         ))}

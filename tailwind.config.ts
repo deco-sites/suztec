@@ -29,7 +29,7 @@ export default {
     container: {
       center: true,
     },
-   
+
     extend: {
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

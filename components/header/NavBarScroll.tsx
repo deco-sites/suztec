@@ -36,7 +36,7 @@ function NavBarScroll({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class="lg:hidden block items-center border-b border-base-200 w-full p-4 gap-2"
+        class="lg:hidden block  items-center border-b border-base-200 w-full p-4 gap-2"
         style={{ height: navbarHeight }}
       >
         <div class="items-center flex justify-between w-full">
@@ -58,7 +58,7 @@ function NavBarScroll({ items, searchbar }: {
 
       {/* Desktop Version */}
       <div
-        class="hidden lg:flex h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
+        class="hidden lg:flex z-[999] transform-y-full ease-in-out transition duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
         style={{ height: "72px" }}
       >
         <div class="flex-none">

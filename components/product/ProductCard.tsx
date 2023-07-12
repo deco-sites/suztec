@@ -110,15 +110,15 @@ function ProductCard(
         </a>
       </figure>
       {/* Prices & Name */}
-      <figcaption class="flex justify-center py-2 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
+      <figcaption class="flex justify-center py-2 lg:py-0 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
         <Button
-          class="mx-auto rounded-none text-base font-normal"
+          class="mx-auto rounded-none text-base font-normal transform transition-all lg:group-hover:translate-y-2"
           variant={"secondary"}
         >
           <Markdown text={buttonText} />
         </Button>
       </figcaption>
-      <div class="px-[2px] mt-5">
+      <div class="px-[2px] lg:mt-8 mt-6">
         <h3 class="text-center min-h-[32px]  leading-4 text-lg font-medium">
           {product.isVariantOf?.name?.toUpperCase()}
         </h3>

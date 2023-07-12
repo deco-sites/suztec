@@ -69,28 +69,34 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-      />
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
+        <h1 class="flex items-center">
+          <span class="font-medium text-[32px] text-[#353535]">
+            {product.isVariantOf?.name}
+          </span>
+          <div>
+            <WishlistButton
+              variant="icon"
+              productGroupID={isVariantOf?.productGroupID}
+              productID={productID}
+            />
+          </div>
+        </h1>
         <div>
-          <span class="text-sm text-base-300">
-            Cod. {gtin}
+          <span class="text-[10px] text-[#757575]">
+            REF. {product.isVariantOf?.model}
           </span>
         </div>
-        <h1>
-          <span class="font-medium text-xl">{name}</span>
-        </h1>
+      </div>
+      <div>
+        <span class="">Descrição</span>
+        <span class="text-sm">{description}</span>
       </div>
       {/* Prices */}
       <div class="mt-4">
         <div class="flex flex-row gap-2 items-center">
-          <span class="line-through text-base-300 text-xs">
-            {formatPrice(listPrice, offers!.priceCurrency!)}
-          </span>
-          <span class="font-medium text-xl text-secondary">
+          <span class="font-medium text-xl text-black">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
@@ -117,11 +123,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                   productGroupId={product.isVariantOf?.productGroupID ?? ""}
                 />
               )}
-              <WishlistButton
-                variant="full"
-                productGroupID={isVariantOf?.productGroupID}
-                productID={productID}
-              />
             </>
           )
           : <OutOfStock productID={productID} />}
@@ -233,7 +234,7 @@ function Details({
   page,
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
-  const { product } = page;
+  const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
 
@@ -246,7 +247,10 @@ function Details({
    */
   if (variant === "slider") {
     return (
-      <>
+      <div>
+        <Breadcrumb
+          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+        />
         <div
           id={id}
           class="grid grid-cols-1 gap-4 sm:grid-cols-[max-content_40vw_40vw] sm:grid-rows-1 sm:justify-center"
@@ -272,7 +276,7 @@ function Details({
                     loading={index === 0 ? "eager" : "lazy"}
                   />
                 </Slider.Item>
-              ))}p
+              ))}
             </Slider>
 
             <Slider.PrevButton
@@ -322,7 +326,7 @@ function Details({
           </div>
         </div>
         <SliderJS rootId={id}></SliderJS>
-      </>
+      </div>
     );
   }
 

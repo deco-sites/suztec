@@ -65,7 +65,7 @@ function Navbar({ items, searchbar }: {
           </a>
         </div>
         <div class="block w-full">
-          <div class="flex justify-end items-center mt-5">
+          <div class="flex justify-end items-center mt-3">
             {/* TODO: Trocar isso para <buttons /> */}
             {navItems.map((item) => (
               <a
@@ -85,7 +85,7 @@ function Navbar({ items, searchbar }: {
             <Buttons variant="cart" />
           </div>
 
-          <div class="w-full flex justify-between  mt-3">
+          <div class="w-full flex justify-between mt-3">
             <div class="flex lg:ml-14 xl:ml-3 w-3/4">
               {items.map((item) => <NavItem item={item} />)}
             </div>
