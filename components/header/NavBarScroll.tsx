@@ -22,18 +22,16 @@ const navItems = [
     height: 14,
   },
   { href: "/", icon: "UserNav", width: 12, height: 14 },
- 
 ];
 
 function NavBarScroll({ items, searchbar }: {
   items: INavItem[];
   searchbar: SearchbarProps;
 }) {
-  
   return (
     <>
       <div
-        class="hidden lg:flex z-[999] transform-y-full ease-in-out transition duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
+        class="hidden lg:flex z-[999]  ease-in-out transition-all duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
         style={{ height: "72px" }}
       >
         <div class="flex-none">
@@ -64,7 +62,6 @@ function NavBarScroll({ items, searchbar }: {
                     height={item.height}
                     class="mr-[5px]"
                   />
-                  
                 </a>
               ))}
               <Buttons variant="cart" />

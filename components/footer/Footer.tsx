@@ -63,18 +63,25 @@ function FooterContainer(
   return <div class={`py-6 px-4 ${_class}`}>{children}</div>;
 }
 
- export interface socialIcons {
-  width: number 
-  height: number
-  icon: "Instagram" | "Facebook" | "Blog" | "Youtube" | "Linkedin" | "Spotify" | "GooglePlus"
-  href : string
+export interface socialIcons {
+  width: number;
+  height: number;
+  icon:
+    | "Instagram"
+    | "Facebook"
+    | "Blog"
+    | "Youtube"
+    | "Linkedin"
+    | "Spotify"
+    | "GooglePlus";
+  href: string;
 }
 
 export interface footerSocial {
   socialText1?: HTML;
   socialText2?: HTML;
   socialText3?: HTML;
-  icons?: socialIcons[]
+  icons?: socialIcons[];
   socialButtonText?: HTML;
   newletterTextButton?: HTML;
   newsLetterPlaceHolder?: HTML;
@@ -110,23 +117,25 @@ function Footer(
     socialText1 = "ENCONTRE UMA LOJA",
     socialText2 = "SIGA-NOS NAS REDES SOCIAIS",
     socialText3 = "FIQUE POR DENTRO DAS NOVIDADES E PROMOÇOES",
-    icons = [ { href: "#", icon: "Instagram", width: 22, height: 26 },
-    { href: "#", icon: "Facebook", width: 22, height: 26 },
-    {
-      href: "#",
-      icon: "Blog",
-      width: 25,
-      height: 18,
-    },
-    { href: "#", icon: "Youtube", width: 29, height: 26 },
-    { href: "#", icon: "Linkedin", width: 22, height: 26 },
-    { href: "#", icon: "Spotify", width: 25, height: 26 },
-    {
-      href: "#",
-      icon: "GooglePlus",
-      width: 30,
-      height: 30,
-    }],
+    icons = [
+      { href: "#", icon: "Instagram", width: 22, height: 26 },
+      { href: "#", icon: "Facebook", width: 22, height: 26 },
+      {
+        href: "#",
+        icon: "Blog",
+        width: 25,
+        height: 18,
+      },
+      { href: "#", icon: "Youtube", width: 29, height: 26 },
+      { href: "#", icon: "Linkedin", width: 22, height: 26 },
+      { href: "#", icon: "Spotify", width: 25, height: 26 },
+      {
+        href: "#",
+        icon: "GooglePlus",
+        width: 30,
+        height: 30,
+      },
+    ],
     newsLetterPlaceHolder = "Digite seu e-mail...",
     socialButtonText = "ENCONTRE A LOJA MAIS PRÓXIMA",
     newletterTextButton = "ENVIAR",

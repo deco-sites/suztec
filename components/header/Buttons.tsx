@@ -152,12 +152,11 @@ function CartButtonMobile() {
 function Buttons(
   { variant }: { variant: "cart" | "search" | "menu" | "cartMobile" },
 ) {
-
-  if(variant === "cartMobile"){
-    return <CartButtonMobile />
+  if (variant === "cartMobile") {
+    return <CartButtonMobile />;
   }
   if (variant === "cart") {
-    return <CartButton  />;
+    return <CartButton />;
   }
 
   if (variant === "search") {
