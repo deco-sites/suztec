@@ -2,12 +2,10 @@ import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
-import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Logo from "./Logo.tsx";
-import { useScroll } from "$store/sdk/useScroll.ts";
 
 const navItems = [
   {
@@ -24,39 +22,16 @@ const navItems = [
     height: 14,
   },
   { href: "/", icon: "UserNav", width: 12, height: 14 },
-  { href: "/", icon: "Cart-shopping", text: "Carrinho", width: 15, height: 14 },
+ 
 ];
 
 function NavBarScroll({ items, searchbar }: {
   items: INavItem[];
   searchbar: SearchbarProps;
 }) {
-  const scroll = useScroll();
+  
   return (
     <>
-      {/* Mobile Version */}
-      <div
-        class="lg:hidden block  items-center border-b border-base-200 w-full p-4 gap-2"
-        style={{ height: navbarHeight }}
-      >
-        <div class="items-center flex justify-between w-full">
-          <Buttons variant="menu" />
-
-          <a
-            href="/"
-            aria-label="Store logo"
-          >
-            <Logo width={95} height={46} />
-          </a>
-
-          <Buttons variant="cart" />
-        </div>
-        <div class="mt-4">
-          <Searchbar searchbar={searchbar} />
-        </div>
-      </div>
-
-      {/* Desktop Version */}
       <div
         class="hidden lg:flex z-[999] transform-y-full ease-in-out transition duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
         style={{ height: "72px" }}
@@ -89,9 +64,10 @@ function NavBarScroll({ items, searchbar }: {
                     height={item.height}
                     class="mr-[5px]"
                   />
-                  {item.text}
+                  
                 </a>
               ))}
+              <Buttons variant="cart" />
             </div>
           </div>
         </div>

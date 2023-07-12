@@ -65,9 +65,9 @@ function Header(
 
   return (
     <>
-      <header style={{ height: headerHeight }}>
+      <header class="lg:h-[94px] h-[130px]">
         <div class="bg-base-100 relative w-full z-50 transition-all duration-200 ease-in-out">
-          <div class="w-full bg-white top-0">
+          <div class="w-full">
             <Navbar items={navItems} searchbar={searchbar} />
           </div>
           <div

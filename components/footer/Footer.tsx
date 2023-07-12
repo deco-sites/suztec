@@ -54,28 +54,6 @@ function SectionItem({ item, openInNewTab }: itemProps) {
   );
 }
 
-const footerIcons = [
-  { href: "#", icon: "Instagram", width: 22, height: 26 },
-  { href: "#", icon: "Facebook", width: 22, height: 26 },
-  {
-    href: "#",
-    src:
-      "https://thenorthface.vteximg.com.br/arquivos/Blog.png?v=637262729475600000",
-    width: 25,
-    height: 18,
-  },
-  { href: "#", icon: "Youtube", width: 29, height: 26 },
-  { href: "#", icon: "Linkedin", width: 22, height: 26 },
-  { href: "#", icon: "Spotify", width: 25, height: 26 },
-  {
-    href: "#",
-    src:
-      "https://www.thenorthface.com.br/arquivos/gplus.png?v=637359724387400000",
-    width: 22,
-    height: 24,
-  },
-];
-
 function FooterContainer(
   { children, class: _class = "" }: {
     class?: string;
@@ -85,52 +63,84 @@ function FooterContainer(
   return <div class={`py-6 px-4 ${_class}`}>{children}</div>;
 }
 
+ export interface socialIcons {
+  width: number 
+  height: number
+  icon: "Instagram" | "Facebook" | "Blog" | "Youtube" | "Linkedin" | "Spotify" | "GooglePlus"
+  href : string
+}
+
+export interface footerSocial {
+  socialText1?: HTML;
+  socialText2?: HTML;
+  socialText3?: HTML;
+  icons?: socialIcons[]
+  socialButtonText?: HTML;
+  newletterTextButton?: HTML;
+  newsLetterPlaceHolder?: HTML;
+  newsLetterButtonColor?: string;
+}
+
+export interface footerPrivacy {
+  privacyDescription1?: HTML;
+  privacyDescription2?: HTML;
+  logoPrivacy1?: HTML;
+  logoPrivacy2?: HTML;
+}
+
 export interface Props {
   sections?: Section[];
 
   openInNewTab?: boolean;
 
-  attText1?: HTML;
+  social?: footerSocial;
 
-  attText2?: HTML;
-
-  attText3?: HTML;
-
-  buttonAttText?: HTML;
-
-  buttonNewletterText?: HTML;
-
-  placeHolder?: string;
-
-  bgButton?: string;
-
-  footerDescription1?: HTML;
-
-  footerDescription2?: HTML;
-
-  textPrivacy1?: HTML;
-
-  textPrivacy2?: HTML;
+  privacy?: footerPrivacy;
 }
 
 function Footer(
   {
     sections = [],
     openInNewTab = false,
-    attText1 = "ENCONTRE UMA LOJA",
-    attText2 = "SIGA-NOS NAS REDES SOCIAIS",
-    attText3 = "FIQUE POR DENTRO DAS NOVIDADES E PROMOÇOES",
-    placeHolder = "Digite seu e-mail...",
-    buttonAttText = "ENCONTRE A LOJA MAIS PRÓXIMA",
-    buttonNewletterText = "ENVIAR",
-    footerDescription1 =
-      "CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA - ES",
-    footerDescription2 =
-      "© Todos os direitos reservados. Eventuais promoções, descontos e prazos de pagamento expostos aqui são válidos apenas para compras via internet.",
-    textPrivacy1 = "POLÍTICAS DE PRIVACIDADE",
-    textPrivacy2 = "SITEMAP",
+    social = {},
+    privacy = {},
   }: Props,
 ) {
+  const {
+    socialText1 = "ENCONTRE UMA LOJA",
+    socialText2 = "SIGA-NOS NAS REDES SOCIAIS",
+    socialText3 = "FIQUE POR DENTRO DAS NOVIDADES E PROMOÇOES",
+    icons = [ { href: "#", icon: "Instagram", width: 22, height: 26 },
+    { href: "#", icon: "Facebook", width: 22, height: 26 },
+    {
+      href: "#",
+      icon: "Blog",
+      width: 25,
+      height: 18,
+    },
+    { href: "#", icon: "Youtube", width: 29, height: 26 },
+    { href: "#", icon: "Linkedin", width: 22, height: 26 },
+    { href: "#", icon: "Spotify", width: 25, height: 26 },
+    {
+      href: "#",
+      icon: "GooglePlus",
+      width: 30,
+      height: 30,
+    }],
+    newsLetterPlaceHolder = "Digite seu e-mail...",
+    socialButtonText = "ENCONTRE A LOJA MAIS PRÓXIMA",
+    newletterTextButton = "ENVIAR",
+  } = social;
+
+  const {
+    privacyDescription1 =
+      "CNPJ: 10.718.110/0001-47 | IE: 083.199.90-0 | CEP: 29161-389 | SERRA - ES",
+    privacyDescription2 =
+      "© Todos os direitos reservados. Eventuais promoções, descontos e prazos de pagamento expostos aqui são válidos apenas para compras via internet.",
+    logoPrivacy1 = "POLÍTICAS DE PRIVACIDADE",
+    logoPrivacy2 = "SITEMAP",
+  } = privacy;
+
   return (
     <footer class="w-full bg-white flex flex-col  border-t-2">
       <div class="w-full container">
@@ -198,20 +208,20 @@ function Footer(
             <ul class="lg:flex  gap-10 w-full text-black items-center">
               <li class="block text-center mx-auto  w-full lg:w-[380px]">
                 <span class="items-center text-black font-medium text-sm ">
-                  <Markdown text={attText1} />
+                  <Markdown text={socialText1} />
                 </span>
                 <div>
                   <button class="btn rounded-none w-full lg:w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
-                    <Markdown text={buttonAttText} />
+                    <Markdown text={socialButtonText} />
                   </button>
                 </div>
               </li>
               <li class="block text-center mx-auto  w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center text-black font-medium text-sm">
-                  <Markdown text={attText2} />
+                  <Markdown text={socialText2} />
                 </span>
                 <ul class="flex items-center justify-between gap-2 mt-[38px] mb-3">
-                  {footerIcons.map((icon) => (
+                  {icons.map((icon) => (
                     <li>
                       <a
                         href={icon.href}
@@ -219,21 +229,14 @@ function Footer(
                         rel="noopener noreferrer"
                         aria-label="Instagram logo"
                       >
-                        {icon.icon
-                          ? (
+                        {icon.icon &&
+                          (
                             <Icon
                               class="text-black"
                               width={icon.width}
                               height={icon.height}
                               id={icon.icon}
                               strokeWidth={1}
-                            />
-                          )
-                          : (
-                            <img
-                              src={icon.src}
-                              width={icon.width}
-                              height={icon.height}
                             />
                           )}
                       </a>
@@ -243,12 +246,12 @@ function Footer(
               </li>
               <li class="block text-center mx-auto w-full lg:w-[380px] lg:mt-0 mt-14">
                 <span class="items-center font-medium text-black text-sm">
-                  <Markdown text={attText3} />
+                  <Markdown text={socialText3} />
                 </span>
                 <div class="w-full lg:max-w-[380px] mt-[30px] mx-auto ">
                   <Newsletter
-                    buttonText={buttonNewletterText}
-                    placeHolder={placeHolder}
+                    buttonText={newletterTextButton}
+                    placeHolder={newsLetterPlaceHolder}
                   />
                 </div>
               </li>
@@ -259,10 +262,10 @@ function Footer(
       <div class="flex flex-col justify-center text-center mb-16 lg:mb-0">
         <div class="p-[10px] mt-5 mb-6">
           <p class="text-[10px] font-light">
-            {footerDescription1}
+            {privacyDescription1}
           </p>
           <p class="text-[10px] font-light">
-            {footerDescription2}
+            {privacyDescription2}
           </p>
         </div>
         <div class="flex items-center justify-center pb-1">
@@ -270,8 +273,8 @@ function Footer(
             <FooterLogo />
           </a>
           <div class="flex justify-between items-baseline text-[10px] font-bold mt-5">
-            <a href="/" class="p-1">{textPrivacy1}</a>
-            <a href="/" class="p-1">{textPrivacy2}</a>
+            <a href="/" class="p-1">{logoPrivacy1}</a>
+            <a href="/" class="p-1">{logoPrivacy2}</a>
           </div>
         </div>
       </div>

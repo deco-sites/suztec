@@ -37,7 +37,7 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class="lg:hidden block items-center border-b border-base-200 w-full p-4 gap-2"
+        class="lg:hidden fixed top-0 bg-white block items-center border-b border-base-200 w-full p-4 gap-2"
         style={{ height: navbarHeight }}
       >
         <div class="items-center flex justify-between w-full">
@@ -50,7 +50,7 @@ function Navbar({ items, searchbar }: {
             <Logo width={95} height={46} />
           </a>
 
-          <Buttons variant="cart" />
+          <Buttons variant="cartMobile" />
         </div>
         <div class="mt-4">
           <Searchbar searchbar={searchbar} />

@@ -8775,6 +8775,14 @@
             {
               "type": "string",
               "const": "FooterLogo"
+            },
+            {
+              "type": "string",
+              "const": "GooglePlus"
+            },
+            {
+              "type": "string",
+              "const": "Blog"
             }
           ],
           "type": "string",
@@ -9005,6 +9013,14 @@
             {
               "type": "string",
               "const": "FooterLogo"
+            },
+            {
+              "type": "string",
+              "const": "GooglePlus"
+            },
+            {
+              "type": "string",
+              "const": "Blog"
             }
           ],
           "type": "string",
@@ -9059,6 +9075,136 @@
       },
       "title": "Section[]"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@socialIcons": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "number",
+          "title": "Width"
+        },
+        "height": {
+          "type": "number",
+          "title": "Height"
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Blog"
+            },
+            {
+              "type": "string",
+              "const": "Youtube"
+            },
+            {
+              "type": "string",
+              "const": "Linkedin"
+            },
+            {
+              "type": "string",
+              "const": "Spotify"
+            },
+            {
+              "type": "string",
+              "const": "GooglePlus"
+            }
+          ],
+          "type": "string",
+          "title": "Icon"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "icon",
+        "href"
+      ],
+      "title": "socialIcons"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@socialIcons[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@socialIcons"
+      },
+      "title": "socialIcons[]"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@footerSocial": {
+      "type": "object",
+      "properties": {
+        "socialText1": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Social Text1"
+        },
+        "socialText2": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Social Text2"
+        },
+        "socialText3": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Social Text3"
+        },
+        "icons": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@socialIcons[]",
+          "title": "Icons"
+        },
+        "socialButtonText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Social Button Text"
+        },
+        "newletterTextButton": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Newletter Text Button"
+        },
+        "newsLetterPlaceHolder": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "News Letter Place Holder"
+        },
+        "newsLetterButtonColor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "News Letter Button Color"
+        }
+      },
+      "required": [],
+      "title": "footerSocial"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@footerPrivacy": {
+      "type": "object",
+      "properties": {
+        "privacyDescription1": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Privacy Description1"
+        },
+        "privacyDescription2": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Privacy Description2"
+        },
+        "logoPrivacy1": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Logo Privacy1"
+        },
+        "logoPrivacy2": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Logo Privacy2"
+        }
+      },
+      "required": [],
+      "title": "footerPrivacy"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -9073,55 +9219,13 @@
           ],
           "title": "Open In New Tab"
         },
-        "attText1": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Att Text1"
+        "social": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@footerSocial",
+          "title": "Social"
         },
-        "attText2": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Att Text2"
-        },
-        "attText3": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Att Text3"
-        },
-        "buttonAttText": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Button Att Text"
-        },
-        "buttonNewletterText": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Button Newletter Text"
-        },
-        "placeHolder": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Place Holder"
-        },
-        "bgButton": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Bg Button"
-        },
-        "footerDescription1": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Footer Description1"
-        },
-        "footerDescription2": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Footer Description2"
-        },
-        "textPrivacy1": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Text Privacy1"
-        },
-        "textPrivacy2": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
-          "title": "Text Privacy2"
+        "privacy": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9mb290ZXIvRm9vdGVyLnRzeA==@footerPrivacy",
+          "title": "Privacy"
         }
       },
       "required": [],

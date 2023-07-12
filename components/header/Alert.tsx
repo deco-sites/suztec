@@ -23,7 +23,7 @@ function Alert(
   const id = useId();
 
   return (
-    <div id={id} class="relative">
+    <div id={id} class="relative ">
       <Slider
         class="carousel carousel-center gap-6 scrollbar-none"
         style={`background-color: ${bgColor} `}
