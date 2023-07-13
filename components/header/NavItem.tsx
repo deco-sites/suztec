@@ -17,7 +17,7 @@ function NavItem({ item }: { item: INavItem }) {
   return (
     <li
       class={scroll.value > 100
-        ? "group flex items-center pb-5"
+        ? "group flex items-center pb-4"
         : "group flex items-center"}
     >
       <a

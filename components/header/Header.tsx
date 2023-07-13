@@ -4,11 +4,9 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import MobileMenu from "$store/components/ui/MobileMenu.tsx";
-import Alert from "./Alert.tsx";
 import { useScroll } from "../../sdk/useScroll.ts";
 import Navbar from "./Navbar.tsx";
 import NavBarScroll from "./NavBarScroll.tsx";
-import { headerHeight } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -72,8 +70,8 @@ function Header(
           </div>
           <div
             class={scroll.value > 100
-              ? "fixed w-full top-0 bg-white "
-              : "hidden"}
+              ? "visible opacity-100 top-0 w-full bg-white fixed transition-all duration-300 ease-in-out"
+              : "invisible opacity-0 w-full fixed -top-[100px]"}
           >
             <NavBarScroll items={navItems} searchbar={searchbar} />
           </div>

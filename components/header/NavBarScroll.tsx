@@ -3,7 +3,6 @@ import Buttons from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
 import type { INavItem } from "./NavItem.tsx";
-import type { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Logo from "./Logo.tsx";
 
@@ -31,7 +30,7 @@ function NavBarScroll({ items, searchbar }: {
   return (
     <>
       <div
-        class="hidden lg:flex z-[999]  ease-in-out transition-all duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
+        class="hidden lg:flex z-[999] ease-in-out transition duration-200  h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]"
         style={{ height: "72px" }}
       >
         <div class="flex-none">
