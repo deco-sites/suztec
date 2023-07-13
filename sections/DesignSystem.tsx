@@ -316,9 +316,8 @@ function Section({
   colors,
   miscellaneous,
   fonts = {
-    fontFamily: "Roboto",
-    styleInnerHtml:
-      "@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100&family=Roboto:wght@300;400;500;700;900&display=swap');",
+    fontFamily: "",
+    styleInnerHtml: "",
   },
 }: Props) {
   const id = useId();

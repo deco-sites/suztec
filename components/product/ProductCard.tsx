@@ -5,7 +5,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { sendEventOnClick } from "$store/sdk/analytics.tsx";
+import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import Button from "$store/components/ui/Button.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
@@ -77,14 +77,30 @@ function ProductCard(
     instalments[1] = increment;
     return instalments;
   };
+  const id = `product-card-${productID}`;
 
   return (
     <div
       class="card card-compact cursor-pointer hover:border-black h-full rounded-none card-bordered border-transparent hover:border-base-200 group w-full"
       data-deco="view-product"
-      id={`product-card-${productID}`}
-      {...sendEventOnClick(clickEvent)}
+      id={id}
     >
+      <SendEventOnClick
+        id={id}
+        event={{
+          name: "select_item" as const,
+          params: {
+            item_list_name: itemListName,
+            items: [
+              mapProductToAnalyticsItem({
+                product,
+                price,
+                listPrice,
+              }),
+            ],
+          },
+        }}
+      />
       <figure class="relative " style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}>
         {/* Wishlist button */}
         <div class="absolute top-2 right-3 z-10">
@@ -110,9 +126,9 @@ function ProductCard(
         </a>
       </figure>
       {/* Prices & Name */}
-      <figcaption class="flex justify-center py-2 lg:py-0 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
+      <figcaption class=" flex justify-center py-2 lg:py-0 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
         <Button
-          class="mx-auto rounded-none text-base font-normal transform transition-all lg:group-hover:translate-y-2"
+          class="mx-auto -top-3 rounded-none text-base font-normal  transform transition-all lg:group-hover:translate-y-3"
           variant={"secondary"}
         >
           <Markdown text={buttonText} />
@@ -127,7 +143,7 @@ function ProductCard(
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
 
-          <span class="text-[#757575] text-center font-light text-xs ">
+          <span class="text-[#757575] text-center font-light text-[11px] ">
             {getInstalment(product)[0] != 0
               ? `${getInstalment(product)[0]}x de R$ ${
                 formatPrice(getInstalment(product)[1])

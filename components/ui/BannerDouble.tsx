@@ -25,10 +25,15 @@ export interface BannerDoubleProps {
   BannerSubTitleActive?: boolean;
 
   /**
-   * @description Posição do texto
+   * @description Posição do texto Vertical
    */
 
-  TextPosition: "Inicio" | "meio" | "final";
+  TextPositionVertical: "Alto" | "Meio" | "Baixo";
+  /**
+   * @description Posição do texto Horizontal
+   */
+
+  TextPositionHorizontal: "Esquerda" | "Meio" | "Direita";
 
   /**
    * @description Cor do texto em hexadecimal (ex: #ffffff)
@@ -98,42 +103,37 @@ function BannerDoble(
     BannerTitle,
     BannerSubTitle,
     BannerSubTitleActive,
-    TextPosition,
+    TextPositionVertical,
+    TextPositionHorizontal,
     TextColor,
     buttonCallToAction,
   }: BannerDoubleProps,
 ) {
   return (
     <>
-      <div class="w-full flex flex-col justify-center items-center">
+      <div
+        class={`w-full flex flex-col ${
+          TextPositionVertical === "Alto"
+            ? "justify-start"
+            : TextPositionVertical === "Meio"
+            ? "justify-center"
+            : "justify-end"
+        } ${
+          TextPositionHorizontal === "Esquerda"
+            ? "items-start"
+            : TextPositionHorizontal === "Meio"
+            ? "items-center"
+            : "items-end"
+        }`}
+      >
         <div
           id="alinhamento-do-texto"
-          class={`w-auto h-auto flex flex-col justify-evenly items-end absolute md:(h-auto ${
-            TextPosition === "Inicio"
-              ? "items-start"
-              : TextPosition === "meio"
-              ? "items-center"
-              : TextPosition === "final"
-              ? "items-end"
-              : null
-          }pr-4 pt-10 pl-24)`}
+          class={`w-auto h-auto flex flex-col justify-evenly items-end absolute md:(h-auto pr-4 pt-10 pl-24)`}
         >
           {/* <span class={`w-full h-[45vh] block md:hidden`}></span> */}
           <div
             id="wrapper-text-and-button"
-            class={`flex flex-col justify-center items-center gap-6 w-full p-4  ${
-              TextPosition === "Inicio"
-                ? "items-start"
-                : TextPosition === "final"
-                ? "items-end"
-                : "items-center"
-            }) ${
-              TextPosition === "Inicio"
-                ? "text-left"
-                : TextPosition === "final"
-                ? "text-right"
-                : "text-center"
-            }`}
+            class={`flex flex-col justify-center items-center gap-6 w-full p-4  $`}
           >
             <div
               id="text-Wrapper"
