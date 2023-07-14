@@ -4,7 +4,6 @@ import Icon from "$store/components/ui/Icon.tsx";
 import NavItem from "./NavItem.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Logo from "./Logo.tsx";
 
 const navItems = [
   {
@@ -35,7 +34,7 @@ function NavBarScroll({ items, searchbar }: {
       >
         <div class="flex-none">
           <a href="/">
-            <Logo width={80} height={50} />
+            <Icon id="Logo" width={80} height={50} />
           </a>
         </div>
 

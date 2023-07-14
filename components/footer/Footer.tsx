@@ -3,7 +3,6 @@ import Newsletter from "$store/islands/Newsletter.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 import type { ComponentChildren } from "preact";
-import FooterLogo from "./FooterLogo.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -279,7 +278,7 @@ function Footer(
         </div>
         <div class="flex items-center justify-center pb-1">
           <a href="/">
-            <FooterLogo />
+            <Icon id="Logo" width={75} height={35} />
           </a>
           <div class="flex justify-between items-baseline text-[10px] font-bold mt-5">
             <a href="/" class="p-1">{logoPrivacy1}</a>

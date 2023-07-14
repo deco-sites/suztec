@@ -5,7 +5,6 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Logo from "./Logo.tsx";
 import { useScroll } from "$store/sdk/useScroll.ts";
 
 const navItems = [
@@ -47,7 +46,7 @@ function Navbar({ items, searchbar }: {
             href="/"
             aria-label="Store logo"
           >
-            <Logo width={95} height={46} />
+            <Icon id="Logo" width={95} height={46} />
           </a>
 
           <Buttons variant="cartMobile" />
@@ -61,7 +60,7 @@ function Navbar({ items, searchbar }: {
       <div class="hidden lg:flex h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]">
         <div class="w-1/12 xl:mr-2">
           <a href="/">
-            <Logo />
+          <Icon id="Logo" width={126} height={60} />
           </a>
         </div>
         <div class="block w-full">

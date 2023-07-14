@@ -9524,6 +9524,11 @@
               "type": "string",
               "const": "Cookies",
               "default": "Cookies"
+            },
+            {
+              "type": "string",
+              "const": "Logo",
+              "default": "Logo"
             }
           ],
           "type": "string",
@@ -9810,6 +9815,11 @@
               "type": "string",
               "const": "Cookies",
               "default": "Cookies"
+            },
+            {
+              "type": "string",
+              "const": "Logo",
+              "default": "Logo"
             }
           ],
           "type": "string",
