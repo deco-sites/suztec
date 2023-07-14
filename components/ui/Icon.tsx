@@ -44,7 +44,8 @@ export type AvailableIcons =
   | "Spotify"
   | "FooterLogo"
   | "GooglePlus"
-  | "Blog";
+  | "Blog"
+  | "Cookies";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

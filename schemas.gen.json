@@ -66,6 +66,7 @@
               "deco-sites/std/loaders/vtex/user.ts",
               "deco-sites/std/loaders/vtex/wishlist.ts",
               "./islands/AddToCartButton.tsx",
+              "./islands/CookieConsent.tsx",
               "./islands/Header.tsx",
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
@@ -9491,6 +9492,11 @@
               "type": "string",
               "const": "Blog",
               "default": "Blog"
+            },
+            {
+              "type": "string",
+              "const": "Cookies",
+              "default": "Cookies"
             }
           ],
           "type": "string",
@@ -9772,6 +9778,11 @@
               "type": "string",
               "const": "Blog",
               "default": "Blog"
+            },
+            {
+              "type": "string",
+              "const": "Cookies",
+              "default": "Cookies"
             }
           ],
           "type": "string",
@@ -12390,6 +12401,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0Nvb2tpZUNvbnNlbnQudHN4": {
+      "title": "./islands/CookieConsent.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/CookieConsent.tsx"
+          ],
+          "default": "./islands/CookieConsent.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlci50c3g=": {
       "title": "./islands/Header.tsx",
       "type": "object",
@@ -14441,6 +14468,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0FkZFRvQ2FydEJ1dHRvbi50c3g="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0Nvb2tpZUNvbnNlbnQudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlci50c3g="

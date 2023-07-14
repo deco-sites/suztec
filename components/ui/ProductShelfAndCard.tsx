@@ -15,9 +15,9 @@ function ProductShelfAndCard(
 ) {
   const { Component, props } = productShelf;
   return (
-    <div>
+    <div class="pt-14">
       <h2 class="text-center">
-        <span class="font-medium text-2xl">
+        <span class="font-medium text-[21px]">
           <Markdown text={title} />
         </span>
       </h2>

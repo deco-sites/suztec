@@ -20,7 +20,7 @@ function Highlights({ highlights = [], title }: Props) {
   return (
     <div class="lg:px-[30px] px-[10px] grid grid-cols-1 grid-rows-[48px_1fr] py-4">
       <h2 class="text-center">
-        <span class="font-medium text-2xl">
+        <span class="font-medium text-[21px]">
           <Markdown text={title} />
         </span>
       </h2>
