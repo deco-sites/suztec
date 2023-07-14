@@ -33,7 +33,9 @@ function ProductShelf({
       class="container mx-auto grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
       <h2 class="text-center row-start-1 col-span-full">
-        <span class="font-medium text-[21px]"><Markdown text={title} /></span>
+        <span class="font-medium text-[21px]">
+          <Markdown text={title} />
+        </span>
       </h2>
 
       <Slider class="carousel carousel-center sm:carousel-end gap-[5px] col-span-full row-start-2 row-end-5">

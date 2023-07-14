@@ -4,6 +4,14 @@ import { useSignal } from "@preact/signals";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 
+export interface Props {
+  title?: HTML;
+  text?: HTML;
+  buttonText?: HTML;
+  preferenciaCookies?: HTML;
+  poweredBy?: HTML;
+}
+
 const script = (id: string) => `
 const callback = () => {
   const KEY = 'store-cookie-consent';
@@ -28,16 +36,15 @@ const callback = () => {
 window.addEventListener('scroll', callback, { once: true });
 `;
 
-export interface Props {
-  title: HTML;
-  text: HTML;
-  buttonText: HTML;
-  preferenciaCookies: HTML;
-  poweredBy: HTML;
-}
-
 function CookieConsent(
-  { title ="Sua privacidade", text ="Utilizamos cookies para melhorar a experiência do usuário e analisar o tráfego do site. Por esses motivos, podemos compartilhar os dados de uso do seu site com nossos parceiros de análise. Ao clicar em Aceitar cookies, você concorda em armazenar em seu dispositivo todas as tecnologias descritas em nossa Política de cookies. Você pode alterar suas configurações de cookies a qualquer momento clicando em “Preferências de Cookies”. Você pode exercer seus direitos através do Formulário.", buttonText="Aceitar", preferenciaCookies ="Preferências de cookies", poweredBy="POWERED BY DECO.CX" }: Props,
+  {
+    title = "Sua privacidade",
+    text =
+      "Utilizamos cookies para melhorar a experiência do usuário e analisar o tráfego do site. Por esses motivos, podemos compartilhar os dados de uso do seu site com nossos parceiros de análise. Ao clicar em Aceitar cookies, você concorda em armazenar em seu dispositivo todas as tecnologias descritas em nossa Política de cookies. Você pode alterar suas configurações de cookies a qualquer momento clicando em “Preferências de Cookies”. Você pode exercer seus direitos através do Formulário.",
+    buttonText = "Aceitar",
+    preferenciaCookies = "Preferências de cookies",
+    poweredBy = "POWERED BY DECO.CX",
+  }: Props,
 ) {
   const id = `cookie-consent-${useId()}`;
   const open = useSignal(false);
