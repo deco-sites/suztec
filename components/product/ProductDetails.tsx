@@ -30,8 +30,8 @@ export interface Props {
   variant?: Variant;
 }
 
-const WIDTH = 360;
-const HEIGHT = 500;
+const WIDTH = 540;
+const HEIGHT = 628;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -253,75 +253,76 @@ function Details({
         />
         <div
           id={id}
-          class="grid grid-cols-1 gap-4 sm:grid-cols-[max-content_40vw_40vw] sm:grid-rows-1 sm:justify-center"
+          class="flex flex-row max-w-[1140px] sm:justify-center"
         >
-          {/* Image Slider */}
-          <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1">
-            <Slider class="carousel gap-6">
+          <div class="w-7/12 flex flex-row">
+            {/* Dots */}
+            <ul class="flex  sm:justify-start overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1 w-2/12">
               {images.map((img, index) => (
-                <Slider.Item
-                  index={index}
-                  class="carousel-item min-w-[100vw] sm:min-w-[40vw]"
-                >
-                  <Image
-                    class="w-full"
-                    sizes="(max-width: 640px) 100vw, 40vw"
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    src={img.url!}
-                    alt={img.alternateName}
-                    width={WIDTH}
-                    height={HEIGHT}
-                    // Preload LCP image for better web vitals
-                    preload={index === 0}
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                </Slider.Item>
+                <li class="min-w-[63px] sm:min-w-[93px]">
+                  <Slider.Dot index={index}>
+                    <Image
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      class="group-disabled:border-base-300 border rounded "
+                      width={93}
+                      height={108}
+                      src={img.url!}
+                      alt={img.alternateName}
+                    />
+                  </Slider.Dot>
+                </li>
               ))}
-            </Slider>
+            </ul>
+            {/* Image Slider */}
+            <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 w-5/6">
+              <Slider class="carousel max-w-[540px]">
+                {images.map((img, index) => (
+                  <Slider.Item
+                    index={index}
+                    class="carousel-item"
+                  >
+                    <Image
+                      class="w-full max-h-[628px]"
+                      sizes="(max-width: 540px) w-full"
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      src={img.url!}
+                      alt={img.alternateName}
+                      width={WIDTH}
+                      height={HEIGHT}
+                      // Preload LCP image for better web vitals
+                      preload={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                    />
+                  </Slider.Item>
+                ))}
+              </Slider>
 
-            <Slider.PrevButton
-              class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline"
-              disabled
-            >
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
-            </Slider.PrevButton>
+              <Slider.PrevButton
+                class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline"
+                disabled
+              >
+                <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+              </Slider.PrevButton>
 
-            <Slider.NextButton
-              class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline"
-              disabled={images.length < 2}
-            >
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
-            </Slider.NextButton>
+              <Slider.NextButton
+                class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline"
+                disabled={images.length < 2}
+              >
+                <Icon size={20} id="ChevronRight" strokeWidth={3} />
+              </Slider.NextButton>
 
-            <div class="absolute top-2 right-2 bg-base-100 rounded-full">
-              <ProductImageZoom
-                images={images}
-                width={1280}
-                height={1280 * HEIGHT / WIDTH}
-              />
+              <div class="absolute top-2 right-2 bg-base-100 rounded-full">
+                <ProductImageZoom
+                  images={images}
+                  width={1280}
+                  height={1280 * HEIGHT / WIDTH}
+                />
+              </div>
             </div>
           </div>
 
-          {/* Dots */}
-          <ul class="flex gap-2 sm:justify-start overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1">
-            {images.map((img, index) => (
-              <li class="min-w-[63px] sm:min-w-[100px]">
-                <Slider.Dot index={index}>
-                  <Image
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    class="group-disabled:border-base-300 border rounded "
-                    width={63}
-                    height={87.5}
-                    src={img.url!}
-                    alt={img.alternateName}
-                  />
-                </Slider.Dot>
-              </li>
-            ))}
-          </ul>
-
           {/* Product Info */}
-          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1">
+          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 w-5/12">
             <ProductInfo page={page} />
           </div>
         </div>
@@ -337,7 +338,7 @@ function Details({
    * reached causing a scrollbar to be rendered.
    */
   return (
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-[50vw_25vw] sm:grid-rows-1 sm:justify-center">
+    <div class="flex sm:flex-row flex-col sm:justify-center">
       {/* Image slider */}
       <ul class="carousel carousel-center gap-6">
         {[images[0], images[1] ?? images[0]].map((img, index) => (

@@ -60,7 +60,7 @@ function Navbar({ items, searchbar }: {
       <div class="hidden lg:flex h-24 flex-row items-center border-b border-base-200 w-full lg:px-3 xl:px-[30px]">
         <div class="w-1/12 xl:mr-2">
           <a href="/">
-          <Icon id="Logo" width={126} height={60} />
+            <Icon id="Logo" width={126} height={60} />
           </a>
         </div>
         <div class="block w-full">
