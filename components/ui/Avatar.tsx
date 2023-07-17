@@ -34,12 +34,12 @@ const variants = {
 };
 
 function Avatar({ content, variant = "active" }: Props) {
-  return ( 
+  return (
     <div class="avatar placeholder">
       <div
-        class={`rounded-[2px] border border-black w-[36px] h-[38px] bg-white hover:bg-black group transition-all duration-200 ${colors[content] ?? colors[variant]} ${
-          variants[variant]
-        }`}
+        class={`rounded-[2px] border border-black w-[36px] h-[38px] bg-white hover:bg-black group transition-all duration-200 ${
+          colors[content] ?? colors[variant]
+        } ${variants[variant]}`}
       >
         <span class="text-sm font-light text-black uppercase group-hover:text-white">
           {colors[content] ? "" : content.substring(0, 2)}

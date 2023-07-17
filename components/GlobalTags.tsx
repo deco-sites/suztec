@@ -65,6 +65,15 @@ function GlobalTags() {
           @font-face {
             font-family: 'helvetica_neue';
             font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(${
+            asset("/fonts/helvetica-neue-67-medium-condensed.otf")
+          }) format('truetype');
+          }
+          @font-face {
+            font-family: 'helvetica_neue';
+            font-style: normal;
             font-weight: 400;
             font-display: swap;
             src: url(${

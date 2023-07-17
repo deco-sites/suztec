@@ -67,6 +67,23 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     offers,
   );
 
+  const result = product.isVariantOf?.additionalProperty.reduce(
+    (acc: any, curr: any) => {
+      if (
+        curr.name === "Tecnologias" || curr.name === "Características" ||
+        curr.name === "Dados Técnicos"
+      ) {
+        if (!acc[curr.name]) {
+          acc[curr.name] = [];
+        }
+        acc[curr.name].push(curr.value);
+      }
+      return acc;
+    },
+    [],
+  );
+
+  // console.log(product)
   return (
     <>
       {/* Code and name */}
@@ -112,7 +129,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class=" border mt-10 border-b"/>
+      <div class=" border mt-10 border-b" />
       <div class="mt-4 sm:mt-6 flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (
@@ -135,10 +152,60 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">
           {product.additionalProperty && (
-            <details>
-              <summary class="cursor-pointer">Tecnologia</summary>
-              <div class="ml-2 mt-2">{product.additionalProperty.map((item) => {item.name === "Tecnologias" ? <p>{item.value}</p> : ""})}</div>
-            </details>
+            <div>
+              <details class="border-b border-black">
+                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg">
+                  Tecnologias
+                  <Icon
+                    class="text-black"
+                    id="ChevronDown"
+                    width={15}
+                    height={24}
+                    strokeWidth={"3"}
+                  />
+                </summary>
+
+                <div class="mt-2 mb-5 transition-all duration-200">
+                  {result["Características"].map((item: string) => (
+                    <div>{item}</div>
+                  ))}
+                </div>
+              </details>
+              <details class="border-b border-black">
+                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg">
+                  Características
+                  <Icon
+                    class="text-black"
+                    id="ChevronDown"
+                    width={15}
+                    height={24}
+                    strokeWidth={"3"}
+                  />
+                </summary>
+                <div class="mt-2 mb-5 transition-all duration-200">
+                  {result["Tecnologias"].map((item: string) => (
+                    <div>{item}</div>
+                  ))}
+                </div>
+              </details>
+              <details>
+                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg items-center">
+                  Dados Técnicos
+                  <Icon
+                    class="text-black"
+                    id="ChevronDown"
+                    width={15}
+                    height={24}
+                    strokeWidth={"3"}
+                  />
+                </summary>
+                <div class="mt-2 mb-5 ">
+                  {result["Dados Técnicos"].map((item: string) => (
+                    <div>{item}</div>
+                  ))}
+                </div>
+              </details>
+            </div>
           )}
         </span>
       </div>
@@ -230,7 +297,7 @@ function Details({
 }: { page: ProductDetailsPage; variant: Variant }) {
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
-  const images = useStableImages(product);  
+  const images = useStableImages(product);
 
   /**
    * Product slider variant

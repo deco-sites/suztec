@@ -2,9 +2,9 @@ import { asset, Head } from "$fresh/runtime.ts";
 import { useState } from "preact/compat";
 
 const availableCategories = [
-  "Camisas",
-  "Polos",
-  "T-Shirts",
+  "JAQUETAS",
+  "TENIS",
+  "CALCADOS",
   "Calças",
   "Bermudas",
   "Blazer",
@@ -15,8 +15,9 @@ const availableCategories = [
 ];
 
 function ProductSizeTable({ category }: { category: string }) {
+  console.log(category)
   const [active, setActive] = useState(false);
-  const show = availableCategories.includes(category);
+  const show = true;
 
   const handleSizeTable = () => {
     setActive(!active);

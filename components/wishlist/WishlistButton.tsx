@@ -8,7 +8,7 @@ interface Props {
   productID: string;
   productGroupID?: string;
   variant?: "icon" | "full";
-  class?: string
+  class?: string;
 }
 
 function WishlistButton({
