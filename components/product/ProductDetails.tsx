@@ -18,6 +18,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
+import ProductSizeTable from "$store/components/product/ProductSizeTable.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -59,8 +60,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     description,
     productID,
     offers,
-    name,
-    gtin,
+    category,
     isVariantOf,
   } = product;
   const { price, listPrice, seller, installments, availability } = useOffer(
@@ -70,12 +70,12 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   return (
     <>
       {/* Code and name */}
-      <div class="mt-4 sm:mt-8">
-        <h1 class="flex items-center">
-          <span class="font-medium text-[32px] text-[#353535]">
+      <div>
+        <h1 class="flex  items-center">
+          <span class="font-normal text-[32px] leading-none text-[#170b0b] w-3/4">
             {product.isVariantOf?.name}
           </span>
-          <div>
+          <div class="w-1/4 flex justify-end mb-10 mr-4">
             <WishlistButton
               variant="icon"
               productGroupID={isVariantOf?.productGroupID}
@@ -89,14 +89,14 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           </span>
         </div>
       </div>
-      <div>
-        <span class="">Descrição</span>
-        <span class="text-sm">{description}</span>
+      <div class="block">
+        <h3 class="text-lg font-semibold">Descrição</h3>
+        <p class="text-sm text-[#757575]">{description}</p>
       </div>
       {/* Prices */}
       <div class="mt-4">
         <div class="flex flex-row gap-2 items-center">
-          <span class="font-medium text-xl text-black">
+          <span class="font-bold text-[32px] text-black">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
@@ -105,11 +105,15 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         </span>
       </div>
       {/* Sku Selector */}
+      <div>
+        <ProductSizeTable category={category!} />
+      </div>
       <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      <div class=" border mt-10 border-b"/>
+      <div class="mt-4 sm:mt-6 flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -127,23 +131,13 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           )
           : <OutOfStock productID={productID} />}
       </div>
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulation
-          items={[{
-            id: Number(product.sku),
-            quantity: 1,
-            seller: seller ?? "1",
-          }]}
-        />
-      </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">
-          {description && (
+          {product.additionalProperty && (
             <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
+              <summary class="cursor-pointer">Tecnologia</summary>
+              <div class="ml-2 mt-2">{product.additionalProperty.map((item) => {item.name === "Tecnologias" ? <p>{item.value}</p> : ""})}</div>
             </details>
           )}
         </span>
@@ -236,7 +230,7 @@ function Details({
 }: { page: ProductDetailsPage; variant: Variant }) {
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
-  const images = useStableImages(product);
+  const images = useStableImages(product);  
 
   /**
    * Product slider variant
@@ -253,7 +247,7 @@ function Details({
         />
         <div
           id={id}
-          class="flex flex-row max-w-[1140px] sm:justify-center"
+          class="flex flex-row max-w-[1140px] sm:justify-center mt-2"
         >
           <div class="w-7/12 flex flex-row">
             {/* Dots */}
@@ -297,15 +291,12 @@ function Details({
                 ))}
               </Slider>
 
-              <Slider.PrevButton
-                class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline"
-                disabled
-              >
+              <Slider.PrevButton class="no-animation absolute left-0 top-1/2">
                 <Icon size={20} id="ChevronLeft" strokeWidth={3} />
               </Slider.PrevButton>
 
               <Slider.NextButton
-                class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline"
+                class="no-animation absolute right-0 top-1/2"
                 disabled={images.length < 2}
               >
                 <Icon size={20} id="ChevronRight" strokeWidth={3} />
@@ -379,7 +370,7 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
     : maybeVar;
 
   return (
-    <div class="max-w-[1140px] mx-auto py-0 sm:py-10">
+    <div class="max-w-[1140px] mx-auto py-0 sm:py-2">
       {page ? <Details page={page} variant={variant} /> : <NotFound />}
     </div>
   );

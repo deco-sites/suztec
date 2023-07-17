@@ -6,9 +6,10 @@ interface Props {
 
 function Breadcrumb({ itemListElement = [] }: Props) {
   const items = [{ name: "Home", item: "/" }, ...itemListElement];
+  console.log(items)
 
   return (
-    <div class="text-base text-[#353535] font-semibold breadcrumbs">
+  <div class="text-base text-[#353535] font-semibold breadcrumbs no-underline">
       <ul>
         {items
           .filter(({ name, item }) => name && item)

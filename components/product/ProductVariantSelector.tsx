@@ -8,7 +8,7 @@ interface Props {
 
 function VariantSelector({ product, product: { url } }: Props) {
   const possibilities = useVariantPossibilities(product);
-
+ 
   return (
     <ul class="flex flex-col gap-4">
       {Object.keys(possibilities).map((name) => (

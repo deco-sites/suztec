@@ -27,21 +27,21 @@ interface Props {
 }
 
 const variants = {
-  active: "ring ring-1 ring-offset-base-100 ring-offset-2",
+  active: "bg-black text-white",
   disabled:
     `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-red-800 after:w-full after:block after:-rotate-45 after:content-[""]`,
   default: "",
 };
 
-function Avatar({ content, variant = "default" }: Props) {
-  return (
+function Avatar({ content, variant = "active" }: Props) {
+  return ( 
     <div class="avatar placeholder">
       <div
-        class={`rounded-full w-8  ${colors[content] ?? colors[variant]} ${
+        class={`rounded-[2px] border border-black w-[36px] h-[38px] bg-white hover:bg-black group transition-all duration-200 ${colors[content] ?? colors[variant]} ${
           variants[variant]
         }`}
       >
-        <span class="text-caption font-caption uppercase">
+        <span class="text-sm font-light text-black uppercase group-hover:text-white">
           {colors[content] ? "" : content.substring(0, 2)}
         </span>
       </div>
