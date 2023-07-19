@@ -84,8 +84,7 @@ export interface CTAProps {
   /**
    * @description Defina o nome do botão
    */
-  ctaName: string;
-
+  ctaName: HTML;
   /**
    * @description Defina a url de destino do click no botão
    */
@@ -109,6 +108,7 @@ function BannerDoble(
     buttonCallToAction,
   }: BannerDoubleProps,
 ) {
+  const ctaName = buttonCallToAction?.ctaName ?? "SHOP NOW!";
   return (
     <>
       <div
@@ -169,7 +169,7 @@ function BannerDoble(
                 name={buttonCallToAction?.ctaName}
                 variant={buttonCallToAction?.ctaVariant}
               >
-                {buttonCallToAction?.ctaName}
+                <Markdown text={ctaName} />
               </Button>
             </a>
           </div>

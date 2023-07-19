@@ -212,14 +212,13 @@ function Footer(
       <div>
         <div class="container w-full mx-auto">
           <FooterContainer class="lg:flex justify-between w-full max-w-[1140px] mx-auto">
-            {/* <FooterAtt text1={text1} text2={text2} text3={text3} placeHolder={placeHolder} buttonText={buttonText}  /> */}
             <ul class="lg:flex  gap-10 w-full text-black items-center">
               <li class="block text-center mx-auto  w-full lg:w-[380px]">
                 <span class="items-center text-black font-medium text-sm ">
                   <Markdown text={socialText1} />
                 </span>
                 <div>
-                  <button class="btn rounded-none w-full lg:w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
+                  <button class="btn hover:opacity-80 opacity-100 rounded-none w-full lg:w-[352px] tracking-[0.5px] text-white disabled:loading mt-7">
                     <Markdown text={socialButtonText} />
                   </button>
                 </div>
@@ -240,7 +239,7 @@ function Footer(
                         {icon.icon &&
                           (
                             <Icon
-                              class="text-black"
+                              class="text-black hover:opacity-80 opacity-100 transition-all dutarion-100"
                               width={icon.width}
                               height={icon.height}
                               id={icon.icon}

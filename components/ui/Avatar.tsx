@@ -18,7 +18,7 @@ const colors: Record<string, string> = {
   // Color variants - only applied when no color as content is passed
   "active": "bg-neutral-focus text-neutral-content ring-neutral-focus ",
   "disabled": "bg-neutral-content text-neutral",
-  "default": "bg-neutral text-neutral-content",
+  "default": "bg-base-100 text-primary",
 };
 
 interface Props {
@@ -30,18 +30,18 @@ const variants = {
   active: "bg-black text-white",
   disabled:
     `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-red-800 after:w-full after:block after:-rotate-45 after:content-[""]`,
-  default: "",
+  default: "border border-base-200 hover:border-primary",
 };
 
-function Avatar({ content, variant = "active" }: Props) {
+function Avatar({ content, variant = "default" }: Props) {
   return (
-    <div class="avatar placeholder">
+    <div class="avatar placeholder text-xs">
       <div
-        class={`rounded-[2px] border border-black w-[36px] h-[38px] bg-white hover:bg-black group transition-all duration-200 ${
-          colors[content] ?? colors[variant]
-        } ${variants[variant]}`}
+        class={`rounded-[2px] border border-black w-[36px] h-[38px] hover:bg-black hover:text-white transition-all duration-200 ${colors[content] ?? colors[variant]} ${
+          variants[variant]
+        }`}
       >
-        <span class="text-sm font-light text-black uppercase group-hover:text-white">
+        <span class="uppercase">
           {colors[content] ? "" : content.substring(0, 2)}
         </span>
       </div>

@@ -61,7 +61,7 @@ function Newsletter(
           />
           <button
             style={`background-color: ${buttonColor} `}
-            class="btn rounded-r-[1px] text-base font-normal traking-[0.5px] min-w-[114px] rounded-l-none text-white disabled:loading"
+            class="btn rounded-r-[1px] hover:opacity-80 opacity-100 text-base font-normal traking-[0.5px] min-w-[114px] rounded-l-none text-white disabled:loading"
             disabled={loading}
           >
             <Markdown text={buttonText} />

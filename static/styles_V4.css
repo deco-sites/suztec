@@ -1,0 +1,93 @@
+:root {
+    --main-font: 'Source Sans Pro', sans-serif;
+  }
+  
+  #szb-vfr-recommendation {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    font-size: 13px;
+    color: #5a5a5a;
+    font-family: var(--main-font);
+    margin-left: 1%;
+  }
+  
+  #szb-vfr-recommendation b {
+    display: contents;
+    font-weight: bold;
+  }
+  
+  .vfr__container {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    margin-left: 1%;
+    margin-bottom: -1%;
+  }
+  
+  .szb-vfr-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+  }
+  
+  .vfr__button--clean {
+    line-height: normal;
+    outline: none !important;
+    font-size: 15px;
+    color: #093953;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--main-font);
+    font-weight: unset;
+    margin-right: 6px;
+  }
+  
+  .vfr__button--clean:hover {
+    text-decoration: underline;
+  }
+  
+  button#szb-chart-button {
+    display: fex!important;
+  }
+  
+  /*tabela de medidas do cliente*/
+  .x-size-table {
+    display: none !important;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .vfr__container {
+      margin-left: 5px;
+      margin-bottom: -5%;
+    }
+  
+    button#szb-vfr-button {
+      margin-right: 3px;
+      padding-right: 2px;
+    }
+    #szb-vfr-recommendation {
+      margin-left: 1%;
+      margin-bottom: 1px;
+    }
+  
+    .vfr__button--clean {
+      font-size: 12px;
+    }
+  
+    .szb-vfr-pipe {
+      margin-right: 6px !important;
+    }
+  }
+  
+  .szb-vfr-pipe {
+    height: 17px;
+    border-right: 1px solid black;
+    margin-right: 6px;
+    top: 12px;
+    position: relative;
+  }
+  
+  button#szb_aviator_size_chart{
+    display: none;
+  }

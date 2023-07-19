@@ -66,6 +66,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
+  
 
   const result = product.isVariantOf?.additionalProperty.reduce(
     (acc: any, curr: any) => {
@@ -82,8 +83,12 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     },
     [],
   );
+  const categories = product.additionalProperty?.filter((property) =>
+    property.name === "category"
+  );
+  const productCategory = categories?.at(-1)?.value;
 
-  // console.log(product)
+  console.log(productCategory)
   return (
     <>
       {/* Code and name */}
@@ -123,7 +128,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Sku Selector */}
       <div>
-        <ProductSizeTable category={category!} />
+        <ProductSizeTable category={productCategory!} />
       </div>
       <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} />

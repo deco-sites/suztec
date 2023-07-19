@@ -2,9 +2,9 @@ import { asset, Head } from "$fresh/runtime.ts";
 import { useState } from "preact/compat";
 
 const availableCategories = [
-  "JAQUETAS",
   "TENIS",
-  "CALCADOS",
+  "Polos",
+  "T-Shirts",
   "Calças",
   "Bermudas",
   "Blazer",
@@ -15,9 +15,8 @@ const availableCategories = [
 ];
 
 function ProductSizeTable({ category }: { category: string }) {
-  console.log(category)
   const [active, setActive] = useState(false);
-  const show = true;
+  const show = availableCategories.includes(category);
 
   const handleSizeTable = () => {
     setActive(!active);
@@ -389,21 +388,7 @@ function ProductSizeTable({ category }: { category: string }) {
       </Head>
       <div class={`${show ? "" : "hidden"} father vfr__container`}>
         <div class="content content-product-choose seletor-sku"></div>
-        <div class="w-[50%]">
-          <button
-            class="focus:outline-none outline-none text-[#252526] text-[14px] md:text-[16px] text-underline tracking-[0.8px] font-bold h-[40px]"
-            type="button"
-            onClick={handleSizeTable}
-          >
-            Tabela de medidas
-          </button>
-          <button
-            class="focus:outline-none outline-none text-[#252526] text-[14px] md:text-[16px] text-underline tracking-[0.8px] font-bold hidden"
-            id="szb-vfr-button"
-          >
-            Descubra seu tamanho
-          </button>
-        </div>
+        
         <span class={`x-size-table-wrapper ${active ? "is--active" : ""}`}>
           <div class="x-size-table-wrapper__content">
             <button
@@ -2023,7 +2008,7 @@ function ProductSizeTable({ category }: { category: string }) {
           </div>
         </span>
       </div>
-      <script id="sizebay-vfr-v4" src={asset("/aviator_prescript.js")}></script>
+      <script id="sizebay-vfr-v4" src={asset("/thenorthface_prescript.js")}></script>
     </>
   );
 }

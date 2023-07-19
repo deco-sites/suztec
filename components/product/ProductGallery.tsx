@@ -14,7 +14,6 @@ export interface Props {
 function ProductGallery({ products }: Props) {
   return (
     <div class="max-w-[1140px] mx-auto">
-      
       <div class="grid grid-cols-2 gap-2 items-center sm:grid-cols-4 sm:gap-10">
         {products?.map((product, index) => (
           <ProductCard product={product} preload={index === 0} />
