@@ -22,6 +22,7 @@ const colors: Record<string, string> = {
 };
 
 interface Props {
+  type: "size" | "color";
   variant?: "active" | "disabled" | "default";
   content: string;
 }
@@ -33,18 +34,42 @@ const variants = {
   default: "border border-base-200 hover:border-primary",
 };
 
-function Avatar({ content, variant = "default" }: Props) {
+function Avatar({ content, variant = "default", type = "size" }: Props) {
   return (
-    <div class="avatar placeholder text-xs">
-      <div
-        class={`rounded-[2px] border border-black w-[36px] h-[38px] hover:bg-black hover:text-white transition-all duration-200 ${colors[content] ?? colors[variant]} ${
-          variants[variant]
-        }`}
-      >
-        <span class="uppercase">
-          {colors[content] ? "" : content.substring(0, 2)}
-        </span>
-      </div>
+    <div>
+      {type === "size"
+        ? (
+          <div class="avatar placeholder text-xs">
+            <div
+              class={`rounded-[2px] border border-black w-[36px] h-[38px] hover:bg-black hover:text-white transition-all duration-200 ${
+                colors[content] ?? colors[variant]
+              } ${variants[variant]}`}
+            >
+              <span class="uppercase">
+                {colors[content] ? "" : content.substring(0, 2)}
+              </span>
+            </div>
+          </div>
+        )
+        : (
+          <div
+            class={`${
+              variants[variant] === "active"
+                ? "border border-b-2 border-black"
+                : ""
+            }`}
+          >
+            {content != ""
+              ? (
+                <div
+                  class={`rounded-[2px] hover:border hover:border-black w-[52px] h-[55px] transition-all duration-200`}
+                >
+                  <img src={content} width={52} height={55} />
+                </div>
+              )
+              : ""}
+          </div>
+        )}
     </div>
   );
 }

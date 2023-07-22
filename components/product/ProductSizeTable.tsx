@@ -388,7 +388,7 @@ function ProductSizeTable({ category }: { category: string }) {
       </Head>
       <div class={`${show ? "" : "hidden"} father vfr__container`}>
         <div class="content content-product-choose seletor-sku"></div>
-        
+
         <span class={`x-size-table-wrapper ${active ? "is--active" : ""}`}>
           <div class="x-size-table-wrapper__content">
             <button
@@ -2008,7 +2008,8 @@ function ProductSizeTable({ category }: { category: string }) {
           </div>
         </span>
       </div>
-      <script id="sizebay-vfr-v4" src={asset("/thenorthface_prescript.js")}></script>
+      <script id="sizebay-vfr-v4" src={asset("/thenorthface_prescript.js")}>
+      </script>
     </>
   );
 }

@@ -66,7 +66,6 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
-  
 
   const result = product.isVariantOf?.additionalProperty.reduce(
     (acc: any, curr: any) => {
@@ -87,8 +86,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     property.name === "category"
   );
   const productCategory = categories?.at(-1)?.value;
-
-  console.log(productCategory)
+  const arrayInString = result["Dados Técnicos"].join("");
+  const arrayInList = arrayInString.split("\r\n");
   return (
     <>
       {/* Code and name */}
@@ -122,16 +121,20 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
-          {installments}
+        <span class="text-base text-[#757575] font-bold">
+         <span class="text-base font-normal text-[#757575]">ou</span> {installments}
         </span>
       </div>
       {/* Sku Selector */}
-      <div>
-        <ProductSizeTable category={productCategory!} />
+
+      <div class="mt-4 sm:mt-6">
+        <ProductSelector product={product} variant="color"/>
       </div>
       <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} />
+        <ProductSelector product={product} variant="size" />
+      </div>
+      <div>
+        <ProductSizeTable category={productCategory!} />
       </div>
       {/* Add to Cart and Favorites button */}
       <div class=" border mt-10 border-b" />
@@ -170,7 +173,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                   />
                 </summary>
 
-                <div class="mt-2 mb-5 transition-all duration-200">
+                <div class="mt-2 mb-5 mx-1 transition-all duration-200">
                   {result["Características"].map((item: string) => (
                     <div>{item}</div>
                   ))}
@@ -187,7 +190,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                     strokeWidth={"3"}
                   />
                 </summary>
-                <div class="mt-2 mb-5 transition-all duration-200">
+                <div class="mt-2 mb-5 mx-1 transition-all duration-200">
                   {result["Tecnologias"].map((item: string) => (
                     <div>{item}</div>
                   ))}
@@ -204,10 +207,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                     strokeWidth={"3"}
                   />
                 </summary>
-                <div class="mt-2 mb-5 ">
-                  {result["Dados Técnicos"].map((item: string) => (
-                    <div>{item}</div>
-                  ))}
+                <div class="mt-2 mb-5 mx-1">
+                  {arrayInList.map((item: string) => <div>{item}</div>)}
                 </div>
               </details>
             </div>
@@ -363,12 +364,12 @@ function Details({
                 ))}
               </Slider>
 
-              <Slider.PrevButton class="no-animation absolute left-0 top-1/2">
+              <Slider.PrevButton class="no-animation absolute left-0 top-80">
                 <Icon size={20} id="ChevronLeft" strokeWidth={3} />
               </Slider.PrevButton>
 
               <Slider.NextButton
-                class="no-animation absolute right-0 top-1/2"
+                class="no-animation absolute right-0 top-80"
                 disabled={images.length < 2}
               >
                 <Icon size={20} id="ChevronRight" strokeWidth={3} />
