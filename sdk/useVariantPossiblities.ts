@@ -1,5 +1,10 @@
 import type { Product } from "deco-sites/std/commerce/types.ts";
 
+interface arrayProps {
+  size: string;
+  url: string[];
+}
+
 export const useVariantPossibilities = (
   { url: productUrl, isVariantOf }: Product,
 ) => {
@@ -32,5 +37,16 @@ export const useVariantPossibilities = (
     return acc;
   }, {} as Record<string, Record<string, string[]>>);
 
-  return possibilities;
+  const tamanhoKeys = Object.keys(possibilities.Tamanho);
+  tamanhoKeys.sort((a, b) => {
+    const tamanhoA = parseFloat(a);
+    const tamanhoB = parseFloat(b);
+    return tamanhoA - tamanhoB;
+  });
+  const sortedPossibilities: arrayProps[] = [];
+  tamanhoKeys.forEach((size) =>
+    sortedPossibilities.push({ size: size, url: possibilities.Tamanho[size] })
+  );
+
+  return sortedPossibilities;
 };

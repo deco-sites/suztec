@@ -37,7 +37,7 @@ const variants = {
     "p-[10px] w-full h-11 rounded-[50px] inline-block font-bold bg-primary text-white text-[12px] transition-all duration-300 focus:outline-none outline-none disabled:bg-gray",
   icon: "h-[20px] rounded-full bg-transparent text-default border-transparent",
   buy:
-    "p-[15px] w-full cursor-pointer rounded-none  inline-block font-normal leading-none bg-black text-white text-[24px] transition-all duration-300  focus:outline-none outline-none",
+    "p-[15px] w-full cursor-pointer rounded-none  inline-block font-normal leading-none bg-black text-white text-[24px] transition-all duration-300 hover:opacity-80 opacity-100 focus:outline-none outline-none",
   assista:
     "p-[10px] w-[160px] lg:w-[200px] h-[40px] rounded-[50px] border-0 inline-block font-bold bg-primary text-white text-[12px] lg:text-[14px] tracking-[0.7px] transition-all duration-300 hover:scale-110 hover:bg-primary focus:outline-none outline-none",
 };

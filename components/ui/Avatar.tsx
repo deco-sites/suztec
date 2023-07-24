@@ -16,7 +16,7 @@ const colors: Record<string, string> = {
   "vermelha": "bg-[#FF0000] ring-[#FF0000]",
 
   // Color variants - only applied when no color as content is passed
-  "active": "bg-neutral-focus text-neutral-content ring-neutral-focus ",
+  "active": "",
   "disabled": "bg-neutral-content text-neutral",
   "default": "bg-base-100 text-primary",
 };
@@ -39,32 +39,33 @@ function Avatar({ content, variant = "default", type = "size" }: Props) {
     <div>
       {type === "size"
         ? (
-          <div class="avatar placeholder text-xs">
-            <div
-              class={`rounded-[2px] border border-black w-[36px] h-[38px] hover:bg-black hover:text-white transition-all duration-200 ${
-                colors[content] ?? colors[variant]
-              } ${variants[variant]}`}
-            >
-              <span class="uppercase">
-                {colors[content] ? "" : content.substring(0, 2)}
-              </span>
+          <div
+            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${variants[variant]}`}
+          >
+            <div class="px-[13px] py-[9px]">
+              {colors[content] ? "" : content.substring(0, 4)}
             </div>
           </div>
         )
         : (
           <div
             class={`${
-              variants[variant] === "active"
-                ? "border border-b-2 border-black"
+              variant === "active"
+                ? "border-b-[4px] border-black rounded-sm"
                 : ""
             }`}
           >
             {content != ""
               ? (
                 <div
-                  class={`rounded-[2px] hover:border hover:border-black w-[52px] h-[55px] transition-all duration-200`}
+                  class={`rounded-[2px] h-[63px] `}
                 >
-                  <img src={content} width={52} height={55} />
+                  <img
+                    src={content}
+                    width={52}
+                    height={55}
+                    class="hover:border hover:border-black transition-all duration-200"
+                  />
                 </div>
               )
               : ""}

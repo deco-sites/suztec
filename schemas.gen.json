@@ -74,6 +74,7 @@
               "./islands/HeaderSearchbar.tsx",
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
+              "./islands/ProductDetails.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/ProductSizeTable.tsx",
               "./islands/SearchControls.tsx",
@@ -8041,6 +8042,41 @@
       ],
       "title": "deco-sites/suztec/components/header/Header.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
+          "title": "Page"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "front-back",
+              "default": "front-back"
+            },
+            {
+              "type": "string",
+              "const": "slider",
+              "default": "slider"
+            },
+            {
+              "type": "string",
+              "const": "auto",
+              "default": "auto"
+            }
+          ],
+          "type": "string",
+          "title": "Product view",
+          "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "title": "deco-sites/suztec/components/product/ProductDetails.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -10655,41 +10691,6 @@
       ],
       "title": "deco-sites/suztec/components/footer/Newsletter.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
-          "title": "Page"
-        },
-        "variant": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "front-back",
-              "default": "front-back"
-            },
-            {
-              "type": "string",
-              "const": "slider",
-              "default": "slider"
-            },
-            {
-              "type": "string",
-              "const": "auto",
-              "default": "auto"
-            }
-          ],
-          "type": "string",
-          "title": "Product view",
-          "description": "Ask for the developer to remove this option since this is here to help development only and should not be used in production"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "title": "deco-sites/suztec/components/product/ProductDetails.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -13123,6 +13124,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA==": {
+      "title": "./islands/ProductDetails.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ProductDetails.tsx"
+          ],
+          "default": "./islands/ProductDetails.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4": {
       "title": "./islands/ProductImageZoom.tsx",
       "type": "object",
@@ -15139,6 +15161,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL091dE9mU3RvY2sudHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3REZXRhaWxzLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"

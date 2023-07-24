@@ -1,6 +1,7 @@
 import { useId } from "preact/hooks";
+import { useSignal } from "@preact/signals";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-import ShippingSimulation from "$store/islands/ShippingSimulation.tsx";
+import Modal from "$store/components/ui/Modal.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
@@ -16,9 +17,9 @@ import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
-import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import ProductSizeTable from "$store/components/product/ProductSizeTable.tsx";
+import ProductAdditionalDescription from "$store/components/product/ProductAdditionalDescription.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -60,34 +61,17 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     description,
     productID,
     offers,
-    category,
     isVariantOf,
   } = product;
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
 
-  const result = product.isVariantOf?.additionalProperty.reduce(
-    (acc: any, curr: any) => {
-      if (
-        curr.name === "Tecnologias" || curr.name === "Características" ||
-        curr.name === "Dados Técnicos"
-      ) {
-        if (!acc[curr.name]) {
-          acc[curr.name] = [];
-        }
-        acc[curr.name].push(curr.value);
-      }
-      return acc;
-    },
-    [],
-  );
   const categories = product.additionalProperty?.filter((property) =>
     property.name === "category"
   );
   const productCategory = categories?.at(-1)?.value;
-  const arrayInString = result["Dados Técnicos"].join("");
-  const arrayInList = arrayInString.split("\r\n");
+
   return (
     <>
       {/* Code and name */}
@@ -122,13 +106,14 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           </span>
         </div>
         <span class="text-base text-[#757575] font-bold">
-         <span class="text-base font-normal text-[#757575]">ou</span> {installments}
+          <span class="text-base font-normal text-[#757575]">ou</span>{" "}
+          {installments}
         </span>
       </div>
       {/* Sku Selector */}
 
       <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} variant="color"/>
+        <ProductSelector product={product} variant="color" />
       </div>
       <div class="mt-4 sm:mt-6">
         <ProductSelector product={product} variant="size" />
@@ -160,58 +145,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">
           {product.additionalProperty && (
-            <div>
-              <details class="border-b border-black">
-                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg">
-                  Tecnologias
-                  <Icon
-                    class="text-black"
-                    id="ChevronDown"
-                    width={15}
-                    height={24}
-                    strokeWidth={"3"}
-                  />
-                </summary>
-
-                <div class="mt-2 mb-5 mx-1 transition-all duration-200">
-                  {result["Características"].map((item: string) => (
-                    <div>{item}</div>
-                  ))}
-                </div>
-              </details>
-              <details class="border-b border-black">
-                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg">
-                  Características
-                  <Icon
-                    class="text-black"
-                    id="ChevronDown"
-                    width={15}
-                    height={24}
-                    strokeWidth={"3"}
-                  />
-                </summary>
-                <div class="mt-2 mb-5 mx-1 transition-all duration-200">
-                  {result["Tecnologias"].map((item: string) => (
-                    <div>{item}</div>
-                  ))}
-                </div>
-              </details>
-              <details>
-                <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-semibold py-3 text-lg items-center">
-                  Dados Técnicos
-                  <Icon
-                    class="text-black"
-                    id="ChevronDown"
-                    width={15}
-                    height={24}
-                    strokeWidth={"3"}
-                  />
-                </summary>
-                <div class="mt-2 mb-5 mx-1">
-                  {arrayInList.map((item: string) => <div>{item}</div>)}
-                </div>
-              </details>
-            </div>
+            <ProductAdditionalDescription product={product} />
           )}
         </span>
       </div>
@@ -304,6 +238,7 @@ function Details({
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
+  const openZoom = useSignal(false);
 
   /**
    * Product slider variant
@@ -314,41 +249,25 @@ function Details({
    */
   if (variant === "slider") {
     return (
-      <div>
+      <div class="mx-3">
         <Breadcrumb
           itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
         />
         <div
           id={id}
-          class="flex flex-row max-w-[1140px] sm:justify-center mt-2"
+          class="flex lg:flex-row flex-col max-w-[1140px] justify-center mt-2"
         >
-          <div class="w-7/12 flex flex-row">
-            {/* Dots */}
-            <ul class="flex  sm:justify-start overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1 w-2/12">
-              {images.map((img, index) => (
-                <li class="min-w-[63px] sm:min-w-[93px]">
-                  <Slider.Dot index={index}>
-                    <Image
-                      style={{ aspectRatio: ASPECT_RATIO }}
-                      class="group-disabled:border-base-300 border rounded "
-                      width={93}
-                      height={108}
-                      src={img.url!}
-                      alt={img.alternateName}
-                    />
-                  </Slider.Dot>
-                </li>
-              ))}
-            </ul>
+          <div class="lg:w-7/12 w-full flex lg:flex-row flex-col lg:relative ">
             {/* Image Slider */}
-            <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 w-5/6">
-              <Slider class="carousel max-w-[540px]">
+            <div class="lg:absolute lg:right-0 sm:col-start-2 sm:col-span-1 sm:row-start-1 lg:w-5/6 w-full ">
+              <Slider class="carousel max-w-[540px] mx-auto">
                 {images.map((img, index) => (
                   <Slider.Item
                     index={index}
-                    class="carousel-item"
+                    class="carousel-item cursor-pointer mx-auto"
                   >
                     <Image
+                      onClick={() => openZoom.value = true}
                       class="w-full max-h-[628px]"
                       sizes="(max-width: 540px) w-full"
                       style={{ aspectRatio: ASPECT_RATIO }}
@@ -364,29 +283,73 @@ function Details({
                 ))}
               </Slider>
 
-              <Slider.PrevButton class="no-animation absolute left-0 top-80">
+              <Slider.PrevButton class="no-animation absolute left-0 lg:top-80 top-[500px]">
                 <Icon size={20} id="ChevronLeft" strokeWidth={3} />
               </Slider.PrevButton>
 
               <Slider.NextButton
-                class="no-animation absolute right-0 top-80"
+                class="no-animation absolute right-0 lg:top-80 top-[500px]"
                 disabled={images.length < 2}
               >
                 <Icon size={20} id="ChevronRight" strokeWidth={3} />
               </Slider.NextButton>
+              {/* ModalZoom */}
+              <div>
+                <Modal
+                  loading="lazy"
+                  mode="center"
+                  open={openZoom.value}
+                  onClose={() => {
+                    openZoom.value = false;
+                  }}
+                >
+                  <div class="relative" id={id}>
+                    <Slider class="carousel w-screen overflow-y-auto">
+                      {images.map((image, index) => (
+                        <Slider.Item index={index} class="carousel-item w-full">
+                          <Image
+                            style={{ aspectRatio: 1280 / 628 }}
+                            src={image.url!}
+                            alt={image.alternateName}
+                            width={1280}
+                            height={628}
+                          />
+                        </Slider.Item>
+                      ))}
+                    </Slider>
 
-              <div class="absolute top-2 right-2 bg-base-100 rounded-full">
-                <ProductImageZoom
-                  images={images}
-                  width={1280}
-                  height={1280 * HEIGHT / WIDTH}
-                />
+                    <Slider.PrevButton class="btn btn-circle btn-outline absolute left-8 top-[50vh]">
+                      <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+                    </Slider.PrevButton>
+                    <Slider.NextButton class="btn btn-circle btn-outline absolute right-8 top-[50vh]">
+                      <Icon size={20} id="ChevronRight" strokeWidth={3} />
+                    </Slider.NextButton>
+                  </div>
+                  <SliderJS rootId={id} />
+                </Modal>
               </div>
             </div>
+            {/* Dots */}
+            <ul class="flex flex-row lg:gap-0 mt-3 gap-2 sm:justify-start overflow-auto px-4 sm:px-0 lg:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1 lg:w-2/12 w-full">
+              {images.map((img, index) => (
+                <li class="min-w-[63px] sm:min-w-[93px]">
+                  <Slider.Dot index={index}>
+                    <Image
+                      style={{ aspectRatio: ASPECT_RATIO }}
+                      class="group-disabled:border-base-300 border rounded "
+                      width={93}
+                      height={108}
+                      src={img.url!}
+                      alt={img.alternateName}
+                    />
+                  </Slider.Dot>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Product Info */}
-          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 w-5/12">
+          <div class="sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-5/12 w-full">
             <ProductInfo page={page} />
           </div>
         </div>

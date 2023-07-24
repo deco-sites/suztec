@@ -11,29 +11,31 @@ function VariantSelector(
   { product, product: { url }, variant = "size" }: Props,
 ) {
   const possibilities = useVariantPossibilities(product);
-  
+
   return (
     <ul class="flex flex-col gap-4">
-      {Object.keys(possibilities).map((name) => (
-        <li class="flex flex-col gap-2">
-          <span class="text-base text-[#353535] font-bold">{variant === "size" ? "Tamanho" : "Cor"}</span>
-          <ul class="flex flex-row gap-3">
-            {Object.entries(possibilities[name]).map(([value, [link]], i) => (
-              <li>
-                <a href={link}>
-                  <Avatar
-                    type={variant === "size" ? "size" : "color"}
-                    content={variant === "size"
-                      ? value
-                      : i === 0 ? product.image![0].url : ""}
-                    variant={link === url ? "active" : "default"}
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
+      <li class="flex flex-col gap-2">
+        <span class="text-base text-[#353535] font-bold">
+          {variant === "size" ? "Tamanho" : "Cor"}
+        </span>
+        <ul class="flex flex-wrap max-w-[400px] gap-1">
+          {possibilities!.map((item, i) => (
+            <li>
+              <a href={item.url[0]}>
+                <Avatar
+                  type={variant === "size" ? "size" : "color"}
+                  content={variant === "size"
+                    ? item.size
+                    : i === 0
+                    ? product.image![0].url
+                    : ""}
+                  variant={item.url[0] === url ? "active" : "default"}
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
     </ul>
   );
 }

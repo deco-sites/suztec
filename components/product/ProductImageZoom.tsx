@@ -11,32 +11,22 @@ interface Props {
   images: ImageObject[];
   width: number;
   height: number;
+  openZoom: boolean 
 }
 
 const id = "product-zoom";
 
-function ProductImageZoom({ images, width, height }: Props) {
+function ProductImageZoom({ images, width, height, openZoom}: Props) {
   const open = useSignal(false);
 
   return (
     <>
-      <Button
-        class="hidden sm:inline-flex cursor-zoom-in btn-ghost"
-        onClick={() => open.value = true}
-      >
-        <Icon
-          id="ArrowsPointingOut"
-          size={20}
-          stroke="currentColor"
-          strokeWidth={2}
-        />
-      </Button>
       <Modal
         loading="lazy"
         mode="center"
-        open={open.value}
+        open={openZoom}
         onClose={() => {
-          open.value = false;
+          openZoom = false;
         }}
       >
         <div class="relative" id={id}>
