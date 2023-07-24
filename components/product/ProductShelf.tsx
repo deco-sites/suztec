@@ -12,7 +12,7 @@ import type { HTML } from "deco-sites/std/components/types.ts";
 import Markdown from "deco-sites/suztec/components/ui/Markdown.tsx";
 
 export interface Props {
-  title: string;
+  title: HTML;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
 }

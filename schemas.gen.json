@@ -66,6 +66,7 @@
               "deco-sites/std/loaders/vtex/proxy.ts",
               "deco-sites/std/loaders/vtex/user.ts",
               "deco-sites/std/loaders/vtex/wishlist.ts",
+              "deco-sites/suztec/loaders/plp.ts",
               "./islands/AddToCartButton.tsx",
               "./islands/CookieConsent.tsx",
               "./islands/Header.tsx",
@@ -7845,6 +7846,27 @@
       ],
       "title": "deco-sites/std/packs/vtex/loaders/wishlist.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@6e708cf083b1a3525c3b2704523b4592&Props": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Url"
+            }
+          },
+          "required": []
+        }
+      ],
+      "title": "deco-sites/std/packs/vtex/loaders/legacy/productListingPage.ts@6e708cf083b1a3525c3b2704523b4592&Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
       "type": "string",
       "format": "html",
@@ -10691,24 +10713,11 @@
       ],
       "title": "deco-sites/suztec/components/footer/Newsletter.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Props": {
-      "type": "object",
-      "properties": {
-        "products": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
-          "title": "Products"
-        }
-      },
-      "required": [
-        "products"
-      ],
-      "title": "deco-sites/suztec/components/product/ProductGallery.tsx@Props"
-    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RTaGVsZi50c3g=@Props": {
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Title"
         },
         "products": {
@@ -10830,24 +10839,6 @@
       "title": "deco-sites/suztec/components/ui/ProductShelfWithCard.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns": {
-      "type": "object",
-      "properties": {
-        "mobile": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Mobile"
-        },
-        "desktop": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Desktop"
-        }
-      },
-      "required": [],
       "title": "Columns"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props": {
@@ -12986,6 +12977,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvbG9hZGVycy9wbHAudHM=": {
+      "title": "deco-sites/suztec/loaders/plp.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@6e708cf083b1a3525c3b2704523b4592&Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/loaders/plp.ts"
+          ],
+          "default": "deco-sites/suztec/loaders/plp.ts"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0FkZFRvQ2FydEJ1dHRvbi50c3g=": {
       "title": "./islands/AddToCartButton.tsx",
       "type": "object",
@@ -14064,7 +14076,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@6e708cf083b1a3525c3b2704523b4592&Props"
         }
       ],
       "required": [
@@ -15125,6 +15137,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L3dpc2hsaXN0LnRz"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvbG9hZGVycy9wbHAudHM="
         }
       ]
     },

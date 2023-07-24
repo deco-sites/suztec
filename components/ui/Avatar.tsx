@@ -40,7 +40,9 @@ function Avatar({ content, variant = "default", type = "size" }: Props) {
       {type === "size"
         ? (
           <div
-            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${variants[variant]}`}
+            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
+              variants[variant]
+            }`}
           >
             <div class="px-[13px] py-[9px]">
               {colors[content] ? "" : content.substring(0, 4)}

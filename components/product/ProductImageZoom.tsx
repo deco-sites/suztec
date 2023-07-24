@@ -11,12 +11,12 @@ interface Props {
   images: ImageObject[];
   width: number;
   height: number;
-  openZoom: boolean 
+  openZoom: boolean;
 }
 
 const id = "product-zoom";
 
-function ProductImageZoom({ images, width, height, openZoom}: Props) {
+function ProductImageZoom({ images, width, height, openZoom }: Props) {
   const open = useSignal(false);
 
   return (
