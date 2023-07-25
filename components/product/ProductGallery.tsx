@@ -17,6 +17,7 @@ interface Options {
 const usePaginationController = ({ page, loaderProps }: Options) => {
   const ref = useRef<HTMLDivElement>(null);
   const [pages, setPages] = useState([page]);
+  const { breadcrumb } = page;
   const [loading, setLoading] = useState(false);
   const hasNextPage = Boolean(pages[pages.length - 1]?.pageInfo?.nextPage);
 
@@ -62,7 +63,7 @@ const usePaginationController = ({ page, loaderProps }: Options) => {
     };
   }, [pages.length, hasNextPage]);
 
-  return { pages, loading, ref };
+  return { pages, loading, ref, breadcrumb};
 };
 
 export default function Gallery(props: Options) {
@@ -73,17 +74,15 @@ export default function Gallery(props: Options) {
   }, []);
 
   const gridCols = computed(() => selectQuantityCardsToViewSignal.value);
-  const { pages, loading, ref } = usePaginationController(props);
-  const {
-    breadcrumbList,
-  } = pages;
+  const { pages, loading, ref, breadcrumb} = usePaginationController(
+    props,
+  );
 
   return (
-    
     <div class="max-w-[1140px] mx-auto">
-       <Breadcrumb
-          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-        />
+      <Breadcrumb
+        itemListElement={breadcrumb?.itemListElement}
+      />
       <div
         class={`grid grid-cols-${gridCols.value.mobile} lg:grid-cols-${gridCols.value.desktop} gap-2 lg:gap-5 items-start`}
       >

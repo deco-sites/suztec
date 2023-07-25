@@ -10838,9 +10838,6 @@
       ],
       "title": "deco-sites/suztec/components/ui/ProductShelfWithCard.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns": {
-      "title": "Columns"
-    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -10866,7 +10863,6 @@
           "title": "Variant"
         },
         "columns": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns",
           "description": "Number of products per line on grid",
           "title": "Columns"
         }
