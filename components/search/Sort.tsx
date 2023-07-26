@@ -1,43 +1,45 @@
-import { useMemo } from "preact/hooks";
-import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import type { JSX } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
+import SortMenu from "./SortMenu.tsx";
+import Icon from "$store/components/ui/Icon.tsx"
 
-const SORT_QUERY_PARAM = "sort";
+function Sort() {
+  const sortContainerRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-const useSort = () =>
-  useMemo(() => {
-    const urlSearchParams = new URLSearchParams(window.location?.search);
-    return urlSearchParams.get(SORT_QUERY_PARAM) ?? "";
-  }, []);
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        sortContainerRef.current &&
+        event.target instanceof Node &&
+        !sortContainerRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    }
 
-// TODO: Replace with "search utils"
-const applySort = (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-
-  console.log(e.currentTarget.value);
-
-  urlSearchParams.set(SORT_QUERY_PARAM, e.currentTarget.value);
-  window.location.search = urlSearchParams.toString();
-};
-
-export type Props = Pick<ProductListingPage, "sortOptions">;
-
-function Sort({ sortOptions }: Props) {
-  const sort = useSort();
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [sortContainerRef]);
 
   return (
-    <select
-      id="sort"
-      name="sort"
-      onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-base-content cursor-pointer outline-none"
-    >
-      {sortOptions.map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <span class="text-sm">{label}</span>
-        </option>
-      ))}
-    </select>
+    <div class="relative z-20 w-full sm:w-auto" ref={sortContainerRef}>
+      <button
+        class="appearance-none w-full border border-[#d2d2d2] bg-white focus:outline-none outline-none transition duration-150 ease-in-out flex justify-between items-center lg:(min-w-[160px])"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+      >
+        <span class="text-base text-[#424242] leading-none font-bold py-[10px] px-[15px] ">
+          DATA DE LANÇAMENTO
+        </span>
+        <div class="items-center ">
+         <Icon id="ChevronDown" width={20} height={20} />
+        </div>
+      </button>
+      {isOpen && <SortMenu />}
+    </div>
   );
 }
 

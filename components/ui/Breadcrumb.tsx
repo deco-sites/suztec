@@ -16,7 +16,12 @@ function Breadcrumb({ itemListElement = [] }: Props) {
             <li>
               {i === (items.length - 1)
                 ? <a href={item}>{name?.toUpperCase()}</a>
-                :<div> <a href={item}>{name?.toUpperCase()}{"  "}</a><span class="mr-1 ml-[6px]">/</span></div>}
+                : (
+                  <div>
+                    <a href={item}>{name?.toUpperCase()}{"  "}</a>
+                    <span class="mr-1 ml-[6px]">/</span>
+                  </div>
+                )}
             </li>
           ))}
       </ul>

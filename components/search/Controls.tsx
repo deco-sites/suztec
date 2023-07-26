@@ -11,8 +11,8 @@ type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
   & {
     displayFilter?: boolean;
-    ft?: string
-    pageInfo?: number
+    ft?: string;
+    pageInfo?: number;
   };
 
 function SearchControls(
@@ -27,7 +27,7 @@ function SearchControls(
       </div>
       <div class="pb-[15px]">
         <span class="font-extrabold text-[21px] uppercase">
-          {ft ?? "" }
+          {ft ?? ""}
         </span>{" "}
         <span class="uppercase font-light text-base text-[#333]">
           PRODUTOS ENCONTRADOS:
@@ -45,7 +45,7 @@ function SearchControls(
           Filtrar
           <Icon id="FilterList" width={16} height={16} />
         </Button>
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        {sortOptions.length > 0 && <Sort />}
       </div>
 
       <Modal

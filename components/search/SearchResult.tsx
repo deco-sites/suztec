@@ -76,7 +76,6 @@ function Result({
                   } else return;
                 })}
               </div>
-              
             </div>
           )}
         </div>
