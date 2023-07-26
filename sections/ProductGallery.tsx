@@ -11,12 +11,13 @@ export const loader = async (
   _req: Request,
   ctx: Context,
 ) => {
+  const url = new URL(_req.url);
   const page = await ctx.invoke(
     "deco-sites/suztec/loaders/plp.ts",
     loaderProps,
   );
-
-  return { page, loaderProps };
+  
+  return { page, loaderProps, url};
 };
 
 type PromiseOf<T> = T extends Promise<infer K> ? K : T;
@@ -24,7 +25,7 @@ type PromiseOf<T> = T extends Promise<infer K> ? K : T;
 export type Props = PromiseOf<ReturnType<typeof loader>>;
 
 export default function ProductGallerySection(props: Props) {
-  const { page, loaderProps } = props;
+  const { page, loaderProps, url} = props;
 
   if (page == null) {
     return (
@@ -34,5 +35,5 @@ export default function ProductGallerySection(props: Props) {
     );
   }
 
-  return <ProductGallery page={page} loaderProps={loaderProps} />;
+  return <ProductGallery page={page} loaderProps={loaderProps} url={url}/>;
 }

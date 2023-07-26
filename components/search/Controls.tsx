@@ -11,17 +11,28 @@ type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
   & {
     displayFilter?: boolean;
+    ft?: string
+    pageInfo?: number
   };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
+  { filters, breadcrumb, displayFilter, sortOptions, ft, pageInfo }: Props,
 ) {
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-base-200">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
+    <div class="flex flex-col ">
+      <div class="flex flex-row items-center py-3">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+      </div>
+      <div class="pb-[15px]">
+        <span class="font-extrabold text-[21px] uppercase">
+          {ft ?? "" }
+        </span>{" "}
+        <span class="uppercase font-light text-base text-[#333]">
+          PRODUTOS ENCONTRADOS:
+        </span>{" "}
+        <span class="font-extrabold ml-[5px]">{pageInfo}</span>
       </div>
 
       <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
