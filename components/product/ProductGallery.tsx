@@ -76,6 +76,7 @@ const usePaginationController = ({ page, loaderProps, url }: Options) => {
     ft,
     filters,
     sortOptions,
+    url,
   };
 };
 
@@ -96,6 +97,7 @@ export default function Gallery(props: Options) {
     ft,
     filters,
     sortOptions,
+    url,
   } = usePaginationController(
     props,
   );
@@ -110,6 +112,7 @@ export default function Gallery(props: Options) {
           sortOptions={sortOptions}
           pageInfo={pageInfo.records}
           ft={ft}
+          url={url}
         />
       </div>
       <div

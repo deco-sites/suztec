@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import SortMenu from "./SortMenu.tsx";
-import Icon from "$store/components/ui/Icon.tsx"
+import Icon from "$store/components/ui/Icon.tsx";
+import type { FilterToggle } from "deco-sites/std/commerce/types.ts";
 
-function Sort() {
+function Sort({ key, values }: FilterToggle) {
   const sortContainerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,13 +33,13 @@ function Sort() {
         aria-expanded={isOpen}
       >
         <span class="text-base text-[#424242] leading-none font-bold py-[10px] px-[15px] ">
-          DATA DE LANÇAMENTO
+          {key ? <span>{key}</span> : "DATA DE LANÇAMENTO"}
         </span>
-        <div class="items-center ">
-         <Icon id="ChevronDown" width={20} height={20} />
+        <div class="items-center ml-8 mr-1">
+          <Icon id="ChevronDown" width={20} height={20} strokeWidth={4} />
         </div>
       </button>
-      {isOpen && <SortMenu />}
+      <SortMenu {...values} />
     </div>
   );
 }
