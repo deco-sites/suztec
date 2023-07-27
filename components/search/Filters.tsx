@@ -18,7 +18,7 @@ function Filters({ filters }: Props) {
     <ul class="flex flex-row">
       {filters
         .filter(isToggle)
-        .map((filter) => <Sort {...filter} />)}
+        .map((filter) => <Sort filter={filter} />)}
     </ul>
   );
 }

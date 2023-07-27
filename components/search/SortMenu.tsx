@@ -26,9 +26,12 @@ const applySort = (value: string) => {
   window.location.search = urlSearchParams.toString();
 };
 
-function SortMenu({...values }: FilterToggle["values"]) {
+interface Props{
+  values?:FilterToggle["values"]
+}
+
+function SortMenu({ values }: Props) {
   const sort = useSort();
-  const {label, url, quantity, value, selected} = values
 
   return (
     <ul
@@ -37,22 +40,23 @@ function SortMenu({...values }: FilterToggle["values"]) {
       aria-labelledby="listbox-label"
       aria-activedescendant="listbox-item-1"
     >
-      {label
+      {values
         ? (
           <div>
-            <li
+            {values.map((value) => <li
               class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
-              onClick={() => applySort(value)}
+              onClick={() => applySort(value.value)}
               role="option"
-              aria-selected={value === sort}
-              id={`listbox-item-${label}`}
+              aria-selected={value.value === sort}
+              id={`listbox-item-${value.label}`}
             >
               <div class="flex items-center w-full">
                 <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
-                  {label}
+                  {value.label}
                 </span>
               </div>
-            </li>
+            </li>)}
+            
           </div>
         )
         : (

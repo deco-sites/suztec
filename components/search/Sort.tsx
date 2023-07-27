@@ -3,7 +3,11 @@ import SortMenu from "./SortMenu.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import type { FilterToggle } from "deco-sites/std/commerce/types.ts";
 
-function Sort({ key, values }: FilterToggle) {
+interface Props {
+  filter?: FilterToggle
+}
+
+function Sort({ filter }: Props) {
   const sortContainerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,13 +37,13 @@ function Sort({ key, values }: FilterToggle) {
         aria-expanded={isOpen}
       >
         <span class="text-base text-[#424242] leading-none font-bold py-[10px] px-[15px] ">
-          {key ? <span>{key}</span> : "DATA DE LANÇAMENTO"}
+          {filter ? <span>{filter.key}</span> : "DATA DE LANÇAMENTO"}
         </span>
         <div class="items-center ml-8 mr-1">
           <Icon id="ChevronDown" width={20} height={20} strokeWidth={4} />
         </div>
       </button>
-      <SortMenu {...values} />
+      {isOpen && <div>{filter ? <SortMenu values={filter.values} /> : <SortMenu  />}</div>}
     </div>
   );
 }
