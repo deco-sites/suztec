@@ -13,7 +13,6 @@ const options = [
 
 const SORT_QUERY_PARAM = "sort";
 
-
 export const useSort = () =>
   useMemo(() => {
     const urlSearchParams = new URLSearchParams(window.location?.search);
@@ -26,8 +25,8 @@ const applySort = (value: string) => {
   window.location.search = urlSearchParams.toString();
 };
 
-interface Props{
-  values?:FilterToggle["values"]
+interface Props {
+  values?: FilterToggle["values"];
 }
 
 function SortMenu({ values }: Props) {
@@ -43,20 +42,21 @@ function SortMenu({ values }: Props) {
       {values
         ? (
           <div>
-            {values.map((value) => <li
-              class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
-              onClick={() => applySort(value.value)}
-              role="option"
-              aria-selected={value.value === sort}
-              id={`listbox-item-${value.label}`}
-            >
-              <div class="flex items-center w-full">
-                <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
-                  {value.label}
-                </span>
-              </div>
-            </li>)}
-            
+            {values.map((value) => (
+              <li
+                class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
+                onClick={() => applySort(value.value)}
+                role="option"
+                aria-selected={value.value === sort}
+                id={`listbox-item-${value.label}`}
+              >
+                <div class="flex items-center w-full">
+                  <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
+                    {value.label}
+                  </span>
+                </div>
+              </li>
+            ))}
           </div>
         )
         : (

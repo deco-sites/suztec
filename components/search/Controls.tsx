@@ -1,8 +1,5 @@
-import Button from "$store/components/ui/Button.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import Filters from "$store/components/search/Filters.tsx";
 import Sort from "$store/components/search/Sort.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
@@ -16,7 +13,7 @@ type Props =
   };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions, ft, pageInfo, url }: Props,
+  { filters, breadcrumb, sortOptions, ft, pageInfo, url }: Props,
 ) {
   const urlStr = url.toString();
   const verifyUrl = (url: string): boolean => {
@@ -38,11 +35,11 @@ function SearchControls(
         <span class="font-extrabold ml-[5px]">{pageInfo}</span>
       </div>
 
-      <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      <div class="flex flex-row w-full items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
         {verifyUrl(urlStr)
           ? <div>{sortOptions.length > 0 && <Sort />}</div>
           : (
-            <div class="flex flex-row">
+            <div class="flex flex-row w-full">
               <Filters filters={filters} />
               {sortOptions.length > 0 && <Sort />}
             </div>

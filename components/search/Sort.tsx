@@ -29,17 +29,17 @@ function Sort({ filter }: Props) {
   }, [sortContainerRef]);
 
   return (
-    <div class="relative z-20 w-full sm:w-auto" ref={sortContainerRef}>
+    <div class="relative z-20 w-1/4" ref={sortContainerRef}>
       <button
         class="appearance-none w-full border border-[#d2d2d2] bg-white focus:outline-none outline-none transition duration-150 ease-in-out flex justify-between items-center lg:(min-w-[160px])"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <span class="text-base text-[#424242] leading-none font-bold py-[10px] px-[15px] ">
+        <span class="text-base w-full text-[#424242] leading-none font-bold py-[10px] px-[15px] text-left uppercase">
           {filter ? <span>{filter.key}</span> : "DATA DE LANÇAMENTO"}
         </span>
-        <div class="items-center ml-8 mr-1">
+        <div class="items-center ">
           <Icon id="ChevronDown" width={20} height={20} strokeWidth={4} />
         </div>
       </button>

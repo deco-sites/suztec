@@ -10,12 +10,12 @@ interface Props {
 }
 
 const isToggle = (filter: Filter): filter is FilterToggle =>
-  filter["@type"] === "FilterToggle";
+  filter["@type"] === "FilterToggle" && filter.key != "Brands" && filter.key != "Departments";
 
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-row">
+    <ul class="flex flex-row mb-[10px] w-full">
       {filters
         .filter(isToggle)
         .map((filter) => <Sort filter={filter} />)}
