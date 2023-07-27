@@ -29,7 +29,7 @@ function Sort({ filter }: Props) {
   }, [sortContainerRef]);
 
   return (
-    <div class="relative z-20 w-1/4" ref={sortContainerRef}>
+    <div class={filter ? "relative z-20 w-1/4" : "relative z-20 w-full"} ref={sortContainerRef}>
       <button
         class="appearance-none w-full border border-[#d2d2d2] bg-white focus:outline-none outline-none transition duration-150 ease-in-out flex justify-between items-center lg:(min-w-[160px])"
         onClick={() => setIsOpen(!isOpen)}
