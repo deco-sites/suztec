@@ -1,10 +1,6 @@
-import Button from "$store/components/ui/Button.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import Filters from "$store/components/search/Filters.tsx";
 import Sort from "$store/components/search/Sort.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 type Props =
@@ -13,12 +9,16 @@ type Props =
     displayFilter?: boolean;
     ft?: string;
     pageInfo?: number;
+    url: URL;
   };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions, ft, pageInfo }: Props,
+  { filters, breadcrumb, sortOptions, ft, pageInfo, url }: Props,
 ) {
-  const open = useSignal(false);
+  const urlStr = url.toString();
+  const verifyUrl = (url: string): boolean => {
+    return url.includes("busca?");
+  };
 
   return (
     <div class="flex flex-col ">
@@ -35,30 +35,16 @@ function SearchControls(
         <span class="font-extrabold ml-[5px]">{pageInfo}</span>
       </div>
 
-      <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
-        <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"}
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-        {sortOptions.length > 0 && <Sort />}
+      <div class="flex flex-row w-full items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+        {verifyUrl(urlStr)
+          ? <div>{sortOptions.length > 0 && <Sort />}</div>
+          : (
+            <div class="flex flex-row w-full">
+              <Filters filters={filters} />
+              {sortOptions.length > 0 && <Sort />}
+            </div>
+          )}
       </div>
-
-      <Modal
-        loading="lazy"
-        title="Filtrar"
-        mode="sidebar-right"
-        open={open.value}
-        onClose={() => {
-          open.value = false;
-        }}
-      >
-        <Filters filters={filters} />
-      </Modal>
     </div>
   );
 }

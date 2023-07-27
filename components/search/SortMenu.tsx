@@ -1,4 +1,5 @@
 import { useMemo } from "preact/hooks";
+import type { FilterToggle } from "deco-sites/std/commerce/types.ts";
 
 const options = [
   { value: "price:asc", label: "Menor Preço" },
@@ -24,8 +25,13 @@ const applySort = (value: string) => {
   window.location.search = urlSearchParams.toString();
 };
 
-function SortMenu() {
+interface Props {
+  values?: FilterToggle["values"];
+}
+
+function SortMenu({ values }: Props) {
   const sort = useSort();
+
   return (
     <ul
       class="absolute z-10 border border-[#d2d2d2] bg-white w-full flex flex-col p-[10px] outline-none focus:outline-none"
@@ -33,21 +39,45 @@ function SortMenu() {
       aria-labelledby="listbox-label"
       aria-activedescendant="listbox-item-1"
     >
-      {options.map((option, index) => (
-        <li
-          class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
-          onClick={() => applySort(option.value)}
-          role="option"
-          aria-selected={option.value === sort}
-          id={`listbox-item-${index}`}
-        >
-          <div class="flex items-center w-full">
-            <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
-              {option.label}
-            </span>
+      {values
+        ? (
+          <div>
+            {values.map((value) => (
+              <li
+                class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
+                onClick={() => applySort(value.value)}
+                role="option"
+                aria-selected={value.value === sort}
+                id={`listbox-item-${value.label}`}
+              >
+                <div class="flex items-center w-full">
+                  <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
+                    {value.label}
+                  </span>
+                </div>
+              </li>
+            ))}
           </div>
-        </li>
-      ))}
+        )
+        : (
+          <div>
+            {options.map((option, index) => (
+              <li
+                class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
+                onClick={() => applySort(option.value)}
+                role="option"
+                aria-selected={option.value === sort}
+                id={`listbox-item-${index}`}
+              >
+                <div class="flex items-center w-full">
+                  <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
+                    {option.label}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </div>
+        )}
     </ul>
   );
 }

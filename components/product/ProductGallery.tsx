@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import ProductCard from "deco-sites/suztec/components/product/ProductCard.tsx";
 import { computed } from "@preact/signals";
 import type { Props } from "deco-sites/suztec/sections/ProductGallery.tsx";
-import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import SearchControls from "deco-sites/suztec/components/search/Controls.tsx";
-
 import { selectQuantityCardsToViewSignal } from "deco-sites/suztec/components/search/SelectQuantityCardsToView.tsx";
 import { Runtime } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";
@@ -76,6 +74,7 @@ const usePaginationController = ({ page, loaderProps, url }: Options) => {
     ft,
     filters,
     sortOptions,
+    url,
   };
 };
 
@@ -96,6 +95,7 @@ export default function Gallery(props: Options) {
     ft,
     filters,
     sortOptions,
+    url,
   } = usePaginationController(
     props,
   );
@@ -110,6 +110,7 @@ export default function Gallery(props: Options) {
           sortOptions={sortOptions}
           pageInfo={pageInfo.records}
           ft={ft}
+          url={url}
         />
       </div>
       <div
