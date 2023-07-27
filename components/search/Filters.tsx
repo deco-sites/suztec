@@ -10,8 +10,8 @@ interface Props {
 }
 
 const isToggle = (filter: Filter): filter is FilterToggle =>
-  filter["@type"] === "FilterToggle" && filter.key != "Brands" && filter.key != "Departments";
-
+  filter["@type"] === "FilterToggle" && filter.key != "Brands" &&
+  filter.key != "Departments";
 
 function Filters({ filters }: Props) {
   return (

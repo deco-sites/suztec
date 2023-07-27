@@ -4,7 +4,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import type { FilterToggle } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
-  filter?: FilterToggle
+  filter?: FilterToggle;
 }
 
 function Sort({ filter }: Props) {
@@ -29,7 +29,10 @@ function Sort({ filter }: Props) {
   }, [sortContainerRef]);
 
   return (
-    <div class={filter ? "relative z-20 w-1/4" : "relative z-20 w-full"} ref={sortContainerRef}>
+    <div
+      class={filter ? "relative z-20 w-1/4" : "relative z-20 w-full mb-[10px]"}
+      ref={sortContainerRef}
+    >
       <button
         class="appearance-none w-full border border-[#d2d2d2] bg-white focus:outline-none outline-none transition duration-150 ease-in-out flex justify-between items-center lg:(min-w-[160px])"
         onClick={() => setIsOpen(!isOpen)}
@@ -43,7 +46,9 @@ function Sort({ filter }: Props) {
           <Icon id="ChevronDown" width={20} height={20} strokeWidth={4} />
         </div>
       </button>
-      {isOpen && <div>{filter ? <SortMenu values={filter.values} /> : <SortMenu  />}</div>}
+      {isOpen && (
+        <div>{filter ? <SortMenu values={filter.values} /> : <SortMenu />}</div>
+      )}
     </div>
   );
 }
