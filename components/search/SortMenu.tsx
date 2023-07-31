@@ -2,13 +2,12 @@ import { useMemo } from "preact/hooks";
 import type { FilterToggle } from "deco-sites/std/commerce/types.ts";
 
 const options = [
-  { value: "price:asc", label: "Menor Preço" },
-  { value: "price:desc", label: "Maior Preço" },
-  { value: "orders:desc", label: "Mais vendidos" },
-  { value: "name:asc", label: "A - Z" },
-  { value: "name:desc", label: "Z - A" },
-  { value: "release:desc", label: "Data de lançamento" },
-  { value: "discount:desc", label: "Melhor Desconto" },
+  { value: "OrderByPriceASC", label: "Menor Preço" },
+  { value: "OrderByPriceDESC", label: "Maior Preço" },
+  { value: "OrderByNameASC", label: "A - Z" },
+  { value: "OrderByNameDESC", label: "Z - A" },
+  { value: "OrderByReleaseDateDESC", label: "Data de lançamento" },
+  { value: "OrderByBestDiscountDESC", label: "Melhor Desconto" },
 ];
 
 const SORT_QUERY_PARAM = "sort";
@@ -19,10 +18,13 @@ export const useSort = () =>
     return urlSearchParams.get(SORT_QUERY_PARAM);
   }, []);
 
-const applySort = (value: string) => {
+const applySort = (order: string) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
-  urlSearchParams.set(SORT_QUERY_PARAM, value);
-  window.location.search = urlSearchParams.toString();
+  const urlStr = urlSearchParams.toString();
+  const indexOrder = urlStr.indexOf("O=OrderBy");
+  const orderFilter = urlStr.substring(indexOrder + 2);
+  const newUrl = urlStr.replace(orderFilter, order);
+  window.location.search = newUrl;
 };
 
 interface Props {

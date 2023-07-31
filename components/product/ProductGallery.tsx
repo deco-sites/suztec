@@ -17,7 +17,7 @@ interface Options {
 const usePaginationController = ({ page, loaderProps, url }: Options) => {
   const ref = useRef<HTMLDivElement>(null);
   const [pages, setPages] = useState([page]);
-  const { breadcrumb, pageInfo, filters, sortOptions } = page;
+  const { breadcrumb, pageInfo, filters, sortOptions, products } = page;
   const [loading, setLoading] = useState(false);
   const hasNextPage = Boolean(pages[pages.length - 1]?.pageInfo?.nextPage);
   const ft = url.searchParams.get("ft")?.split("?")[0];
@@ -70,6 +70,7 @@ const usePaginationController = ({ page, loaderProps, url }: Options) => {
     ref,
     breadcrumb,
     pageInfo,
+    products,
     loaderProps,
     ft,
     filters,
@@ -91,6 +92,7 @@ export default function Gallery(props: Options) {
     loading,
     ref,
     breadcrumb,
+    products,
     pageInfo,
     ft,
     filters,
