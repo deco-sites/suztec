@@ -1,5 +1,4 @@
 import Slider from "$store/components/ui/Slider.tsx";
-import SliderJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import { useId } from "preact/hooks";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -29,11 +28,6 @@ export interface Props {
    * @description Check this option when this banner is the biggest image on the screen for image optimizations
    */
   preload?: boolean;
-  /**
-   * @title Autoplay interval
-   * @description time (in seconds) to start the carousel autoplay
-   */
-  interval?: number;
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
@@ -55,15 +49,15 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
           media="(max-width: 1024px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
-          width={975}
-          height={812}
+          width={360}
+          height={151}
         />
         <Source
           media="(min-width: 1025px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
-          width={1520}
-          height={445}
+          width={1920}
+          height={300}
         />
         <img
           class="object-cover w-full"
@@ -76,7 +70,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   );
 }
 
-function BannerCarousel({ images, preload, interval }: Props) {
+function BannerTecnologia({ images, preload }: Props) {
   const id = useId();
 
   return (
@@ -91,10 +85,8 @@ function BannerCarousel({ images, preload, interval }: Props) {
           </Slider.Item>
         ))}
       </Slider>
-
-      <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
   );
 }
 
-export default BannerCarousel;
+export default BannerTecnologia;

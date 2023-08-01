@@ -124,6 +124,7 @@
               "deco-sites/suztec/sections/BannerDouble.tsx",
               "deco-sites/suztec/sections/BannerGrid.tsx",
               "deco-sites/suztec/sections/BannerPLP.tsx",
+              "deco-sites/suztec/sections/BannerTecnologia.tsx",
               "deco-sites/suztec/sections/Carousel.tsx",
               "deco-sites/suztec/sections/CookieConsent.tsx",
               "deco-sites/suztec/sections/DesignSystem.tsx",
@@ -139,6 +140,7 @@
               "deco-sites/suztec/sections/ProductShelfAndCard.tsx",
               "deco-sites/suztec/sections/ProductShelfWithCard.tsx",
               "deco-sites/suztec/sections/SearchResult.tsx",
+              "deco-sites/suztec/sections/TechRows.tsx",
               "deco-sites/suztec/sections/WhatsApp.tsx",
               "deco-sites/suztec/sections/WishlistGallery.tsx",
               "$live/matchers/MatchAlways.ts",
@@ -11503,6 +11505,86 @@
       "required": [],
       "title": "deco-sites/suztec/components/ui/BannerPLP.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Banner": {
+      "type": "object",
+      "properties": {
+        "desktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "desktop otimized image",
+          "title": "Desktop"
+        },
+        "mobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "mobile otimized image",
+          "title": "Mobile"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
+        "action": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string",
+              "title": "Href"
+            },
+            "title": {
+              "type": "string",
+              "title": "Title"
+            },
+            "subTitle": {
+              "type": "string",
+              "title": "Sub Title"
+            },
+            "label": {
+              "type": "string",
+              "title": "Label"
+            }
+          },
+          "required": [
+            "href",
+            "title",
+            "subTitle",
+            "label"
+          ],
+          "title": "Action"
+        }
+      },
+      "required": [
+        "desktop",
+        "mobile",
+        "alt"
+      ],
+      "title": "Banner"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Banner[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Banner"
+      },
+      "title": "Banner[]"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Banner[]",
+          "title": "Images"
+        },
+        "preload": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Check this option when this banner is the biggest image on the screen for image optimizations",
+          "title": "Preload"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/suztec/components/ui/BannerTecnologia.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJDYXJvdXNlbC50c3g=@Banner": {
       "type": "object",
       "properties": {
@@ -12985,6 +13067,19 @@
         "columns"
       ],
       "title": "deco-sites/suztec/components/search/SearchResult.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9UZWNoUm93cy50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "techs": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]",
+          "title": "Techs"
+        }
+      },
+      "required": [
+        "techs"
+      ],
+      "title": "deco-sites/suztec/components/ui/TechRows.tsx@Props"
     },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props": {
       "type": "object",
@@ -16291,6 +16386,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQmFubmVyVGVjbm9sb2dpYS50c3g=": {
+      "title": "deco-sites/suztec/sections/BannerTecnologia.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9CYW5uZXJUZWNub2xvZ2lhLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/BannerTecnologia.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/BannerTecnologia.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQ2Fyb3VzZWwudHN4": {
       "title": "deco-sites/suztec/sections/Carousel.tsx",
       "type": "object",
@@ -16603,6 +16719,27 @@
             "deco-sites/suztec/sections/SearchResult.tsx"
           ],
           "default": "deco-sites/suztec/sections/SearchResult.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVGVjaFJvd3MudHN4": {
+      "title": "deco-sites/suztec/sections/TechRows.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9UZWNoUm93cy50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/TechRows.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/TechRows.tsx"
         }
       }
     },
@@ -17863,6 +18000,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQmFubmVyUExQLnRzeA=="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQmFubmVyVGVjbm9sb2dpYS50c3g="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvQ2Fyb3VzZWwudHN4"
         },
         {
@@ -17906,6 +18046,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVGVjaFJvd3MudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvV2hhdHNBcHAudHN4"

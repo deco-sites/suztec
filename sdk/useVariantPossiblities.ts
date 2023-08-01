@@ -52,7 +52,7 @@ export const useVariantPossibilities = (
   );
 
   const compareSizes = (size1: string, size2: string): number => {
-    const sizesOrder = ["PPP","PP", "P", "M", "G", "GG", "GGG","GGGG"];
+    const sizesOrder = ["PPP", "PP", "P", "M", "G", "GG", "GGG", "GGGG"];
     const index1 = sizesOrder.indexOf(size1);
     const index2 = sizesOrder.indexOf(size2);
 

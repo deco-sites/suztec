@@ -55,20 +55,26 @@ function SortMenu({ values }: Props) {
                 {value.selected
                   ? (
                     <span>
-                      <img src="https://thenorthface.vteximg.com.br/arquivos/checkbox_checked.png?v=1333" width={13} height={13}/>
+                      <img
+                        src="https://thenorthface.vteximg.com.br/arquivos/checkbox_checked.png?v=1333"
+                        width={13}
+                        height={13}
+                      />
                     </span>
                   )
                   : (
                     <span>
-                      <img src="https://thenorthface.vteximg.com.br/arquivos/checkbox_unchecked.png?v=122" width={13} height={13}/>
+                      <img
+                        src="https://thenorthface.vteximg.com.br/arquivos/checkbox_unchecked.png?v=122"
+                        width={13}
+                        height={13}
+                      />
                     </span>
                   )}
-                
-                
-                  <span class="w-full leading-none cursor-pointer text-[11px] ml-[5px] uppercase text-[#424242] font-bold">
-                    {value.label}
-                  </span>
-                
+
+                <span class="w-full leading-none cursor-pointer text-[11px] ml-[5px] uppercase text-[#424242] font-bold">
+                  {value.label}
+                </span>
               </li>
             ))}
           </div>

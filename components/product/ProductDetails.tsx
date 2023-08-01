@@ -76,9 +76,9 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     <>
       {/* Code and name */}
       <div>
-        <h1 class="flex  items-center">
+        <h1 class="flex items-center">
           <span class="font-normal text-[32px] leading-none text-[#170b0b] w-3/4">
-            {product.isVariantOf?.name}
+            {product.isVariantOf?.name}{" "}-{" "}{product.name}
           </span>
           <div class="w-1/4 flex justify-end mb-10 mr-4">
             <WishlistButton
@@ -120,7 +120,11 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} variant="color" />
       </div>
       <div class="mt-4 sm:mt-6">
-        <ProductSelector inStock={availability === "https://schema.org/InStock"} product={product} variant="size" />
+        <ProductSelector
+          inStock={availability === "https://schema.org/InStock"}
+          product={product}
+          variant="size"
+        />
       </div>
       <div>
         <ProductSizeTable category={productCategory!} />

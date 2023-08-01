@@ -5,7 +5,7 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 interface Props {
   product: Product;
   variant: "size" | "color";
-  inStock?: boolean
+  inStock?: boolean;
 }
 
 function VariantSelector(
