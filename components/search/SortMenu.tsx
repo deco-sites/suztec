@@ -21,8 +21,8 @@ export const useSort = () =>
 const applySort = (order: string) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const urlStr = urlSearchParams.toString();
-  const indexOrder = urlStr.indexOf("O=OrderBy");
-  const orderFilter = urlStr.substring(indexOrder + 2);
+  const indexOrder = urlStr.indexOf("OrderBy");
+  const orderFilter = urlStr.substring(indexOrder);
   const newUrl = urlStr.replace(orderFilter, order);
   window.location.search = newUrl;
 };

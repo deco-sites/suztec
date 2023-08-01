@@ -122,7 +122,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSizeTable category={productCategory!} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class=" border mt-10 border-b" />
+      <div class=" border border-[#d2d2d2] mt-10 border-b" />
       <div class="mt-4 sm:mt-6 flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (

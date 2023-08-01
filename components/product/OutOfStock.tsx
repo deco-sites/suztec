@@ -31,13 +31,31 @@ function Notify({ productID }: Props) {
 
   return (
     <form class="form-control justify-start gap-2" onSubmit={handleSubmit}>
-      <span class="text-base">Este produto está indisponivel no momento</span>
-      <span class="text-sm">Avise-me quando estiver disponivel</span>
+      <span class="text-[21px] font-semibold text-center">AVISE-ME</span>
+      <span class="text-sm text-[#333333] font-light pt-4">
+        Para ser avisado da disponibilidade deste Produto, basta preencher os
+        campos abaixo.
+      </span>
 
-      <input placeholder="Nome" class="input input-bordered" name="name" />
-      <input placeholder="Email" class="input input-bordered" name="email" />
+      <input
+        placeholder="Digite seu nome..."
+        class="input input-bordered max-h-[38px] rounded-none placeholder:text-sm placeholder:text-[#757575] placeholder:font-light bg-[#cfcfcf] hover:bg-white transition-all ease-in-out duration-200"
+        name="name"
+      />
+      <div class="flex flex-row">
+        <input
+          placeholder="Digite seu e-mail..."
+          class="input w-full input-bordered max-h-[38px] rounded-none placeholder:text-sm placeholder:text-[#757575] placeholder:font-light bg-[#cfcfcf] hover:bg-white transition-all ease-in-out duration-200"
+          name="email"
+        />
 
-      <button class="btn disabled:loading" disabled={loading}>Enviar</button>
+        <button
+          class="btn disabled:loading text-base bg-black text-white rounded-none hover:opacity-80 opacity-100 min-h-0 h-[38px] min-w-[74px] ml-[13px]"
+          disabled={loading}
+        >
+          OK
+        </button>
+      </div>
     </form>
   );
 }
