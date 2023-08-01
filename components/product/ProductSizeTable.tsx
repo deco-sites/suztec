@@ -150,7 +150,7 @@ function ProductSizeTable({ category }: { category: string }) {
                   -ms-transform: rotate(-45deg);
                   transform: rotate(-45deg); }
               body .x-size-table-wrapper .x-size-table-wrapper__content-title {
-                font-family: "Nunito Sans", sans-serif;
+                font-family: "helvetica_neue", sans-serif;
                 font-size: 28px;
                 text-align: center;
                 margin-bottom: 50px;
@@ -345,7 +345,7 @@ function ProductSizeTable({ category }: { category: string }) {
                         padding: 10px 0px;
                     }
                     #szb-vfr-button {
-                        font-size: 14px !important;
+                        font-size: 15px !important;
                     }
                 }
 
@@ -353,14 +353,14 @@ function ProductSizeTable({ category }: { category: string }) {
                     display: none !important;
                 }
                 #szb-vfr-button {
-                    font-size: 16px;
-                    font-weight: 700;
-                    -webkit-text-decoration: underline;
+                    font-size: 15px;
+                    font-weight: 400;
+                    -webkit-text-decoration: none;
                     text-decoration: underline;
                     letter-spacing: 0.8px;
                     color: #252526;
-                    text-transform: none;
-                    font-family: "Nunito Sans", sans-serif !important;
+                    text-transform: uppercase;
+                    font-family: "helvetica_neue", sans-serif !important;
                 }
                 .vfr__container {
                     flex-wrap: nowrap !important;
@@ -368,14 +368,14 @@ function ProductSizeTable({ category }: { category: string }) {
                     align-items: center !important;
                     justify-content: space-between !important;
                     margin-bottom: 0 !important;
-                    font-family: "Nunito Sans", sans-serif !important;
+                    font-family: "helvetica_neue", sans-serif !important;
                 }
                 #szb-container {
                     width: 60% !important;
                     justify-content: flex-start !important;
                 }
                 .vfr__container>* {
-                    font-family: "Nunito Sans", sans-serif !important;
+                    font-family: "helvetica_neue", sans-serif !important;
                 }
                 #szb-vfr-recommendation {
                   position: absolute;

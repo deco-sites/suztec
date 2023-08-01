@@ -5,10 +5,11 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 interface Props {
   product: Product;
   variant: "size" | "color";
+  inStock?: boolean
 }
 
 function VariantSelector(
-  { product, product: { url }, variant = "size" }: Props,
+  { product, product: { url }, variant = "size", inStock }: Props,
 ) {
   const possibilities = useVariantPossibilities(product);
 
@@ -23,6 +24,7 @@ function VariantSelector(
             <li>
               <a href={item.url[0]}>
                 <Avatar
+                  inStock={inStock}
                   type={variant === "size" ? "size" : "color"}
                   content={variant === "size"
                     ? item.size

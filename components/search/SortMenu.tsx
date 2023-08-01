@@ -36,7 +36,7 @@ function SortMenu({ values }: Props) {
 
   return (
     <ul
-      class="absolute z-10 border border-[#d2d2d2] bg-white w-full flex flex-col p-[10px] outline-none focus:outline-none"
+      class="absolute z-10 border border-[#d2d2d2] bg-white w-full flex flex-col py-[10px] pr-[10px] pl-[5px] outline-none focus:outline-none"
       role="listbox"
       aria-labelledby="listbox-label"
       aria-activedescendant="listbox-item-1"
@@ -52,11 +52,23 @@ function SortMenu({ values }: Props) {
                 aria-selected={value.value === sort}
                 id={`listbox-item-${value.label}`}
               >
-                <div class="flex items-center w-full">
-                  <span class="w-full leading-none cursor-pointer text-[11px] text-[#424242] font-bold">
+                {value.selected
+                  ? (
+                    <span>
+                      <img src="https://thenorthface.vteximg.com.br/arquivos/checkbox_checked.png?v=1333" width={13} height={13}/>
+                    </span>
+                  )
+                  : (
+                    <span>
+                      <img src="https://thenorthface.vteximg.com.br/arquivos/checkbox_unchecked.png?v=122" width={13} height={13}/>
+                    </span>
+                  )}
+                
+                
+                  <span class="w-full leading-none cursor-pointer text-[11px] ml-[5px] uppercase text-[#424242] font-bold">
                     {value.label}
                   </span>
-                </div>
+                
               </li>
             ))}
           </div>

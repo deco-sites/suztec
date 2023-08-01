@@ -106,8 +106,12 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           </span>
         </div>
         <span class="text-base text-[#757575] font-bold">
-          <span class="text-base font-normal text-[#757575]">ou</span>{" "}
-          {installments}
+          {installments && (
+            <div>
+              <span class="text-base font-normal text-[#757575]">ou</span>{" "}
+              {installments}
+            </div>
+          )}
         </span>
       </div>
       {/* Sku Selector */}
@@ -116,7 +120,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} variant="color" />
       </div>
       <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} variant="size" />
+        <ProductSelector inStock={availability === "https://schema.org/InStock"} product={product} variant="size" />
       </div>
       <div>
         <ProductSizeTable category={productCategory!} />

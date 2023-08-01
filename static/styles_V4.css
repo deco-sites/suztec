@@ -36,19 +36,20 @@
     outline: none !important;
     font-size: 15px;
     color: #093953;
-    text-decoration: none;
-    text-transform: uppercase;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
     font-family: var(--main-font);
     font-weight: unset;
     margin-right: 6px;
   }
   
   .vfr__button--clean:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
   
   button#szb-chart-button {
     display: fex!important;
+    
   }
   
   /*tabela de medidas do cliente*/

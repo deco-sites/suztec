@@ -39,8 +39,8 @@ window.SizebayPrescript = () => ({
   
   const createCustomStyle = () => {
     let styles = [
-      'https://static.sizebay.technology/963/styles_v4.css',
-      'https://static.sizebay.technology/font/stores/fontRuler/styles.css'
+      './styles_V4.css',
+      './stylesFonts_V4.css'
     ]
   
     for (let iterator of styles) {
@@ -70,7 +70,7 @@ window.SizebayPrescript = () => ({
     button.setAttribute('id', 'szb_aviator_size_chart')
     button.setAttribute('class', 'vfr__button--clean')
     button.setAttribute('onclick', 'aviatorChart()')
-    button.setAttribute('style', 'backgorund-color: #000000')
+    button.setAttribute('style', 'backgorund-color: #000000; text-transform: uppercase; text-decoration: none')
     button.onclick = function () {
       document.querySelector('.x-size-table-wrapper').classList.add('is--active')
     }

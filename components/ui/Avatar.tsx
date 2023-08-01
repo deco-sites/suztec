@@ -25,23 +25,38 @@ interface Props {
   type: "size" | "color";
   variant?: "active" | "disabled" | "default";
   content: string;
+  inStock?: boolean;
 }
 
 const variants = {
   active: "bg-black text-white",
   disabled:
-    `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-red-800 after:w-full after:block after:-rotate-45 after:content-[""]`,
+    `relative bg-black text-white opacity-40 hover:opacity-50 after:absolute after:left-3 after:top-1/2 after:h-[1px] after:bg-white after:w-5 after:block after:content-[""]`,
   default: "border border-base-200 hover:border-primary",
 };
 
-function Avatar({ content, variant = "default", type = "size" }: Props) {
+function Avatar(
+  { content, variant = "default", type = "size", inStock }: Props,
+) {
   return (
     <div>
-      {type === "size"
+      {type === "size" && inStock
         ? (
           <div
             class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
               variants[variant]
+            }`}
+          >
+            <div class="px-[13px] py-[9px]">
+              {colors[content] ? "" : content.substring(0, 4)}
+            </div>
+          </div>
+        )
+        : type == "size"
+        ? (
+          <div
+            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
+              variants["disabled"]
             }`}
           >
             <div class="px-[13px] py-[9px]">

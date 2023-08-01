@@ -45,8 +45,21 @@ export const useVariantPossibilities = (
   });
   const sortedPossibilities: arrayProps[] = [];
   tamanhoKeys.forEach((size) =>
-    sortedPossibilities.push({ size: size, url: possibilities.Tamanho[size] })
+    sortedPossibilities.push({
+      size: size,
+      url: possibilities.Tamanho[size],
+    })
   );
+
+  const compareSizes = (size1: string, size2: string): number => {
+    const sizesOrder = ["PPP","PP", "P", "M", "G", "GG", "GGG","GGGG"];
+    const index1 = sizesOrder.indexOf(size1);
+    const index2 = sizesOrder.indexOf(size2);
+
+    return index1 - index2;
+  };
+
+  sortedPossibilities.sort((a, b) => compareSizes(a.size, b.size));
 
   return sortedPossibilities;
 };
