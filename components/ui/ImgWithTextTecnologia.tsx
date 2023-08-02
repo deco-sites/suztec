@@ -18,7 +18,7 @@ export interface Props {
   preload?: boolean;
 
   title?: HTML;
-  
+
   subTitle?: HTML;
   /**
    * @description Primeiro texto da section
@@ -89,7 +89,9 @@ const ImgWithTextTecnologia = (
           <h2 class="mt-[10px] font-semibold text-lg">
             <Markdown text={subTitle} />
           </h2>
+          <p class="pt-6 font-light text-base text-[#757575]">
           <Markdown text={firstText} />
+          </p>
           <p class="pt-6 font-light text-base text-[#757575]">
             <Markdown text={secondText} />
           </p>
@@ -103,7 +105,6 @@ const ImgWithTextTecnologia = (
           </div>
         </div>
       </div>
-      )
     </div>
   );
 };
