@@ -132,6 +132,7 @@
               "deco-sites/suztec/sections/Footer.tsx",
               "deco-sites/suztec/sections/Header.tsx",
               "deco-sites/suztec/sections/Highlights.tsx",
+              "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx",
               "deco-sites/suztec/sections/LinkTree.tsx",
               "deco-sites/suztec/sections/NewsLetter.tsx",
               "deco-sites/suztec/sections/ProductDetails.tsx",
@@ -12809,6 +12810,40 @@
       ],
       "title": "deco-sites/suztec/components/ui/Highlights.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbWdXaXRoVGV4dFRlY25vbG9naWEudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "desktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "desktop otimized image",
+          "title": "Desktop"
+        },
+        "mobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "mobile otimized image",
+          "title": "Mobile"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
+        "preload": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Check this option when this banner is the biggest image on the screen for image optimizations",
+          "title": "Preload"
+        }
+      },
+      "required": [
+        "desktop",
+        "mobile",
+        "alt"
+      ],
+      "title": "deco-sites/suztec/components/ui/ImgWithTextTecnologia.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link": {
       "type": "object",
       "properties": {
@@ -16554,6 +16589,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSW1nV2l0aFRleHRUZWNub2xvZ2lhLnRzeA==": {
+      "title": "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbWdXaXRoVGV4dFRlY25vbG9naWEudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTGlua1RyZWUudHN4": {
       "title": "deco-sites/suztec/sections/LinkTree.tsx",
       "type": "object",
@@ -18022,6 +18078,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSGlnaGxpZ2h0cy50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSW1nV2l0aFRleHRUZWNub2xvZ2lhLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTGlua1RyZWUudHN4"

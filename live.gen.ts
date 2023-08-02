@@ -33,17 +33,18 @@ import * as $$$$$$$$8 from "./sections/Features.tsx";
 import * as $$$$$$$$9 from "./sections/Footer.tsx";
 import * as $$$$$$$$10 from "./sections/Header.tsx";
 import * as $$$$$$$$11 from "./sections/Highlights.tsx";
-import * as $$$$$$$$12 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$13 from "./sections/NewsLetter.tsx";
-import * as $$$$$$$$14 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$15 from "./sections/ProductGallery.tsx";
-import * as $$$$$$$$16 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$17 from "./sections/ProductShelfAndCard.tsx";
-import * as $$$$$$$$18 from "./sections/ProductShelfWithCard.tsx";
-import * as $$$$$$$$19 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$20 from "./sections/TechRows.tsx";
-import * as $$$$$$$$21 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$22 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$12 from "./sections/ImgWithTextTecnologia.tsx";
+import * as $$$$$$$$13 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$14 from "./sections/NewsLetter.tsx";
+import * as $$$$$$$$15 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$16 from "./sections/ProductGallery.tsx";
+import * as $$$$$$$$17 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$18 from "./sections/ProductShelfAndCard.tsx";
+import * as $$$$$$$$19 from "./sections/ProductShelfWithCard.tsx";
+import * as $$$$$$$$20 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$21 from "./sections/TechRows.tsx";
+import * as $$$$$$$$22 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$23 from "./sections/WishlistGallery.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -288,17 +289,18 @@ const manifest = {
     "deco-sites/suztec/sections/Footer.tsx": $$$$$$$$9,
     "deco-sites/suztec/sections/Header.tsx": $$$$$$$$10,
     "deco-sites/suztec/sections/Highlights.tsx": $$$$$$$$11,
-    "deco-sites/suztec/sections/LinkTree.tsx": $$$$$$$$12,
-    "deco-sites/suztec/sections/NewsLetter.tsx": $$$$$$$$13,
-    "deco-sites/suztec/sections/ProductDetails.tsx": $$$$$$$$14,
-    "deco-sites/suztec/sections/ProductGallery.tsx": $$$$$$$$15,
-    "deco-sites/suztec/sections/ProductShelf.tsx": $$$$$$$$16,
-    "deco-sites/suztec/sections/ProductShelfAndCard.tsx": $$$$$$$$17,
-    "deco-sites/suztec/sections/ProductShelfWithCard.tsx": $$$$$$$$18,
-    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$19,
-    "deco-sites/suztec/sections/TechRows.tsx": $$$$$$$$20,
-    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$21,
-    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$22,
+    "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx": $$$$$$$$12,
+    "deco-sites/suztec/sections/LinkTree.tsx": $$$$$$$$13,
+    "deco-sites/suztec/sections/NewsLetter.tsx": $$$$$$$$14,
+    "deco-sites/suztec/sections/ProductDetails.tsx": $$$$$$$$15,
+    "deco-sites/suztec/sections/ProductGallery.tsx": $$$$$$$$16,
+    "deco-sites/suztec/sections/ProductShelf.tsx": $$$$$$$$17,
+    "deco-sites/suztec/sections/ProductShelfAndCard.tsx": $$$$$$$$18,
+    "deco-sites/suztec/sections/ProductShelfWithCard.tsx": $$$$$$$$19,
+    "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$20,
+    "deco-sites/suztec/sections/TechRows.tsx": $$$$$$$$21,
+    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$22,
+    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$23,
   },
   "handlers": {
     "$live/handlers/devPage.ts": i2$$$$0,
