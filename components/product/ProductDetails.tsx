@@ -78,7 +78,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       <div>
         <h1 class="flex items-center">
           <span class="font-normal text-[32px] leading-none text-[#170b0b] w-3/4">
-            {product.isVariantOf?.name}{" "}-{" "}{product.name}
+            {product.isVariantOf?.name} - {product.name}
           </span>
           <div class="w-1/4 flex justify-end mb-10 mr-4">
             <WishlistButton

@@ -12828,6 +12828,23 @@
           "description": "Image's alt text",
           "title": "Alt"
         },
+        "imageSide": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Esquerda",
+              "default": "Esquerda"
+            },
+            {
+              "type": "string",
+              "const": "Direita",
+              "default": "Direita"
+            }
+          ],
+          "type": "string",
+          "description": "Lado em que a imagem vai ficar na tela",
+          "title": "Image Side"
+        },
         "preload": {
           "type": [
             "boolean",
@@ -12835,6 +12852,34 @@
           ],
           "description": "Check this option when this banner is the biggest image on the screen for image optimizations",
           "title": "Preload"
+        },
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
+        },
+        "subTitle": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Sub Title"
+        },
+        "firstText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "description": "Primeiro texto da section",
+          "title": "First Text"
+        },
+        "secondText": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "description": "Segundo texto da section",
+          "title": "Second Text"
+        },
+        "buttonsActions1": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "description": "Botão 1 da section",
+          "title": "Buttons Actions1"
+        },
+        "buttonsActions2": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "description": "Botão 2 da section",
+          "title": "Buttons Actions2"
         }
       },
       "required": [
