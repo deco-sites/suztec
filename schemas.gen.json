@@ -13226,6 +13226,48 @@
       ],
       "title": "deco-sites/suztec/components/ui/TechRows.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9WaWRlb1RlY25vbG9naWEudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "desktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "desktop otimized image",
+          "title": "Desktop"
+        },
+        "mobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "mobile otimized image",
+          "title": "Mobile"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Image's alt text",
+          "title": "Alt"
+        },
+        "preload": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Lado em que a imagem vai ficar na tela",
+          "title": "Preload"
+        },
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
+        },
+        "text": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Text"
+        }
+      },
+      "required": [
+        "desktop",
+        "mobile",
+        "alt"
+      ],
+      "title": "deco-sites/suztec/components/ui/VideoTecnologia.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -16933,6 +16975,11 @@
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVmlkZW9UZWNub2xvZ2lhLnRzeA==": {
       "title": "deco-sites/suztec/sections/VideoTecnologia.tsx",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9WaWRlb1RlY25vbG9naWEudHN4@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],

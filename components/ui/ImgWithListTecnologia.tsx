@@ -46,8 +46,8 @@ const ImgWithListTecnologia = (
 ) => {
   return (
     <div class="max-w-[1120px] mx-auto py-[30px] px-[10px]">
-      <div class="flex flex-row justify-between w-full">
-        <div class="w-1/2">
+      <div class="flex lg:flex-row flex-col justify-between w-full lg:p-0 p-[10px]">
+        <div class="w-full lg:w-1/2">
           <p class="font-light text-base text-[#757575]">
             <Markdown text={text} />
           </p>
@@ -65,7 +65,7 @@ const ImgWithListTecnologia = (
             </button>
           </div>
         </div>
-        <div class="max-w-[500px] max-h-[381px]">
+        <div class="lg:max-w-[500px] lg:max-h-[381px] mt-[30px] lg:mt-0">
           <Picture preload={preload}>
             <Source
               media="(max-width: 1024px)"

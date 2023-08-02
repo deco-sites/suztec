@@ -57,8 +57,8 @@ const ImgWithTextTecnologia = (
 ) => {
   return (
     <div class="max-w-[1120px] mx-auto py-[30px] px-[10px]">
-      <div class="flex flex-row items-center">
-        <div class="max-w-[500px] max-h-[381px]">
+      <div class="flex lg:flex-row flex-col items-center lg:p-0 p-[10px]">
+        <div class="lg:max-w-[500px] lg:max-h-[381px]">
           <Picture preload={preload}>
             <Source
               media="(max-width: 1024px)"
@@ -82,7 +82,7 @@ const ImgWithTextTecnologia = (
             />
           </Picture>
         </div>
-        <div class="pl-[60px]">
+        <div class="pl-0 lg:pl-[60px] mt-[30px] lg:mt-0">
           <h1 class="font-semibold text-[28px] leading-none">
             <Markdown text={title} />
           </h1>
