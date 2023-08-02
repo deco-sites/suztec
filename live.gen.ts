@@ -44,8 +44,9 @@ import * as $$$$$$$$19 from "./sections/ProductShelfAndCard.tsx";
 import * as $$$$$$$$20 from "./sections/ProductShelfWithCard.tsx";
 import * as $$$$$$$$21 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$22 from "./sections/TechRows.tsx";
-import * as $$$$$$$$23 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$24 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$23 from "./sections/VideoTecnologia.tsx";
+import * as $$$$$$$$24 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$25 from "./sections/WishlistGallery.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -301,8 +302,9 @@ const manifest = {
     "deco-sites/suztec/sections/ProductShelfWithCard.tsx": $$$$$$$$20,
     "deco-sites/suztec/sections/SearchResult.tsx": $$$$$$$$21,
     "deco-sites/suztec/sections/TechRows.tsx": $$$$$$$$22,
-    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$23,
-    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$24,
+    "deco-sites/suztec/sections/VideoTecnologia.tsx": $$$$$$$$23,
+    "deco-sites/suztec/sections/WhatsApp.tsx": $$$$$$$$24,
+    "deco-sites/suztec/sections/WishlistGallery.tsx": $$$$$$$$25,
   },
   "handlers": {
     "$live/handlers/devPage.ts": i2$$$$0,

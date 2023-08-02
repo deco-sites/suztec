@@ -143,6 +143,7 @@
               "deco-sites/suztec/sections/ProductShelfWithCard.tsx",
               "deco-sites/suztec/sections/SearchResult.tsx",
               "deco-sites/suztec/sections/TechRows.tsx",
+              "deco-sites/suztec/sections/VideoTecnologia.tsx",
               "deco-sites/suztec/sections/WhatsApp.tsx",
               "deco-sites/suztec/sections/WishlistGallery.tsx",
               "$live/matchers/MatchAlways.ts",
@@ -12251,6 +12252,11 @@
               "type": "string",
               "const": "Logo",
               "default": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Play",
+              "default": "Play"
             }
           ],
           "type": "string",
@@ -12542,6 +12548,11 @@
               "type": "string",
               "const": "Logo",
               "default": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Play",
+              "default": "Play"
             }
           ],
           "type": "string",
@@ -16919,6 +16930,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVmlkZW9UZWNub2xvZ2lhLnRzeA==": {
+      "title": "deco-sites/suztec/sections/VideoTecnologia.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/VideoTecnologia.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/VideoTecnologia.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvV2hhdHNBcHAudHN4": {
       "title": "deco-sites/suztec/sections/WhatsApp.tsx",
       "type": "object",
@@ -18231,6 +18258,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVGVjaFJvd3MudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvVmlkZW9UZWNub2xvZ2lhLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvV2hhdHNBcHAudHN4"
