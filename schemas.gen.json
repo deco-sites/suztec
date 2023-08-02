@@ -135,6 +135,7 @@
               "deco-sites/suztec/sections/ImgWithListTecnologia.tsx",
               "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx",
               "deco-sites/suztec/sections/LinkTree.tsx",
+              "deco-sites/suztec/sections/LoginSection.tsx",
               "deco-sites/suztec/sections/NewsLetter.tsx",
               "deco-sites/suztec/sections/ProductDetails.tsx",
               "deco-sites/suztec/sections/ProductGallery.tsx",
@@ -16804,6 +16805,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTG9naW5TZWN0aW9uLnRzeA==": {
+      "title": "deco-sites/suztec/sections/LoginSection.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/LoginSection.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/LoginSection.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTmV3c0xldHRlci50c3g=": {
       "title": "deco-sites/suztec/sections/NewsLetter.tsx",
       "type": "object",
@@ -18281,6 +18298,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTGlua1RyZWUudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTG9naW5TZWN0aW9uLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTmV3c0xldHRlci50c3g="
