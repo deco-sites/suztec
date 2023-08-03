@@ -39,7 +39,37 @@ const ProductAdditionalDescription = ({ product }: Props) => {
         </summary>
 
         <div class="mt-2 mb-5 mx-3 transition-all text-sm font-light duration-200">
-          {result["Características"].map((item: string) => <div>{item}</div>)}
+          {result["Características"].map((item: string) => (
+            <div>
+              {item === "Aquecimento"
+                ? (
+                  <span class="flex items-center  mt-1">
+                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/icon-aquecimento.png" />
+                    {item}
+                  </span>
+                )
+                : item === "Corta Vento"
+                ? (
+                  <span class="flex items-center  mt-1">
+                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/corta-vento.png" />
+                    {item}
+                  </span>
+                )
+                : item === "Impermeável"
+                ? (
+                  <span class="flex items-center  mt-1">
+                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/prova-dagua.png" />
+                    {item}
+                  </span>
+                )
+                : item === "Respirável" ?  (
+                  <span class="flex items-center mt-1">
+                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/respiravel.png" />
+                    {item}
+                  </span>
+                ) : <span class="mt-1">{item}</span>}
+            </div>
+          ))}
         </div>
       </details>
       <details class="border-b border-black">

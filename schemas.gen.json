@@ -134,6 +134,7 @@
               "deco-sites/suztec/sections/Highlights.tsx",
               "deco-sites/suztec/sections/ImgWithListTecnologia.tsx",
               "deco-sites/suztec/sections/ImgWithTextTecnologia.tsx",
+              "deco-sites/suztec/sections/InstitucionalSection.tsx",
               "deco-sites/suztec/sections/LinkTree.tsx",
               "deco-sites/suztec/sections/LoginSection.tsx",
               "deco-sites/suztec/sections/NewsLetter.tsx",
@@ -12955,6 +12956,59 @@
       ],
       "title": "deco-sites/suztec/components/ui/ImgWithTextTecnologia.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@detailsServiceProps": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
+        },
+        "texts": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]",
+          "title": "Texts"
+        }
+      },
+      "required": [
+        "title",
+        "texts"
+      ],
+      "title": "detailsServiceProps"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@detailsServiceProps[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@detailsServiceProps"
+      },
+      "title": "detailsServiceProps[]"
+    },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "consumerService": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Consumer Service"
+        },
+        "consumerServices": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]",
+          "title": "Consumer Services"
+        },
+        "serviceTitle": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Service Title"
+        },
+        "detailsService": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@detailsServiceProps[]",
+          "title": "Details Service"
+        }
+      },
+      "required": [
+        "consumerService",
+        "consumerServices",
+        "serviceTitle",
+        "detailsService"
+      ],
+      "title": "deco-sites/suztec/components/ui/Institucional.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9MaW5rVHJlZS50c3g=@Link": {
       "type": "object",
       "properties": {
@@ -16784,6 +16838,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSW5zdGl0dWNpb25hbFNlY3Rpb24udHN4": {
+      "title": "deco-sites/suztec/sections/InstitucionalSection.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvY29tcG9uZW50cy91aS9JbnN0aXR1Y2lvbmFsLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/suztec/sections/InstitucionalSection.tsx"
+          ],
+          "default": "deco-sites/suztec/sections/InstitucionalSection.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTGlua1RyZWUudHN4": {
       "title": "deco-sites/suztec/sections/LinkTree.tsx",
       "type": "object",
@@ -18295,6 +18370,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSW1nV2l0aFRleHRUZWNub2xvZ2lhLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvSW5zdGl0dWNpb25hbFNlY3Rpb24udHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdXp0ZWMvc2VjdGlvbnMvTGlua1RyZWUudHN4"
