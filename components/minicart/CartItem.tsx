@@ -36,27 +36,23 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between items-start py-[10px] gap-4 border-b shadow-sm">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
+        width={90}
+        height={100}
         class="object-cover object-center"
       />
-      <div class="flex-grow">
+      <div class="flex-grow pl-8">
         <span>{name}</span>
-        <div class="flex items-center gap-2">
-          <span class="line-through text-base-300 text-sm">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </span>
-          <span class="text-sm text-secondary">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </span>
-        </div>
-        <div class="mt-6 max-w-min">
+
+        <div class="mt-8 max-w-min flex flex-row">
+          <div class="flex items-center pr-5">
+            <span class="text-[#111111] font-bold text-base">
+              {formatPrice(listPrice / 100, currencyCode!, locale)}
+            </span>
+          </div>
           <QuantitySelector
             disabled={loading.value || isGift}
             quantity={quantity}
@@ -80,28 +76,27 @@ function CartItem({ index }: Props) {
               });
             }}
           />
+          <button
+          class="ml-4 opacity-70 hover:opacity-90 transition-all ease-in-out duration-150"
+            onClick={() => {
+              updateItems({ orderItems: [{ index, quantity: 0 }] });
+              if (!cart.value) return;
+              sendEvent({
+                name: "remove_from_cart",
+                params: {
+                  items: mapItemsToAnalyticsItems({
+                    items: [item],
+                    marketingData: cart.value.marketingData,
+                  }),
+                },
+              });
+            }}
+            disabled={loading.value || isGift}
+          >
+            <Icon id="Trash" width={20} height={20} />
+          </button>
         </div>
       </div>
-      <Button
-        onClick={() => {
-          updateItems({ orderItems: [{ index, quantity: 0 }] });
-          if (!cart.value) return;
-          sendEvent({
-            name: "remove_from_cart",
-            params: {
-              items: mapItemsToAnalyticsItems({
-                items: [item],
-                marketingData: cart.value.marketingData,
-              }),
-            },
-          });
-        }}
-        disabled={loading.value || isGift}
-        loading={loading.value}
-        class="btn btn-ghost"
-      >
-        <Icon id="Trash" width={20} height={20} />
-      </Button>
     </div>
   );
 }

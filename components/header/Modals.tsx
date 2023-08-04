@@ -50,7 +50,7 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
-        title="Minha sacola"
+        title="Meu carrinho"
         mode="sidebar-right"
         loading="lazy"
         open={displayCart.value}

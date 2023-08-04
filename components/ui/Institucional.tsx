@@ -17,11 +17,10 @@ const Institucional = (
   {
     consumerService = "SERVÇO AOS CONSUMIDORES",
     consumerServices = [],
-    serviceTitle=" ",
-    detailsService =[],
+    serviceTitle = " ",
+    detailsService = [],
   }: Props,
 ) => {
-
   return (
     <div class="flex flex-row ml-[45px]">
       <div class="min-w-[450px] text-right mt-10 ml-[10px] pr-[50px]">
@@ -31,7 +30,7 @@ const Institucional = (
         <ul>
           {consumerServices.map((item) => (
             <li class="mt-[15px] text-base font-bold hover:underline">
-             <Markdown text={item} />
+              <Markdown text={item} />
             </li>
           ))}
         </ul>
@@ -45,7 +44,11 @@ const Institucional = (
             <h3>
               <Markdown text={detail.title} />
             </h3>
-            {detail.texts.map((text) => <p class="mt-[20px] text-sm font-light"><Markdown text={text} /></p>)}
+            {detail.texts.map((text) => (
+              <p class="mt-[20px] text-sm font-light">
+                <Markdown text={text} />
+              </p>
+            ))}
           </div>
         ))}
       </div>

@@ -23,7 +23,8 @@ const VideoTecnologia = ({
   alt,
   preload,
   title = "PLUMA DE GANSO:",
-  text ="As plumas de ganso são excelentes isolantes térmicos. Na The North Face, nossa cadeia é certificada com o selo Responsible Down Standart, que auditora e garante que os animais são cuidados o tempo todo.",
+  text =
+    "As plumas de ganso são excelentes isolantes térmicos. Na The North Face, nossa cadeia é certificada com o selo Responsible Down Standart, que auditora e garante que os animais são cuidados o tempo todo.",
 }: Props) => {
   return (
     <div class="max-w-[1140px] mx-auto py-[30px] px-[10px]">

@@ -6,6 +6,8 @@ import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
+import { useSignal } from "@preact/signals";
+import Icon from "$store/components/ui/Icon.tsx";
 
 declare global {
   interface Window {
@@ -18,6 +20,7 @@ declare global {
 function Cart() {
   const { displayCart } = useUI();
   const { cart, loading, mapItemsToAnalyticsItems } = useCart();
+  const totalItems = cart.value?.items.length || 0;
   const isCartEmpty = cart.value?.items.length === 0;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   const discounts = cart.value?.totalizers.find((item) =>
@@ -25,6 +28,7 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const open = useSignal(false);
 
   if (cart.value === null) {
     return null;
@@ -52,7 +56,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6"
+        class="mt-6 px-[13px] flex-grow overflow-y-auto flex flex-col gap-6"
       >
         {cart.value.items.map((_, index) => (
           <li>
@@ -63,37 +67,60 @@ function Cart() {
 
       {/* Cart Footer */}
       <footer>
-        {/* Subtotal */}
-        <div class="border-t border-base-200 py-4 flex flex-col gap-4">
-          {discounts?.value && (
-            <div class="flex justify-between items-center px-4">
-              <span class="text-sm">Descontos</span>
-              <span class="text-sm">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
-              </span>
-            </div>
-          )}
-          <Coupon />
-        </div>
+        
+          <div class="w-full mx-auto">
+            <details class="px-[21px] pt-4 pb-1">
+              <summary class="font-semibold flex justify-center px-4 py-2 text-lg cursor-pointer list-none">
+                <Icon id="ChevronUp" width={20} height={20} strokeWidth={4} />
+              </summary>
+             
+                <div class="flex justify-between items-center pb-5">
+                  <span>Código do vendedor</span>
+                  <input class="border border-black " />
+                </div>
+                <div class="flex justify-between items-center pb-5">
+                  <span>Cupom de desconto</span>
+                  <input class="border border-black" />
+                </div>
+                <div class="flex justify-between items-center pb-5">
+                  <span>CEP</span>
+                  <input class="border border-black" />
+                </div>
+              
+            </details>
+          </div>
+        
         {/* Total */}
         {total?.value && (
-          <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
-            <div class="flex justify-between items-center w-full">
-              <span>Total</span>
-              <span class="font-medium text-xl">
+          <div class="border-t border-base-200 py-3 px-2 flex flex-col justify-end items-end gap-4 mx-[21px] bg-[#757575] bg-opacity-20">
+            <div class="flex justify-between items-center w-full ">
+              <span class="leading-none">Subtotal:</span>
+              <span class="font-medium text-base leading-none">
                 {formatPrice(total.value / 100, currencyCode!, locale)}
               </span>
             </div>
-            <span class="text-sm text-base-300">
-              Taxas e fretes serão calculados no checkout
-            </span>
+            <div class="flex justify-between items-center w-full ">
+              <span class="leading-none">Frete:</span>
+              <span class="font-medium text-base leading-none">
+                R$ 0,00
+              </span>
+            </div>
+            <div class="flex justify-between items-center w-full ">
+              <span class="leading-none">Itens: {totalItems}</span>
+              <span class="font-normal text-sm leading-none">
+                Total:{" "}
+                <span class="font-bold text-lg leading-none">
+                  {formatPrice(total.value / 100, currencyCode!, locale)}
+                </span>
+              </span>
+            </div>
           </div>
         )}
-        <div class="p-4">
-          <a class="inline-block w-full" href="/checkout">
-            <Button
+        <div class="p-4 flex flex-row gap-2">
+          <a class="inline-block w-full" href="/">
+            <button
               data-deco="buy-button"
-              class="w-full"
+              class="btn rounded-r-[1px] hover:bg-white border border-black bg-white text-base font-normal traking-[0.5px] w-full rounded-l-none text-black"
               disabled={loading.value || cart.value.items.length === 0}
               onClick={() => {
                 sendEvent({
@@ -112,8 +139,33 @@ function Cart() {
                 });
               }}
             >
-              Finalizar Compra
-            </Button>
+              CONTINUAR COMPRANDO
+            </button>
+          </a>
+          <a class="inline-block w-full" href="/checkout">
+            <button
+              data-deco="buy-button"
+              class="btn rounded-r-[1px] hover:opacity-80 opacity-100 text-base font-normal traking-[0.5px] w-full rounded-l-none text-white"
+              disabled={loading.value || cart.value.items.length === 0}
+              onClick={() => {
+                sendEvent({
+                  name: "begin_checkout",
+                  params: {
+                    currency: cart.value ? currencyCode! : "",
+                    value: total?.value
+                      ? (total?.value - (discounts?.value ?? 0)) / 100
+                      : 0,
+                    coupon: cart.value?.marketingData?.coupon ?? undefined,
+
+                    items: cart.value
+                      ? mapItemsToAnalyticsItems(cart.value)
+                      : [],
+                  },
+                });
+              }}
+            >
+              FINALIZAR COMPRA
+            </button>
           </a>
         </div>
       </footer>

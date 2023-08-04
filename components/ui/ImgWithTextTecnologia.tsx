@@ -90,7 +90,7 @@ const ImgWithTextTecnologia = (
             <Markdown text={subTitle} />
           </h2>
           <p class="pt-6 font-light text-base text-[#757575]">
-          <Markdown text={firstText} />
+            <Markdown text={firstText} />
           </p>
           <p class="pt-6 font-light text-base text-[#757575]">
             <Markdown text={secondText} />

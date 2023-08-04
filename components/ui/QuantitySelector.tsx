@@ -31,17 +31,16 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
 
   return (
     <div class="form-control">
-      <div class="input-group">
-        <Button
-          class="btn-square btn-outline"
+      <div class="rounded-none flex flex-row">
+        <button
+          class="border border-black px-[18px] py-1 rounded-none font-bold"
           onClick={decrement}
           disabled={disabled}
-          loading={loading}
         >
           -
-        </Button>
+        </button>
         <input
-          class="input border-base-content border-x-0 text-center"
+          class="border-y px-[5px] py-1 border-black text-center "
           type="number"
           inputMode="numeric"
           pattern="[0-9]*"
@@ -51,14 +50,13 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
           disabled={disabled}
           onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
         />
-        <Button
-          class="btn-square btn-outline"
+        <button
+          class="border border-black px-[18px] py-1 rounded-none font-bold"
           onClick={increment}
           disabled={disabled}
-          loading={loading}
         >
           +
-        </Button>
+        </button>
       </div>
     </div>
   );

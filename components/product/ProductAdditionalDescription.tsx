@@ -44,30 +44,44 @@ const ProductAdditionalDescription = ({ product }: Props) => {
               {item === "Aquecimento"
                 ? (
                   <span class="flex items-center  mt-1">
-                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/icon-aquecimento.png" />
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/icon-aquecimento.png"
+                    />
                     {item}
                   </span>
                 )
                 : item === "Corta Vento"
                 ? (
                   <span class="flex items-center  mt-1">
-                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/corta-vento.png" />
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/corta-vento.png"
+                    />
                     {item}
                   </span>
                 )
                 : item === "Impermeável"
                 ? (
                   <span class="flex items-center  mt-1">
-                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/prova-dagua.png" />
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/prova-dagua.png"
+                    />
                     {item}
                   </span>
                 )
-                : item === "Respirável" ?  (
+                : item === "Respirável"
+                ? (
                   <span class="flex items-center mt-1">
-                    <img class="mr-2" src="https://thenorthface.vteximg.com.br/arquivos/respiravel.png" />
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/respiravel.png"
+                    />
                     {item}
                   </span>
-                ) : <span class="mt-1">{item}</span>}
+                )
+                : <span class="mt-1">{item}</span>}
             </div>
           ))}
         </div>

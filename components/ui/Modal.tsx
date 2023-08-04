@@ -33,8 +33,8 @@ const sectionStyles = {
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:max-w-lg",
-  "sidebar-left": "h-full w-full sm:max-w-lg",
+  "sidebar-right": "h-full sm:max-w-lg",
+  "sidebar-left": "h-full sm:max-w-lg",
   center: "",
 };
 
@@ -69,7 +69,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
+      class={`bg-black bg-opacity-80 p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>
@@ -80,17 +80,31 @@ const Modal = ({
         class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-base-100 flex flex-col max-h-full ${
-            containerStyles[mode]
-          }`}
+          class={title === "Meu carrinho"
+            ? `max-w-[410px] bg-base-100 flex flex-col max-h-full ${
+              containerStyles[mode]
+            }`
+            : `w-full bg-base-100 flex flex-col max-h-full ${
+              containerStyles[mode]
+            }`}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b border-base-200">
+          <header
+            class={title === "Meu carrinho"
+              ? "flex bg-[#111111] px-[15px] py-6 justify-between items-center"
+              : "flex px-4 py-6 justify-between items-center border-b border-base-200"}
+          >
             <h1>
-              <span class="font-medium text-2xl">{title}</span>
+              <span
+                class={title === "Meu carrinho"
+                  ? "text-base text-white leading-none font-normal"
+                  : "font-medium text-2xl"}
+              >
+                {title}
+              </span>
             </h1>
-            <Button class="btn btn-ghost" onClick={onClose}>
+            <button class="text-white" onClick={onClose}>
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-            </Button>
+            </button>
           </header>
           <div class="overflow-y-auto flex-grow flex flex-col">
             {loading === "lazy" ? lazy.value && children : children}

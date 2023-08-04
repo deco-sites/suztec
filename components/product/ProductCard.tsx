@@ -35,7 +35,6 @@ function ProductCard(
   const {
     url,
     productID,
-    name,
     image: images,
     offers,
     isVariantOf,
@@ -127,12 +126,14 @@ function ProductCard(
       </figure>
       {/* Prices & Name */}
       <figcaption class=" flex justify-center py-2 lg:py-0 w-full transition-opacity lg:opacity-0 group-hover:opacity-100">
+        <a href={url}>
         <Button
           class="mx-auto -top-3 rounded-none text-base font-normal  transform transition-all lg:group-hover:translate-y-3"
           variant={"secondary"}
         >
           <Markdown text={buttonText} />
         </Button>
+        </a>
       </figcaption>
       <div class="px-[2px] lg:mt-8 mt-6">
         <h3 class="text-center min-h-[32px]  leading-4 text-lg font-medium">
