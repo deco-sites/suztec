@@ -23,27 +23,38 @@ const colors: Record<string, string> = {
 
 interface Props {
   type: "size" | "color";
-  variant?: "active" | "disabled" | "default";
+  variant?: "active" | "disabledUNI" | "disabledSIZE" | "default";
   content: string;
   inStock?: boolean;
 }
 
+const sizes = ["PPP", "PP", "P", "M", "G", "GG", "GGG", "GGGG"];
+
 const variants = {
   active: "bg-black text-white",
-  disabled:
-    `relative bg-black text-white opacity-40 hover:opacity-50 after:absolute after:left-3 after:top-1/2 after:h-[1px] after:bg-white after:w-5 after:block after:content-[""]`,
+  disabledSIZE:
+    `relative bg-white text-[#111111] opacity-[18%] hover:opacity-30 line-through`,
+  disabledUNI:
+    `relative bg-black text-white opacity-40 hover:opacity-50 line-through`,
   default: "border border-base-200 hover:border-primary",
 };
 
 function Avatar(
   { content, variant = "default", type = "size", inStock }: Props,
 ) {
+  let isSize = false;
+  sizes.forEach((size) => {
+    if (size === content) {
+      isSize = true;
+    }
+  });
+
   return (
     <div>
       {type === "size" && inStock
         ? (
           <div
-            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
+            class={`text-sm rounded-[2px] uppercase border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
               variants[variant]
             }`}
           >
@@ -55,8 +66,10 @@ function Avatar(
         : type == "size"
         ? (
           <div
-            class={`text-sm rounded-[2px] uppercase  border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
-              variants["disabled"]
+            class={isSize  ? `text-sm rounded-[2px] uppercase border border-[#111111] hover:text-[#111111] transition-all duration-200  ${
+              variants["disabledSIZE"]
+            }` :`text-sm rounded-[2px] uppercase border border-[#111111] hover:bg-black hover:text-white transition-all duration-200  ${
+              variants["disabledUNI"]
             }`}
           >
             <div class="px-[13px] py-[9px]">
@@ -75,7 +88,7 @@ function Avatar(
             {content != ""
               ? (
                 <div
-                  class={`rounded-[2px] h-[63px] `}
+                  class={`rounded-[2px] h-[63px]`}
                 >
                   <img
                     src={content}
