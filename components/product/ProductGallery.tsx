@@ -102,6 +102,8 @@ export default function Gallery(props: Options) {
     props,
   );
 
+  const urlStr = url.href
+
   return (
     <div class="max-w-[1140px] mx-auto">
       <div>
@@ -112,7 +114,7 @@ export default function Gallery(props: Options) {
           sortOptions={sortOptions}
           pageInfo={pageInfo.records}
           ft={ft}
-          url={url}
+          url={urlStr}
         />
       </div>
       <div

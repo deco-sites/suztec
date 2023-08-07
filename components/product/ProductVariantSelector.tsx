@@ -12,6 +12,8 @@ function VariantSelector(
   { product, product: { url }, variant = "size", inStock }: Props,
 ) {
   const possibilities = useVariantPossibilities(product);
+  
+
 
   return (
     <ul class="flex flex-col gap-4">
