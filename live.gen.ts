@@ -2,25 +2,21 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import { DecoManifest } from "$live/types.ts";
 import * as $$$0 from "./loaders/plp.ts";
-import * as $$$$0 from "./routes/styles.css.ts";
-import * as $$$$1 from "./routes/_app.tsx";
+import * as $$$$0 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/CookieConsent.tsx";
-import * as $$$$$2 from "./islands/Header.tsx";
-import * as $$$$$3 from "./islands/HeaderButton.tsx";
-import * as $$$$$4 from "./islands/HeaderModals.tsx";
-import * as $$$$$5 from "./islands/HeaderSearchbar.tsx";
-import * as $$$$$6 from "./islands/Newsletter.tsx";
-import * as $$$$$7 from "./islands/OutOfStock.tsx";
-import * as $$$$$8 from "./islands/ProductDetails.tsx";
-import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$10 from "./islands/ProductSizeTable.tsx";
-import * as $$$$$11 from "./islands/SearchControls.tsx";
-import * as $$$$$12 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$13 from "./islands/SliderJS.tsx";
-import * as $$$$$14 from "./islands/WishlistButton.tsx";
+import * as $$$$$2 from "./islands/HeaderButton.tsx";
+import * as $$$$$3 from "./islands/HeaderModals.tsx";
+import * as $$$$$4 from "./islands/HeaderSearchbar.tsx";
+import * as $$$$$5 from "./islands/Newsletter.tsx";
+import * as $$$$$6 from "./islands/OutOfStock.tsx";
+import * as $$$$$7 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$8 from "./islands/ProductSizeTable.tsx";
+import * as $$$$$9 from "./islands/SearchControls.tsx";
+import * as $$$$$10 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$11 from "./islands/SliderJS.tsx";
+import * as $$$$$12 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/Alert.tsx";
 import * as $$$$$$$$1 from "./sections/BannerDouble.tsx";
 import * as $$$$$$$$2 from "./sections/BannerGrid.tsx";
@@ -61,6 +57,7 @@ import * as $live_meta from "$live/routes/live/_meta.ts";
 import * as $live_previews_block from "$live/routes/live/previews/[...block].tsx";
 import * as $live_previews_index from "$live/routes/live/previews/index.tsx";
 import * as $live_catchall from "$live/routes/[...catchall].tsx";
+import { DecoManifest } from "$live/types.ts";
 import * as i2$$$0 from "$live/loaders/state.ts";
 import * as i2$$$1 from "$live/loaders/workflows/events.ts";
 import * as i2$$$2 from "$live/loaders/workflows/get.ts";
@@ -156,7 +153,9 @@ import * as i2$$$25 from "deco-sites/std/loaders/vtex/navbar.ts";
 import * as i2$$$26 from "deco-sites/std/loaders/vtex/proxy.ts";
 import * as i2$$$27 from "deco-sites/std/loaders/vtex/user.ts";
 import * as i2$$$28 from "deco-sites/std/loaders/vtex/wishlist.ts";
-import * as i2$$$29 from "deco-sites/std/loaders/x/redirectsFromCsv.ts";
+import * as i2$$$29 from "deco-sites/std/loaders/x/font.ts";
+import * as i2$$$30 from "deco-sites/std/loaders/x/image.ts";
+import * as i2$$$31 from "deco-sites/std/loaders/x/redirectsFromCsv.ts";
 import * as i2$$$$7 from "deco-sites/std/handlers/sitemap.ts";
 import * as i2$$$$8 from "deco-sites/std/handlers/vtex/sitemap.ts";
 import * as i2$$$$$5 from "deco-sites/std/sections/Analytics.tsx";
@@ -226,11 +225,13 @@ const manifest = {
     "deco-sites/std/loaders/vtex/proxy.ts": i2$$$26,
     "deco-sites/std/loaders/vtex/user.ts": i2$$$27,
     "deco-sites/std/loaders/vtex/wishlist.ts": i2$$$28,
-    "deco-sites/std/loaders/x/redirectsFromCsv.ts": i2$$$29,
+    "deco-sites/std/loaders/x/font.ts": i2$$$29,
+    "deco-sites/std/loaders/x/image.ts": i2$$$30,
+    "deco-sites/std/loaders/x/redirectsFromCsv.ts": i2$$$31,
     "deco-sites/suztec/loaders/plp.ts": $$$0,
   },
   "routes": {
-    "./routes/_app.tsx": $$$$1,
+    "./routes/_app.tsx": $$$$0,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/[...catchall].tsx": $live_catchall,
     "./routes/index.tsx": $live_catchall,
@@ -244,24 +245,21 @@ const manifest = {
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/workflows/run.ts": $live_workflows,
-    "./routes/styles.css.ts": $$$$0,
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
     "./islands/CookieConsent.tsx": $$$$$1,
-    "./islands/Header.tsx": $$$$$2,
-    "./islands/HeaderButton.tsx": $$$$$3,
-    "./islands/HeaderModals.tsx": $$$$$4,
-    "./islands/HeaderSearchbar.tsx": $$$$$5,
-    "./islands/Newsletter.tsx": $$$$$6,
-    "./islands/OutOfStock.tsx": $$$$$7,
-    "./islands/ProductDetails.tsx": $$$$$8,
-    "./islands/ProductImageZoom.tsx": $$$$$9,
-    "./islands/ProductSizeTable.tsx": $$$$$10,
-    "./islands/SearchControls.tsx": $$$$$11,
-    "./islands/ShippingSimulation.tsx": $$$$$12,
-    "./islands/SliderJS.tsx": $$$$$13,
-    "./islands/WishlistButton.tsx": $$$$$14,
+    "./islands/HeaderButton.tsx": $$$$$2,
+    "./islands/HeaderModals.tsx": $$$$$3,
+    "./islands/HeaderSearchbar.tsx": $$$$$4,
+    "./islands/Newsletter.tsx": $$$$$5,
+    "./islands/OutOfStock.tsx": $$$$$6,
+    "./islands/ProductImageZoom.tsx": $$$$$7,
+    "./islands/ProductSizeTable.tsx": $$$$$8,
+    "./islands/SearchControls.tsx": $$$$$9,
+    "./islands/ShippingSimulation.tsx": $$$$$10,
+    "./islands/SliderJS.tsx": $$$$$11,
+    "./islands/WishlistButton.tsx": $$$$$12,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,

@@ -1,4 +1,4 @@
-import { useId } from "preact/hooks";
+import { useId } from "$store/sdk/useId.ts";
 import { useSignal } from "@preact/signals";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import Modal from "$store/components/ui/Modal.tsx";
@@ -117,10 +117,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Sku Selector */}
 
       <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} variant="color" />
-      </div>
-      <div class="mt-4 sm:mt-6">
         <ProductSelector
+          similars={product.isSimilarTo}
           inStock={availability === "https://schema.org/InStock"}
           product={product}
           variant="size"
@@ -244,7 +242,7 @@ function Details({
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
   const { product, breadcrumbList } = page;
-  const id = `product-image-gallery:${useId()}`;
+  const id = useId()
   const images = useStableImages(product);
   const openZoom = useSignal(false);
 

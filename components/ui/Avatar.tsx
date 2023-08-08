@@ -1,3 +1,5 @@
+import type { ImageObject } from "deco-sites/std/commerce/types.ts";
+
 /**
  * This component renders the filter and selectors for skus.
  * TODO: Figure out a better name for this component.
@@ -24,7 +26,7 @@ const colors: Record<string, string> = {
 interface Props {
   type: "size" | "color";
   variant?: "active" | "disabledUNI" | "disabledSIZE" | "default";
-  content: string;
+  content: string | ImageObject[];
   inStock?: boolean;
 }
 
@@ -49,60 +51,84 @@ function Avatar(
     }
   });
 
-  return (
-    <div>
-      {type === "size" && inStock
-        ? (
-          <div
-            class={`text-sm rounded-[2px] uppercase border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
-              variants[variant]
-            }`}
-          >
-            <div class="px-[13px] py-[9px]">
-              {colors[content] ? "" : content.substring(0, 4)}
+  if (typeof content === "string") {
+    return (
+      <div>
+        {type === "size" && inStock
+          ? (
+            <div
+              class={`text-sm rounded-[2px] uppercase border  border-black  hover:bg-black hover:text-white transition-all duration-200  ${
+                variants[variant]
+              }`}
+            >
+              <div class="px-[13px] py-[9px]">
+                {colors[content] ? "" : content.substring(0, 4)}
+              </div>
             </div>
-          </div>
-        )
-        : type == "size"
-        ? (
-          <div
-            class={isSize  ? `text-sm rounded-[2px] uppercase border border-[#111111] hover:text-[#111111] transition-all duration-200  ${
-              variants["disabledSIZE"]
-            }` :`text-sm rounded-[2px] uppercase border border-[#111111] hover:bg-black hover:text-white transition-all duration-200  ${
-              variants["disabledUNI"]
-            }`}
-          >
-            <div class="px-[13px] py-[9px]">
-              {colors[content] ? "" : content.substring(0, 4)}
+          )
+          : type == "size"
+          ? (
+            <div
+              class={isSize
+                ? `text-sm rounded-[2px] uppercase border border-[#111111] hover:text-[#111111] transition-all duration-200  ${
+                  variants["disabledSIZE"]
+                }`
+                : `text-sm rounded-[2px] uppercase border border-[#111111] hover:bg-black hover:text-white transition-all duration-200  ${
+                  variants["disabledUNI"]
+                }`}
+            >
+              <div class="px-[13px] py-[9px]">
+                {colors[content] ? "" : content.substring(0, 4)}
+              </div>
             </div>
-          </div>
-        )
-        : (
-          <div
-            class={`${
-              variant === "active"
-                ? "border-b-[4px] border-black rounded-sm"
-                : ""
-            }`}
-          >
-            {content != ""
-              ? (
-                <div
-                  class={`rounded-[2px] h-[63px]`}
-                >
-                  <img
-                    src={content}
-                    width={52}
-                    height={55}
-                    class="hover:border hover:border-black transition-all duration-200"
-                  />
-                </div>
-              )
-              : ""}
-          </div>
-        )}
-    </div>
-  );
+          )
+          : (
+            <div
+              class={`${
+                variant === "active"
+                  ? "border-b-[4px] border-black rounded-sm"
+                  : ""
+              }`}
+            >
+              {content != ""
+                ? (
+                  <div
+                    class={`rounded-[2px] h-[63px]`}
+                  >
+                    <img
+                      src={content}
+                      width={52}
+                      height={55}
+                      class="hover:border hover:border-black transition-all duration-200"
+                    />
+                  </div>
+                )
+                : ""}
+            </div>
+          )}
+      </div>
+    );
+  } else {
+    return (
+      <div
+        class={`${
+          variant === "active" ? "border-b-[4px] border-black rounded-sm" : ""
+        }`}
+      >
+
+        <div
+          class={`rounded-[2px] h-[63px]`}
+        >
+          <img
+            src={content}
+            width={52}
+            height={55}
+            class="hover:border hover:border-black transition-all duration-200"
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Avatar;

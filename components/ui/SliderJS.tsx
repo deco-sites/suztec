@@ -1,6 +1,6 @@
 import { useEffect } from "preact/hooks";
 
-interface Props {
+export interface Props {
   rootId: string;
   scroll?: "smooth" | "auto";
   interval?: number;
@@ -122,6 +122,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
+
     goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
   };
 

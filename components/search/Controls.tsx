@@ -15,7 +15,8 @@ type Props =
 function SearchControls(
   { filters, breadcrumb, sortOptions, ft, pageInfo, url }: Props,
 ) {
-  
+
+
   const verifyUrl = (): boolean => {
     return filters[0].values[0].url.includes("busca?") 
   }
