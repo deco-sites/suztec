@@ -3,7 +3,7 @@ import Avatar from "$store/components/ui/Avatar.tsx";
 import WishlistIcon from "$store/islands/WishlistButton.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
+import { useVariations } from "deco-sites/suztec/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
@@ -42,8 +42,11 @@ function ProductCard(
   const productGroupID = isVariantOf?.productGroupID;
   const [front, back] = images ?? [];
   const { listPrice, price } = useOffer(offers);
-  const possibilities = useVariantPossibilities(product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
+  const { productVariations } = useVariations(
+    product,
+    [],
+  );
+  const variants = Object.entries(Object.values(productVariations)[0] ?? {});
   const clickEvent = {
     name: "select_item" as const,
     params: {

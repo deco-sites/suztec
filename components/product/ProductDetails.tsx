@@ -19,7 +19,10 @@ import type { LoaderReturnType } from "$live/types.ts";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import WishlistButton from "../wishlist/WishlistButton.tsx";
 import ProductSizeTable from "$store/components/product/ProductSizeTable.tsx";
+import { useQuickView } from "../../sdk/useQuickView.ts";
 import ProductAdditionalDescription from "$store/components/product/ProductAdditionalDescription.tsx";
+import { useVariations } from "deco-sites/suztec/sdk/useVariantPossiblities.ts";
+import { inStock } from "deco-sites/suztec/sdk/useOffer.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -63,14 +66,22 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     offers,
     isVariantOf,
   } = product;
-  const { price, listPrice, seller, installments, availability } = useOffer(
+  const { price, listPrice, seller, installments } = useOffer(
     offers,
   );
-
+  const similars = product.isSimilarTo;
   const categories = product.additionalProperty?.filter((property) =>
     property.name === "category"
   );
+  const { productVariations } = useVariations(
+    product,
+    similars ?? [],
+  );
+
+  const sizes = productVariations.get("Tamanho");
+  const haveStock = sizes?.some((size) => inStock(size.item.offers));
   const productCategory = categories?.at(-1)?.value;
+  const { selectedSku } = useQuickView();
 
   return (
     <>
@@ -118,10 +129,9 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
       <div class="mt-4 sm:mt-6">
         <ProductSelector
-          similars={product.isSimilarTo}
-          inStock={availability === "https://schema.org/InStock"}
           product={product}
-          variant="size"
+          similars={similars}
+          selectedID={selectedSku.value}
         />
       </div>
       <div>
@@ -130,20 +140,16 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Add to Cart and Favorites button */}
       <div class=" border border-[#d2d2d2] mt-10 border-b" />
       <div class="mt-4 sm:mt-6 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
+        {seller && haveStock
           ? (
-            <>
-              {seller && (
-                <AddToCartButton
-                  skuId={productID}
-                  sellerId={seller}
-                  price={price ?? 0}
-                  discount={price && listPrice ? listPrice - price : 0}
-                  name={product.name ?? ""}
-                  productGroupId={product.isVariantOf?.productGroupID ?? ""}
-                />
-              )}
-            </>
+            <AddToCartButton
+              skuId={productID}
+              sellerId={seller}
+              price={price ?? 0}
+              discount={price && listPrice ? listPrice - price : 0}
+              name={product.name ?? ""}
+              productGroupId={product.isVariantOf?.productGroupID ?? ""}
+            />
           )
           : <OutOfStock productID={productID} />}
       </div>
@@ -242,7 +248,7 @@ function Details({
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
   const { product, breadcrumbList } = page;
-  const id = useId()
+  const id = useId();
   const images = useStableImages(product);
   const openZoom = useSignal(false);
 
@@ -256,9 +262,12 @@ function Details({
   if (variant === "slider") {
     return (
       <div class="mx-3">
-        <Breadcrumb
-          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-        />
+        <div class="py-3">
+          <Breadcrumb
+            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          />
+        </div>
+
         <div
           id={id}
           class="flex lg:flex-row flex-col max-w-[1140px] justify-center mt-2"

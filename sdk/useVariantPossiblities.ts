@@ -1,65 +1,68 @@
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import {
+  Product,
+  ProductGroup,
+  PropertyValue,
+} from "deco-sites/std/commerce/types.ts";
 
-interface arrayProps {
-  size: string;
-  url: string[];
-}
+const cmp = <T extends { property: PropertyValue }>(a: T, b: T) =>
+  a.property.value! > b.property.value!
+    ? 1
+    : a.property.value! < b.property.value!
+    ? -1
+    : 0;
 
-export const useVariantPossibilities = (
-  { url: productUrl, isVariantOf }: Product,
+const groupByProductGroupId = (products: Product[]) => {
+  const groups = new Map<string, ProductGroup>();
+
+  for (const p of products) {
+    if (p.isVariantOf?.productGroupID) {
+      groups.set(p.isVariantOf.productGroupID, p.isVariantOf);
+    }
+  }
+
+  return [...groups.values()];
+};
+
+const groupByPropertyNames = <
+  T extends { additionalProperty?: PropertyValue[] },
+>(
+  items: T[],
 ) => {
-  const allProperties = (isVariantOf?.hasVariant ?? [])
-    .flatMap(({ additionalProperty = [], url }) =>
-      additionalProperty.map((property) => ({ property, url }))
-    )
-    .filter((x) => x.url)
-    .filter((x) => x.property.valueReference === "SPECIFICATION") // Remove this line to allow other than specifications
-    .sort((a, b) => a.url! < b.url! ? -1 : a.url === b.url ? 0 : 1);
+  const properties = new Map<
+    string,
+    { property: PropertyValue; item: T }[]
+  >();
 
-  const possibilities = allProperties.reduce((acc, { property, url }) => {
-    const { name = "", value = "" } = property;
+  for (const item of items) {
+    const additionalProperty = item.additionalProperty ?? [];
+    for (const property of additionalProperty) {
+      if (!property.name || !property.value) continue;
 
-    if (!acc[name]) {
-      acc[name] = {};
+      if (!properties.has(property.name)) {
+        properties.set(property.name, []);
+      }
+
+      properties.get(property.name)?.push({ property, item });
     }
+  }
 
-    if (!acc[name][value]) {
-      acc[name][value] = [];
-    }
+  for (const key of properties.keys()) {
+    properties.get(key)!.sort(cmp);
+  }
 
-    if (url) {
-      // prefer current url first to easy selector implementation
-      url === productUrl
-        ? acc[name][value].unshift(url)
-        : acc[name][value].push(url);
-    }
+  return properties;
+};
 
-    return acc;
-  }, {} as Record<string, Record<string, string[]>>);
-
-  const tamanhoKeys = Object.keys(possibilities.Tamanho);
-  tamanhoKeys.sort((a, b) => {
-    const tamanhoA = parseFloat(a);
-    const tamanhoB = parseFloat(b);
-    return tamanhoA - tamanhoB;
-  });
-  const sortedPossibilities: arrayProps[] = [];
-  tamanhoKeys.forEach((size) =>
-    sortedPossibilities.push({
-      size: size,
-      url: possibilities.Tamanho[size],
-    })
+export const useVariations = (product: Product, similars: Product[]) => {
+  const productGroupVariations = groupByPropertyNames(
+    groupByProductGroupId([product, ...similars]),
+  );
+  const productVariations = groupByPropertyNames(
+    product.isVariantOf?.hasVariant ?? [],
   );
 
-  const compareSizes = (size1: string, size2: string): number => {
-    const sizesOrder = ["PPP", "PP", "P", "M", "G", "GG", "GGG", "GGGG"];
-    const index1 = sizesOrder.indexOf(size1);
-    const index2 = sizesOrder.indexOf(size2);
-
-    return index1 - index2;
+  return {
+    productGroupVariations,
+    productVariations,
   };
-
-  sortedPossibilities.sort((a, b) => compareSizes(a.size, b.size));
-
-  return sortedPossibilities;
 };
