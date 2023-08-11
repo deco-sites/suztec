@@ -46,35 +46,37 @@ function SortMenu({ values }: Props) {
           <div>
             {values.map((value) => (
               <li
-                class="select-none relative flex py-1 justify-between items-center border-b-1 border-gray-menu "
-                onClick={() => applySort(value.value)}
+                class="select-none relative flex py-1 cursor-pointer justify-between items-center border-b-1 border-gray-menu "
+                onClick={() => value.selected = !value.selected}
                 role="option"
                 aria-selected={value.value === sort}
                 id={`listbox-item-${value.label}`}
               >
-                {value.selected
-                  ? (
-                    <span>
-                      <img
-                        src="https://thenorthface.vteximg.com.br/arquivos/checkbox_checked.png?v=1333"
-                        width={13}
-                        height={13}
-                      />
-                    </span>
-                  )
-                  : (
-                    <span>
-                      <img
-                        src="https://thenorthface.vteximg.com.br/arquivos/checkbox_unchecked.png?v=122"
-                        width={13}
-                        height={13}
-                      />
-                    </span>
-                  )}
+                <a href={value.url} class="flex flex-row items-center">
+                  {value.selected
+                    ? (
+                      <span>
+                        <img
+                          src="https://thenorthface.vteximg.com.br/arquivos/checkbox_checked.png?v=1333"
+                          width={13}
+                          height={13}
+                        />
+                      </span>
+                    )
+                    : (
+                      <span>
+                        <img
+                          src="https://thenorthface.vteximg.com.br/arquivos/checkbox_unchecked.png?v=122"
+                          width={13}
+                          height={13}
+                        />
+                      </span>
+                    )}
 
-                <span class="w-full leading-none cursor-pointer text-[11px] ml-[5px] uppercase text-[#424242] font-bold">
-                  {value.label}
-                </span>
+                  <span class="w-full leading-none cursor-pointer text-[11px] ml-[5px] uppercase text-[#424242] font-bold">
+                    {value.label}
+                  </span>
+                </a>
               </li>
             ))}
           </div>

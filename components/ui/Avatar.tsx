@@ -55,7 +55,7 @@ function Avatar(
     return (
       <button
         {...btnProps}
-        disabled={selected || disabled}
+        disabled={selected}
         class={disabled && selected
           ? "text-sm cursor-pointer rounded-[2px] bg-black text-white opacity-[18%] hover:opacity-30 line-through uppercase border  border-black px-[13px] py-[9px] transition-all duration-200"
           : disabled

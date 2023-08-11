@@ -81,7 +81,7 @@ const Modal = ({
       >
         <div
           class={title === "Meu carrinho"
-            ? `max-w-[410px] bg-base-100 flex flex-col max-h-full ${
+            ? `max-w-[410px] min-w-[410px] bg-base-100 flex flex-col max-h-full ${
               containerStyles[mode]
             }`
             : `w-full bg-base-100 flex flex-col max-h-full ${

@@ -66,7 +66,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     offers,
     isVariantOf,
   } = product;
-  const { price, listPrice, seller, installments } = useOffer(
+  const { price, listPrice, seller, installments, inStock } = useOffer(
     offers,
   );
   const similars = product.isSimilarTo;
@@ -77,12 +77,10 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     product,
     similars ?? [],
   );
-
-  const sizes = productVariations.get("Tamanho");
-  const haveStock = sizes?.some((size) => inStock(size.item.offers));
+ 
   const productCategory = categories?.at(-1)?.value;
   const { selectedSku } = useQuickView();
-
+  
   return (
     <>
       {/* Code and name */}
@@ -140,7 +138,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Add to Cart and Favorites button */}
       <div class=" border border-[#d2d2d2] mt-10 border-b" />
       <div class="mt-4 sm:mt-6 flex flex-col gap-2">
-        {seller && haveStock
+
+        {seller && inStock
           ? (
             <AddToCartButton
               skuId={productID}

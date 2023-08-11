@@ -8,13 +8,13 @@ export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
   label: string;
   href: string;
+  openInNewTab?: boolean;
 };
 
 export type Item = StringItem | IconItem;
 
 interface itemProps {
   item: Item;
-  openInNewTab: boolean;
 }
 
 export type Section = {
@@ -26,7 +26,7 @@ const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
 
-function SectionItem({ item, openInNewTab }: itemProps) {
+function SectionItem({ item }: itemProps) {
   return (
     <span class="text-black font-light text-sm">
       {isIcon(item)
@@ -42,7 +42,7 @@ function SectionItem({ item, openInNewTab }: itemProps) {
         )
         : (
           <a
-            target={openInNewTab ? "_blank" : ""}
+            target={item.openInNewTab ? "_blank" : ""}
             class="hover:text-gray-500 "
             href={item.href}
           >
@@ -97,8 +97,6 @@ export interface footerPrivacy {
 export interface Props {
   sections?: Section[];
 
-  openInNewTab?: boolean;
-
   social?: footerSocial;
 
   privacy?: footerPrivacy;
@@ -107,7 +105,6 @@ export interface Props {
 function Footer(
   {
     sections = [],
-    openInNewTab = false,
     social = {},
     privacy = {},
   }: Props,
@@ -168,7 +165,7 @@ function Footer(
                   >
                     {section.children.map((item) => (
                       <li class="py-[2px]">
-                        <SectionItem item={item} openInNewTab={openInNewTab} />
+                        <SectionItem item={item} />
                       </li>
                     ))}
                   </ul>
@@ -196,7 +193,7 @@ function Footer(
                         <li>
                           <SectionItem
                             item={item}
-                            openInNewTab={openInNewTab}
+                            
                           />
                         </li>
                       ))}

@@ -45,7 +45,7 @@ function CartItem({ index }: Props) {
         class="object-cover object-center"
       />
       <div class="flex-grow pl-8">
-        <span>{name}</span>
+        <span class="max-w-[245px] flex flex-wrap">{name}</span>
 
         <div class="mt-8 max-w-min flex flex-row">
           <div class="flex items-center pr-5">

@@ -1,13 +1,12 @@
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
-import Button from "$store/components/ui/Button.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
 import { useSignal } from "@preact/signals";
-import Icon from "$store/components/ui/Icon.tsx";
 
 declare global {
   interface Window {
@@ -38,15 +37,10 @@ function Cart() {
   if (isCartEmpty) {
     return (
       <div class="flex flex-col justify-center items-center h-full gap-6">
-        <span class="font-medium text-2xl">Sua sacola está vazia</span>
-        <Button
-          class="btn-outline"
-          onClick={() => {
-            displayCart.value = false;
-          }}
-        >
-          Escolher produtos
-        </Button>
+        <Icon id="CartArrowDown" width={44} height={44} />
+        <span class="font-normal text-base">
+          Seu carrinho ainda não tem nenhum produto.
+        </span>
       </div>
     );
   }
@@ -67,29 +61,27 @@ function Cart() {
 
       {/* Cart Footer */}
       <footer>
-        
-          <div class="w-full mx-auto">
-            <details class="px-[21px] pt-4 pb-1">
-              <summary class="font-semibold flex justify-center px-4 py-2 text-lg cursor-pointer list-none">
-                <Icon id="ChevronUp" width={20} height={20} strokeWidth={4} />
-              </summary>
-             
-                <div class="flex justify-between items-center pb-5">
-                  <span>Código do vendedor</span>
-                  <input class="border border-black " />
-                </div>
-                <div class="flex justify-between items-center pb-5">
-                  <span>Cupom de desconto</span>
-                  <input class="border border-black" />
-                </div>
-                <div class="flex justify-between items-center pb-5">
-                  <span>CEP</span>
-                  <input class="border border-black" />
-                </div>
-              
-            </details>
-          </div>
-        
+        <div class="w-full mx-auto">
+          <details class="px-[21px] pt-4 pb-1">
+            <summary class="font-semibold flex justify-center px-4 py-2 text-lg cursor-pointer list-none">
+              <Icon id="ChevronUp" width={20} height={20} strokeWidth={4} />
+            </summary>
+
+            <div class="flex justify-between items-center pb-5">
+              <span>Código do vendedor</span>
+              <input class="border border-black " />
+            </div>
+            <div class="flex justify-between items-center pb-5">
+              <span>Cupom de desconto</span>
+              <input class="border border-black" />
+            </div>
+            <div class="flex justify-between items-center pb-5">
+              <span>CEP</span>
+              <input class="border border-black" />
+            </div>
+          </details>
+        </div>
+
         {/* Total */}
         {total?.value && (
           <div class="border-t border-base-200 py-3 px-2 flex flex-col justify-end items-end gap-4 mx-[21px] bg-[#757575] bg-opacity-20">

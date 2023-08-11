@@ -26,8 +26,8 @@ const ProductAdditionalDescription = ({ product }: Props) => {
 
   return (
     <div>
-      <details class="border-b border-black">
-        <summary class="flex justify-between cursor-pointer text-[#252526] text-[16px] font-bold py-3 text-lg">
+      <details class="border-b border-black transition-all ease-in-out duration-200">
+        <summary class="flex justify-between cursor-pointer text-[#252526] transition-all duration-200 ease-in-out text-[16px] font-bold py-3 text-lg">
           Tecnologia
           <Icon
             class="text-black"
@@ -38,7 +38,7 @@ const ProductAdditionalDescription = ({ product }: Props) => {
           />
         </summary>
 
-        <div class="mt-2 mb-5 mx-3 transition-all text-sm font-light duration-200">
+        <div class="mt-2 mb-5 mx-3 transition-all ease-in-out text-sm font-light duration-200">
           {result["Características"].map((item: string) => (
             <div>
               {item === "Aquecimento"
@@ -81,7 +81,31 @@ const ProductAdditionalDescription = ({ product }: Props) => {
                     {item}
                   </span>
                 )
-                : <span class="mt-1">{item}</span>}
+                : item === "Pluma de Ganso"
+                ? (
+                  <span class="flex items-center mt-1">
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/pluma-de-ganso.png"
+                    />
+                    {item}
+                  </span>
+                  
+                 
+                )
+                : item === "Compressível" ?  <span class="flex items-center mt-1">
+                <img
+                  class="mr-2"
+                  src="https://thenorthface.vteximg.com.br/arquivos/compress.png"
+                />
+                {item}
+              </span> : item === "Proteção Solar" ? <span class="flex items-center mt-1">
+                    <img
+                      class="mr-2"
+                      src="https://thenorthface.vteximg.com.br/arquivos/protecao-sol.png"
+                    />
+                    {item}
+                  </span> : <span class="mt-1">{item}</span>}
             </div>
           ))}
         </div>
