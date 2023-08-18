@@ -26,7 +26,7 @@ export type Props = PromiseOf<ReturnType<typeof loader>>;
 
 export default function ProductGallerySection(props: Props) {
   const { page, loaderProps, url } = props;
-
+  console.log(page)
   if (page == null) {
     return (
       <div class="w-full flex justify-center items-center py-10">
